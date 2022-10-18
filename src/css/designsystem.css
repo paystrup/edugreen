@@ -30,21 +30,27 @@
 .fc-green {
   color: var(--green);
 }
+
 .fc-lightgreen {
   color: var(--lightgreen);
 }
+
 .fc-darkgreen {
   color: var(--darkgreen);
 }
+
 .fc-darkgrey {
   color: var(--darkgrey);
 }
+
 .fc-lightgrey {
   color: var(--lightgrey);
 }
+
 .fc-white {
   color: var(--white);
 }
+
 .fc-black {
   color: var(--black);
 }
@@ -95,21 +101,27 @@
 .bg-green {
   background-color: var(--green);
 }
+
 .bg-lightgreen {
   background-color: var(--lightgreen);
 }
+
 .bg-darkgreen {
   background-color: var(--darkgreen);
 }
+
 .bg-darkgrey {
   background-color: var(--darkgrey);
 }
+
 .bg-lightgrey {
   background-color: var(--lightgrey);
 }
+
 .bg-white {
   background-color: var(--white);
 }
+
 .bg-black {
   background-color: var(--black);
 }
@@ -183,7 +195,18 @@
 /* -------------------------------------------- */
 /* Icons */
 /* -------------------------------------------- */
-.iconsize{
-    width: 24px;
-    height: 24px;
+
+.iconsize svg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.iconsize svg{
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 2px;
+  color: #000000;
 }
