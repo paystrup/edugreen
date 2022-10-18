@@ -1,0 +1,189 @@
+/* font-family: bely-display, sans-serif; */
+@import url("https://use.typekit.net/lzp6rhe.css");
+
+/* font-family: 'Inter', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* -------------------------------------------- */
+/* root font and colors */
+/* -------------------------------------------- */
+:root {
+  /* farver */
+  --green: #26e77b;
+  --lightgreen: #4bc581;
+  --darkgreen: #18372e;
+  --darkgrey: #8a8a8a;
+  --lightgrey: #e1e1e1;
+  --white: #ffffff;
+  --black: #000000;
+
+  /* fonte */
+  --inter: Inter, sans-serif;
+  --bely: bely-display, sans-serif;
+}
+
+/* -------------------------------------------- */
+/* font styles and color start here */
+/* -------------------------------------------- */
+
+/* font colors */
+.fc-green {
+  color: var(--green);
+}
+.fc-lightgreen {
+  color: var(--lightgreen);
+}
+.fc-darkgreen {
+  color: var(--darkgreen);
+}
+.fc-darkgrey {
+  color: var(--darkgrey);
+}
+.fc-lightgrey {
+  color: var(--lightgrey);
+}
+.fc-white {
+  color: var(--white);
+}
+.fc-black {
+  color: var(--black);
+}
+
+/* font styles */
+.font-bely {
+  font-family: var(--bely);
+  font-size: 34px;
+  overflow-wrap: break-word;
+}
+
+.font-header {
+  font-family: var(--inter);
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.font-bodytext {
+  font-family: var(--inter);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.font-btn {
+  font-family: var(--inter);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.font-skip-btn {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.font-input {
+  font-family: var(--inter);
+  font-weight: 400;
+  font-size: 15px;
+}
+/* -------------------------------------------- */
+/* background color */
+/* -------------------------------------------- */
+
+/* Background color */
+.bg-green {
+  background-color: var(--green);
+}
+.bg-lightgreen {
+  background-color: var(--lightgreen);
+}
+.bg-darkgreen {
+  background-color: var(--darkgreen);
+}
+.bg-darkgrey {
+  background-color: var(--darkgrey);
+}
+.bg-lightgrey {
+  background-color: var(--lightgrey);
+}
+.bg-white {
+  background-color: var(--white);
+}
+.bg-black {
+  background-color: var(--black);
+}
+/* -------------------------------------------- */
+/* stroke and stroke color */
+/* -------------------------------------------- */
+.stroke-darkgreen {
+  border: 2px solid var(--darkgreen);
+}
+
+.stroke-lightgrey {
+  border: 2px solid var(--lightgrey);
+}
+
+/* -------------------------------------------- */
+/* Button styles */
+/* -------------------------------------------- */
+
+/* Large buttons */
+.btn-large {
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 327px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.btn-large-stroke {
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 327px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Medium buttons */
+.btn-medium {
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 157px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.btn-medium-stroke {
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 157px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* -------------------------------------------- */
+/* Component elements */
+/* -------------------------------------------- */
+
+/* Flexbox defualt */
+.flex {
+  display: flex;
+}
+
+/* -------------------------------------------- */
+/* Icons */
+/* -------------------------------------------- */
+.iconsize{
+    width: 24px;
+    height: 24px;
+}
