@@ -6,6 +6,7 @@ import { HomeIcon, HeartIcon, PlusIcon, ChatBubbleLeftEllipsisIcon } from '@hero
 import { UserIcon } from '@heroicons/react/24/solid'
 
 export default function BottomBar() {
+
   return (
     <div className="wrapper-bottombar">
       <ul className="bottombar">
@@ -22,19 +23,19 @@ export default function BottomBar() {
         </li>
 
         <li className="sellbutton">
-          <NavLink to="/" className='iconsize'>
+          <NavLink to="/salg" className='iconsize'>
             <PlusIcon className='plusicon' />
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/" className='iconsize'>
+          <NavLink to="/chat" className='iconsize'>
             <ChatBubbleLeftEllipsisIcon />
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/" className='iconsize'>
+          <NavLink to="/profile" className='iconsize iconsizeOutline'>
             <UserIcon />
           </NavLink>
         </li>

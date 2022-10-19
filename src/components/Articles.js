@@ -1,33 +1,52 @@
-import React, {useState, useEffect} from 'react'
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../firebaseConfig.js";
-
+import { collection, onSnapshot, orderBy, query} from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { db } from "../firebaseConfig";
 
 export default function Articles() {
-    const [articles, setArticles] = useState([])
-    useEffect(() => {
-        const articleRef = collection(db, "articles");
-        const q = query(articleRef, orderBy("createdAt", "desc"));
-        onSnapshot(q,(snapshot)=>{
-            const articles = snapshot.docs.map((doc) => ({
-                id: doc.id, ...doc.data(),
-            }));
-            setArticles(articles);
-            console.log(articles)
-                })
-    },[]);
+  const [articles, setArticles] = useState([]);
+  useEffect(()=> {
+    // collection from firebase
+    // db is our database, articles is the name of the collection
+    const articleRef = collection(db, "articles");
+    // sort by createdAt, our timestamp added to every article, date
+    const q = query(articleRef, orderBy("createdAt", "desc"));
+    
+    // get the data, on snapshot
+    onSnapshot(q,(snapshot)=> {
+      const articles = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      
+      // change state -> importing the array from the db
+      setArticles(articles);
+      console.log(articles);
+    })
+  },[])
 
   return (
-    <div>
-        {
-            articles.length === 0 ? (
-                <p>No books found!</p>
-            ) : (
-                articles.map((article) => (
-                <div className="border mt-3 p-3 bc-light">div</div>
-                ))
-                
-            )}
-    </div>
-  )
+    <div>{
+      articles.length === 0 ? (
+      <p>No articles found</p> ):(
+        articles.map(({id, title, author, ISBN, edition, language, description, imageUrl, createdAt})=> (
+          <div className="border mt-3 p-3 bg-light" key={id}>
+            <div className="row">
+              <div className="col-3">
+                <img src={imageUrl} alt="title" style={{height: 180, width:180}} />
+              </div>
+              <div className="col-9 ps-4">
+                <h2>{title}</h2>
+                <h6>Date: {createdAt.toDate().toDateString()}</h6>
+                <p>Author: {author}</p>
+                <p>ISBN: {ISBN}</p>
+                <p>Edition: {edition}</p>
+                <p>Language: {language}</p>
+                <p>Description: {description}</p>
+              </div>
+          </div>
+          </div>
+        ))
+    )}
+    </div> 
+  );
 }

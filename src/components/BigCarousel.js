@@ -7,43 +7,56 @@ import "swiper/swiper.min.css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from "swiper";
+import { Keyboard, Mousewheel, Pagination } from "swiper";
+// linear-gradient(0deg, rgba(0,0,0,0.7651435574229692) 0%, rgba(107,121,9,0) 100%);
 
-import image from '../assets/images/deb8b5d23e114c4aeaefe857477cd740.jpg'
+import { useNavigate } from "react-router-dom";
 
-export default function BigCarousel() {
+export default function BigCarousel({ posts }) {
+    const navigate = useNavigate();
+
     return (
-    <section className='carouselSection'>
         <Swiper
-            spaceBetween={30}
-            slidesPerView={1.2}
+            spaceBetween={20}
+            slidesPerView={1.18}
             centeredSlides={true}
+            grabCursor={true}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
+            mousewheel={true}
+            keyboard={{
+                enabled: true,
+            }}
             pagination={{
                 clickable: true,
             }}
-            modules={[Pagination]}
+            modules={[Keyboard, Mousewheel, Pagination]}
             className="mySwiper"
         >
-            <SwiperSlide
-                style={{  
-                    backgroundImage: `url(${image})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    height: '30vh'
-                }}
-            >
-                <div>
-                    <p>BLOGPOST</p>
-                    <h3>Indsæt titel her</h3>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
+
+            {posts.map(post => (
+
+                <SwiperSlide
+                    key={post.id}
+                    style={{
+                       
+                        backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.9248074229691877) 6%, rgba(0,0,0,0) 100%), url("${post._embedded["wp:featuredmedia"][0].source_url}")`,
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat'
+                    }}
+                    onClick={() => navigate(post.slug)}
+                >
+        
+                    <div>
+                        <div className='overlay'></div>
+                        <p className='font-describe-title'>BLOGPOST</p>
+                        <h3 className='font-blog-big'>{post?.acf?.title}</h3>
+                    </div>
+                </SwiperSlide>
+            ))}
+ 
         </Swiper>
-      </section>
+      
     );
 };

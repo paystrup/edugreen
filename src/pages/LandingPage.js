@@ -1,12 +1,12 @@
 import React from 'react'
-import BigCarousel from '../components/BigCarousel'
 import Articles from '../components/Articles'
+import BigCarouselLanding from '../components/BigCarouselLanding'
 
 export default function LandingPage() {
   return (
     <div>
-      <BigCarousel />
-        <Articles/>
+      <BigCarouselLanding />
+      <Articles/>
 
     </div>
   )

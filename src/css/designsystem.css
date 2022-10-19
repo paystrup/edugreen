@@ -9,7 +9,7 @@
 /* -------------------------------------------- */
 :root {
   /* farver */
-  --green: #26e77b;
+  --green: #24dd74; /* gjort lysere end i Figma pga. readability #26E77B er OG*/
   --lightgreen: #4bc581;
   --darkgreen: #18372e;
   --darkgrey: #8a8a8a;
@@ -58,14 +58,23 @@
 /* font styles */
 .font-bely {
   font-family: var(--bely);
+  font-family: 500;
   font-size: 34px;
   overflow-wrap: break-word;
+}
+
+.font-belyBig {
+  font-family: var(--bely);
+  font-weight: 500;
+  font-size: 2.2rem;
+  overflow-wrap: break-word;
+  color: var(--darkgreen);
 }
 
 .font-header {
   font-family: var(--inter);
   font-weight: 600;
-  font-size: 22px;
+  font-size: 25px;
 }
 
 .font-bodytext {
@@ -78,6 +87,7 @@
   font-family: var(--inter);
   font-weight: 600;
   font-size: 15px;
+  letter-spacing: 0.2px;
 }
 
 .font-skip-btn {
@@ -92,6 +102,19 @@
   font-family: var(--inter);
   font-weight: 400;
   font-size: 15px;
+}
+
+.font-blog-big {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.font-describe-title {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 4px;
 }
 /* -------------------------------------------- */
 /* background color */
@@ -147,7 +170,7 @@
   text-align: center;
   display: inline-block;
   padding: 15px 0px;
-  width: 327px;
+  width: 100%;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -173,6 +196,7 @@
   border-radius: 12px;
   cursor: pointer;
 }
+
 .btn-medium-stroke {
   text-decoration: none;
   text-align: center;
@@ -197,6 +221,7 @@
 /* -------------------------------------------- */
 
 .iconsize svg{
+  color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -204,9 +229,10 @@
   height: 30px;
 }
 
-.iconsize svg{
+.iconsizeOutline svg{
   fill: none;
   stroke: var(--black);
-  stroke-width: 2px;
+  stroke-width: 1.5px;
   color: #000000;
 }
+

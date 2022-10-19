@@ -7,8 +7,8 @@ import '../css/designsystem.css';
 import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/outline'
 
 // icons
-// https://unpkg.com/browse/@heroicons/react@2.0.12/24/solid/
-// https://unpkg.com/browse/@heroicons/react@2.0.12/24/outline/
+// https://unpkg.com/browse/@heroicons/react@1.0.6/outline/
+// 
 
 export default function Navigation() {
 
