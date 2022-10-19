@@ -110,6 +110,11 @@
   font-weight: 400;
   font-size: 15px;
 }
+.font-bookTeaser {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 15px;
+}
 
 .font-blog-big {
   font-family: var(--inter);
@@ -227,7 +232,7 @@
 /* Icons */
 /* -------------------------------------------- */
 
-.iconsize svg{
+.iconsize svg {
   color: #000000;
   display: flex;
   justify-content: center;
@@ -236,10 +241,9 @@
   height: 30px;
 }
 
-.iconsizeOutline svg{
+.iconsizeOutline svg {
   fill: none;
   stroke: var(--black);
   stroke-width: 1.5px;
   color: #000000;
 }
-
