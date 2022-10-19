@@ -5,6 +5,11 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 
 export default function Articleteaser() {
   const [articles, setArticles] = useState([]);
+  const [visible, setVisible] = useState(4);
+  const showMoreArticles = () => {
+    setVisible((prevValue) => prevValue + 4);
+  };
+
   useEffect(() => {
     // collection from firebase
     // db is our database, articles is the name of the collection
@@ -29,7 +34,10 @@ export default function Articleteaser() {
     <section>
       <div className="flex card-title-btn paddingWide">
         <p className="font-header">Sidst besøgte</p>
-        <button className="font-btn bg-darkgreen fc-white readmore-btn">
+        <button
+          onClick={showMoreArticles}
+          className="font-btn bg-darkgreen fc-white readmore-btn"
+        >
           se mere
         </button>
       </div>
@@ -37,7 +45,7 @@ export default function Articleteaser() {
         {articles.length === 0 ? (
           <p>No articles found</p>
         ) : (
-          articles.map(({ id, title, price, imageUrl }) => (
+          articles.slice(0, visible).map(({ id, title, price, imageUrl }) => (
             <div className="card-teaser-wrapper flex" key={id}>
               <div
                 className="image-teaser-wrapper"
