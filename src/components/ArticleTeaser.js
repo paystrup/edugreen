@@ -33,7 +33,7 @@ export default function Articleteaser() {
           se mere
         </button>
       </div>
-      <div className="article-wapper default-padding">
+      <div className="article-wapper paddingWide">
         {articles.length === 0 ? (
           <p>No articles found</p>
         ) : (
