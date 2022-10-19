@@ -25,10 +25,10 @@ export default function Articles() {
   },[])
 
   return (
-    <div>{
+    <div className="article-wapper">{
       articles.length === 0 ? (
       <p>No articles found</p> ):(
-        articles.map(({id, title, author, ISBN, edition, language, description, imageUrl, createdAt})=> (
+        articles.map(({id, title, author, ISBN, edition, price, description, imageUrl, createdAt})=> (
           <div className="border mt-3 p-3 bg-light" key={id}>
             <div className="row">
               <div className="col-3">
@@ -40,8 +40,8 @@ export default function Articles() {
                 <p>Author: {author}</p>
                 <p>ISBN: {ISBN}</p>
                 <p>Edition: {edition}</p>
-                <p>Language: {language}</p>
                 <p>Description: {description}</p>
+                <p>Price: {price} DKK</p>
               </div>
           </div>
           </div>

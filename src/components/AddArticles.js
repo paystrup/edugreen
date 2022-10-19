@@ -28,10 +28,20 @@ export default function AddArticle() {
   }
 
   const handlePublish = () => {
-    if (!formData.title || !formData.description || !formData.image){
+    
+    if (!formData.title || !formData.description || !formData.image || !formData.author || !formData.edition || !formData.price){
+      
       alert("Husk at udfyld alle felterne")
       return;
     }
+
+    // alert for price too low
+    if (formData.price < 2 || formData.price > 2000 ) {
+      alert("Din pris er uden for grænsen. Indtast en ny pris mellem 2-2000 DKK")
+      return;
+    }
+    
+
 
     // from firebase, takes into 2 params, 1 = storage, 2 = new folder
     // creating a new name for the img files
@@ -84,44 +94,43 @@ export default function AddArticle() {
     );
   } 
 
-
   return (
-    <div className="paddingWide opretBogForm" style={{position: "fixed"}}>
+    <div className="paddingWide opretBogForm">
       <h2 className='font-header paddingHeader'>Opret bogsalg</h2>
       
       <div className='bogSalgInputContainer'>
         {/* title */}
-        <input type="text" name="title" className="form-control" placeholder="Titel" value={formData.title} onChange={(e)=>handleChange(e)}/>
+        <input id="bookTitle" type="text" name="title" className="form-control" placeholder="Titel" value={formData.title} onChange={(e)=>handleChange(e)}/>
         
         {/* author */}
-        <input type="text" name="author" className="form-control" placeholder="Forfatter(ere)" value={formData.author} onChange={(e)=>handleChange(e)}/>
+        <input id="author" type="text" name="author" className="form-control" placeholder="Forfatter(ere)" value={formData.author} onChange={(e)=>handleChange(e)}/>
 
         {/* ISBN */}
-        <input type="text" name="ISBN" className="form-control" placeholder="ISBN" value={formData.ISBN} onChange={(e)=>handleChange(e)}/>
+        <input id="ISBN" type="number" min="1" max="9999999" step="1" name="ISBN" className="form-control" placeholder="ISBN" value={formData.ISBN} onChange={(e)=>handleChange(e)}/>
 
         {/* Edition */}
-        <input type="text" name="edition" className="form-control" placeholder="Udgave" value={formData.edition} onChange={(e)=>handleChange(e)}/>
+        <input id="edition" type="number" name="edition" className="form-control" placeholder="Udgave" value={formData.edition} onChange={(e)=>handleChange(e)}/>
 
         {/* description */}
         <label htmlFor="" className='font-header'>Beskrivelse</label>
         <textarea name="description" className="form-control" placeholder="Beskrivelse" value={formData.description} onChange={(e)=>handleChange(e)}/>
         
         {/* image */}
-        <label htmlFor="" className='font-header'>Billeder</label>
-        <p>Vi anbefaler min. 3 billeder for hurtigere salg</p>
-        <input type="file" name="image" accept="image/*" className="form-control" onChange={(e)=>handleImageChange(e)}/>
+        <label htmlFor="imageUpload" className='font-header'>Billeder</label>
+        <p className='font-bodytextBig fc-darkgrey'>Vi anbefaler min. 3 billeder for hurtigere salg</p>
+        <input id="imageUpload" type="file" name="image" accept="image/*" className="form-control" onChange={(e)=>handleImageChange(e)}/>
         
         {/* price */}
-        <label htmlFor="">Hvad skal prisen være?</label>
-        <input type="text" name="price" className="form-control" placeholder="Pris i DKK" value={formData.price} onChange={(e)=>handleChange(e)}/>
+        <label htmlFor="" className='font-header'>Hvad skal prisen være?</label>
+        <input type="number" name="price" className="form-control" min="2"  placeholder="Pris i DKK" value={formData.price} onChange={(e)=>handleChange(e)}/>
       </div>
       {/* progress - if progress is 0 return none */}
       {progress === 0 ? null : (
-      <div className="progress">
-        <div className="progress-bar progress-bar-striped mt-2" style={{width: `${progress}%`}}>
-            {`uploading image ${progress}%`}
+        <div className="progress">
+          <div className="progress-bar progress-bar-striped mt-2" style={{width: `${progress}%`}}>
+              {`uploading image ${progress}%`}
+          </div>
         </div>
-      </div>
       )}
 
       <button className="btn-large bg-green fc-white font-btn" onClick={handlePublish}>Sæt til salg</button>

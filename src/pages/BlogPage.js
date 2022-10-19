@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import parse from "html-react-parser";
 
 export default function BlogPage() {
     const [post, setPost] = useState({});
@@ -20,18 +21,61 @@ export default function BlogPage() {
 
     return (
         <section className="blogPostPage paddingWide">
+            {post.acf?.title ? 
             <div>
                 <p className='font-describe-title'>BLOGPOST</p>
                 <h1>{post?.acf?.title}</h1>
-                {post.acf?.image ? <img src={post.acf?.image} alt={post.acf?.image.alt}/> : ''}
-                {post.acf?.headerimage ? <img src={post.acf?.headerimage} alt={post.acf?.headerimage.alt}/> : ''}
+                {post.acf?.headerimage ? <img src={post.acf?.headerimage} alt={post.acf?.title}/> : ''}   
+            </div>       
+            : ''}
 
-                <img src={post.wp:featuredmedia.headerimage} alt={post.acf?.headerimage.alt}/>
-                
-                
-            </div>
+            {post.acf?.section1_title ? 
+            <article className="project-text">
+                <h3>{post.acf?.section1_title}</h3>
+                <p>{post.acf?.section1_text && parse(post.acf?.section1_text)}</p>
+                {post.acf?.section1_image1 ? <img src={post.acf?.section1_image1} alt={post.acf?.section1_title}/> : ''}
+                {post.acf?.section1_image2 ? <img src={post.acf?.section1_image2} alt={post.acf?.section1_title}/> : ''}
+            </article>
+            : ''}
+
+            {post.acf?.section2_title ? 
+            <article className="project-text">
+                <h3>{post.acf?.section2_title}</h3>
+                <p>{post.acf?.section2_text && parse(post.acf?.section2_text)}</p>
+                {post.acf?.section2_image1 ? <img src={post.acf?.section2_image1} alt={post.acf?.section2_title}/> : ''}
+                {post.acf?.section2_image2 ? <img src={post.acf?.section2_image2} alt={post.acf?.section2_title}/> : ''}
+            </article>
+            : ''}
+
+            {post.acf?.section3_title ? 
+            <article className="project-text">
+                <h3>{post.acf?.section3_title}</h3>
+                <p>{post.acf?.section3_text && parse(post.acf?.section3_text)}</p>
+                {post.acf?.section3_image1 ? <img src={post.acf?.section3_image1} alt={post.acf?.section3_title}/> : ''}
+                {post.acf?.section3_image2 ? <img src={post.acf?.section3_image2} alt={post.acf?.section3_title}/> : ''}
+            </article>
+            : ''}       
         </section>
     )
 }
 
-//<img src={post._embedded["wp:featuredmedia"][0].source_url} alt={post.acf?.headerimage.alt}/>
+/*
+            {post.acf?.section1_title ? 
+            <article>
+                <h3>{post.acf?.section1_title}</h3>
+                <p>{post.acf?.section1_text && parse(post.acf?.section1_text)}</p>
+                {post.acf?.section1_image1 ? <img src={post.acf?.section1_image1} alt={post.acf?.section1_title}/> : ''}
+                {post.acf?.section1_image2 ? <img src={post.acf?.section1_image2} alt={post.acf?.section1_title}/> : ''}
+            </article>
+            : ''}
+
+            {post.acf?.section2_title ? 
+            <article>
+                <h3>{post.acf?.section2_title}</h3>
+                <p>{post.acf?.section2_text && parse(post.acf?.section2_text)}</p>
+                {post.acf?.section2_image1 ? <img src={post.acf?.section2_image1} alt={post.acf?.section2_title}/> : ''}
+                {post.acf?.section2_image2 ? <img src={post.acf?.section2_image2} alt={post.acf?.section2_title}/> : ''}
+            </article>
+            : ''}
+
+*/

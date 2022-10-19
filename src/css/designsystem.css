@@ -75,12 +75,19 @@
   font-family: var(--inter);
   font-weight: 600;
   font-size: 25px;
+  letter-spacing: -0.3px;
 }
 
 .font-bodytext {
   font-family: var(--inter);
   font-weight: 400;
   font-size: 12px;
+}
+
+.font-bodytextBig {
+  font-family: var(--inter);
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .font-btn {

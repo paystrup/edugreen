@@ -9,6 +9,12 @@ import ProfilePage from './pages/ProfilePage';
 import ChatPage from './pages/ChatPage';
 import OpretSalg from './pages/OpretSalg';
 import BlogPage from './pages/BlogPage';
+import EditProfile from './pages/EditProfile';
+import PracticalInfo from './pages/PracticalInfo';
+import Favourites from './pages/Favourites';
+import NotificationPage from './pages/NotificationPage';
+
+
 
 function App() {
   return (
@@ -18,8 +24,12 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/profile" element= {<ProfilePage/>}/>
+        <Route path="/editprofile" element= {<EditProfile/>}/>
+        <Route path="/practical" element= {<PracticalInfo/>}/>
         <Route path="/chat" element= {<ChatPage/>}/>
         <Route path="/salg" element= {<OpretSalg/>}/>
+        <Route path="/favourites" element= {<Favourites />}/> 
+         <Route path="/notification" element= {<NotificationPage/>}/> 
         <Route path="/:slug" element= {<BlogPage/>}/>
       </Routes>
       <BottomBar/>
