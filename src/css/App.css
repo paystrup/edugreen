@@ -418,7 +418,9 @@ nav a{
 
 .article-wapper{
     display: flex;
-    
+    flex-wrap: wrap;
+    gap: 2em;
+
 }
 
 .article-wrapper>*{
