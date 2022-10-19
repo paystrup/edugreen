@@ -18,7 +18,7 @@ export default function BigCarousel({ posts }) {
   return (
     <Swiper
       spaceBetween={20}
-      slidesPerView={1.18}
+      slidesPerView={1.1}
       centeredSlides={true}
       grabCursor={true}
       onSlideChange={() => console.log("slide change")}

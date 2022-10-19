@@ -409,6 +409,8 @@ nav a {
 .price-wrapper {
   gap: 2px;
 }
+.swiper-slide {
+}
 .book-text-wrapper {
   justify-content: space-between;
   align-items: center;
