@@ -167,6 +167,23 @@
 .bg-black {
   background-color: var(--black);
 }
+
+/* -------------------------------------------- */
+/* background color */
+/* -------------------------------------------- */
+
+/* Background color */
+.bc-darkgreen {
+  border-color: var(--darkgreen);
+}
+
+.bc-darkgrey {
+  border-color: var(--darkgrey);
+}
+
+.bc-lightgrey {
+  border-color: var(--lightgrey);
+}
 /* -------------------------------------------- */
 /* stroke and stroke color */
 /* -------------------------------------------- */
@@ -200,8 +217,10 @@
   display: inline-block;
   padding: 15px 0px;
   width: 327px;
+  border: 2px;
   border-radius: 12px;
   cursor: pointer;
+  border-color: var(--lightgrey);
 }
 
 /* Medium buttons */
@@ -240,17 +259,16 @@
 /* -------------------------------------------- */
 
 .iconsize svg {
-  color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30px;
   height: 30px;
+  stroke: var(--darkgreen);
 }
 
-.iconsizeOutline svg {
+/*.iconsizeOutline svg {
   fill: none;
-  stroke: var(--black);
-  stroke-width: 1.5px;
-  color: #000000;
+  stroke: var(--darkgreen);
 }
+*/

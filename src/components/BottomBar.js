@@ -2,8 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import '../css/App.css';
 import '../css/designsystem.css';
-import { HomeIcon, HeartIcon, PlusIcon, ChatBubbleLeftEllipsisIcon } from '@heroicons/react/24/outline'
-import { UserIcon } from '@heroicons/react/24/solid'
+import { HomeIcon, UserIcon, HeartIcon, PlusIcon, ChatAltIcon } from '@heroicons/react/outline'
 
 export default function BottomBar() {
 
@@ -30,7 +29,7 @@ export default function BottomBar() {
 
         <li>
           <NavLink to="/chat" className='iconsize'>
-            <ChatBubbleLeftEllipsisIcon />
+            <ChatAltIcon />
           </NavLink>
         </li>
 

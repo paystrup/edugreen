@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import logoBig from '../assets/svg/logo-big.svg';
 import '../css/App.css';
 import '../css/designsystem.css';
-import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/outline'
+import { SearchIcon, BellIcon } from '@heroicons/react/outline'
+
 
 // icons
 // https://unpkg.com/browse/@heroicons/react@1.0.6/outline/
@@ -20,7 +21,7 @@ export default function Navigation() {
                 <ul>
                     <li>
                         <NavLink to="/notifications" className='iconsize'>
-                            <MagnifyingGlassIcon />
+                            <SearchIcon />
                         </NavLink>
                     </li>
                     <li>
@@ -39,7 +40,7 @@ export default function Navigation() {
                         <li><NavLink to="/">Sælg bog</NavLink></li>
                         <li>
                             <NavLink to="/" className='iconsize'>
-                                <MagnifyingGlassIcon />
+                                <SearchIcon />
                             </NavLink>
                         </li>
                         <li>

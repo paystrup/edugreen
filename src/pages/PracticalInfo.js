@@ -1,5 +1,5 @@
 import React from 'react'
-import {ChevronRightIcon, ArrowLongLeftIcon} from '@heroicons/react/24/outline'
+import {ChevronRightIcon, ArrowNarrowLeftIcon} from '@heroicons/react/outline'
 import { NavLink } from 'react-router-dom';
 
 
@@ -7,7 +7,7 @@ export default function PracticalInfo() {
   return (
     <section className="paddingWide">
       <div className="PracticalIcon goBack">
-      <NavLink to="/profile" className="flex iconsize goBackp"><ArrowLongLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></NavLink>
+      <NavLink to="/profile" className="flex iconsize goBackp"><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></NavLink>
       </div>
       <h2 className="font-header">Praktisk Information</h2>
       <div className="font-btn practicalInfo">

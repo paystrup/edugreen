@@ -1,5 +1,5 @@
 import React from 'react'
-import { BuildingOfficeIcon, MapPinIcon, PencilSquareIcon, EllipsisVerticalIcon} from '@heroicons/react/24/outline'
+import { OfficeBuildingIcon, LocationMarkerIcon, PencilAltIcon, DotsVerticalIcon} from '@heroicons/react/outline'
 import { NavLink } from 'react-router-dom';
 
 
@@ -16,23 +16,23 @@ export default function ProfilePage() {
 
         <div className='flex'>
             <div className='iconsizeProfile'>
-            <BuildingOfficeIcon/>
+            <OfficeBuildingIcon/>
             </div>
             <h3 className='font-bodytext fc-darkgrey'> Multimediedesign</h3>
         </div>
         <div className='flex'>
             <div className='iconsizeProfile'>
-            <MapPinIcon/>
+            <LocationMarkerIcon/>
             </div>
             <h3 className='font-bodytext fc-darkgrey'>Aarhus C </h3>
         </div>
     </div>
     <div className='iconsize flex editProfile '>
     <NavLink to="/editprofile">
-    <PencilSquareIcon/>
+    <PencilAltIcon/>
     </NavLink>
     <NavLink to="/practical">
-    <EllipsisVerticalIcon/>
+    <DotsVerticalIcon/>
     </NavLink>
 
     </div>
@@ -53,6 +53,7 @@ export default function ProfilePage() {
 
     <div>
         <h2 className='font-header'>Mine annoncer</h2>
+        
     </div>
 
     </section>
