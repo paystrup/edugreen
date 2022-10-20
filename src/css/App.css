@@ -306,7 +306,6 @@ nav a {
   height: 15px;
 }
 
-
 .moneyProfile {
   margin-bottom: 5%;
   padding: 5%;
@@ -334,13 +333,19 @@ section.redigerProfil > * {
   margin-bottom: 5%;
 }
 
-.editForm input, .editForm textarea, .editForm select {
+.editForm input,
+.editForm textarea,
+.editForm select {
   margin-bottom: 5%;
   margin-top: 2%;
 }
+.imgageh {
+  width: 50px;
+  height: 50px;
+}
 
-
-.editForm input, .editForm select {
+.editForm input,
+.editForm select {
   font-family: var(--inter);
   color: var(--darkgrey);
   font-weight: 400;
@@ -349,7 +354,7 @@ section.redigerProfil > * {
   padding: 0.7rem 1rem;
   border-radius: 12px;
   border: 1px solid var(--darkgreen);
-} 
+}
 
 .editForm textarea {
   font-family: var(--inter);
@@ -370,7 +375,7 @@ section.redigerProfil > * {
   margin-right: 1%;
 }
 
-.editSubmit  {
+.editSubmit {
   background-color: var(--green);
   border: none;
 }
@@ -381,7 +386,7 @@ section.redigerProfil > * {
 }
 
 .interestsBtn {
-  padding: 0.7rem 1rem 1.9rem ;
+  padding: 0.7rem 1rem 1.9rem;
   height: 35px;
   border-radius: 12px;
   margin-top: 2%;
@@ -402,18 +407,18 @@ section.redigerProfil > * {
   height: 15px;
 }
 
-.iconsizeCross{
+.iconsizeCross {
   width: 20px;
   height: 20px;
 }
 
 /*------------ PRAKTISK INFO - PracticalInfo.js----------*/
 
-.goBack a{
+.goBack a {
   color: black;
   text-decoration: none;
 }
-.goBack a:visited{
+.goBack a:visited {
   color: black;
 }
 
@@ -577,9 +582,8 @@ section.redigerProfil > * {
   }
 }
 
-
 /* -------------- LOGIN ---------------- */
-.loginSection{
+.loginSection {
   top: 0;
   left: 0;
   position: absolute;
@@ -592,7 +596,7 @@ section.redigerProfil > * {
   z-index: 11111;
 }
 
-.loginHeader{
+.loginHeader {
   width: 100%;
   height: 50vh;
   border-bottom-left-radius: 30px;
@@ -609,18 +613,18 @@ section.redigerProfil > * {
   justify-content: center;
   gap: 1em;
 }
-.login-wrapper{
+.login-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   gap: 2.5em;
 }
-.auth-provideres{
+.auth-provideres {
   flex-direction: column;
   gap: 1em;
 }
-.email-btn-wrapper{
+.email-btn-wrapper {
   flex-direction: column;
   gap: 0.5em;
 }
@@ -636,8 +640,8 @@ section.redigerProfil > * {
   padding-right: 1.2rem;
   padding-bottom: 1rem;
 }
-.fontting{
-text-transform: capitalize;
+.fontting {
+  text-transform: capitalize;
 }
 
 .BookAgentTitle {

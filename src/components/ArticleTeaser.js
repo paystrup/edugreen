@@ -48,7 +48,11 @@ export default function Articleteaser() {
           <p>No articles found</p>
         ) : (
           articles.slice(0, visible).map(({ id, title, price, imageUrl }) => (
-            <div className="card-teaser-wrapper flex" key={id} onClick={() => navigate("bookpage/" + id)}>
+            <div
+              className="card-teaser-wrapper flex"
+              key={id}
+              onClick={() => navigate("bookpage/" + id)}
+            >
               <div
                 className="image-teaser-wrapper"
                 style={{

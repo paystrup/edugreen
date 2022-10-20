@@ -1,70 +1,73 @@
-import React from 'react'
-import { OfficeBuildingIcon, LocationMarkerIcon, PencilAltIcon, DotsVerticalIcon} from '@heroicons/react/outline'
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import {
+  OfficeBuildingIcon,
+  LocationMarkerIcon,
+  PencilAltIcon,
+  DotsVerticalIcon,
+} from "@heroicons/react/outline";
+import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function ProfilePage() {
-    const [user, loading] = useAuthState(auth);
-    const navigate = useNavigate();
-    if (loading) return <h1>Indlæser ...</h1>;
-    if (!user) navigate("/login");
-    if (user)
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+  if (loading) return <h1>Indlæser ...</h1>;
+  if (!user) navigate("/login");
+  if (user)
+    return (
+      <section className="profilesection paddingWide">
+        <div className="flex redigerIkoner ">
+          <div className="imageProfile bg-darkgreen">
+            <img className="imgageh" src={auth.currentUser.photoURL} alt="" />
+          </div>
 
-  return (
-    <section className='profilesection paddingWide'>
-        <div className='flex redigerIkoner '>
-            <div className='imageProfile bg-darkgreen'></div>
+          <div className="blockProfile paddingWide">
+            <h2 className="font-profilename">{user.displayName}</h2>
 
-        <div className='blockProfile paddingWide'>
-            <h2 className='font-profilename'>{user.displayName}</h2>
-
-
-        <div className='flex'>
-            <div className='iconsizeProfile'>
-            <OfficeBuildingIcon/>
+            <div className="flex">
+              <div className="iconsizeProfile">
+                <OfficeBuildingIcon />
+              </div>
+              <h3 className="font-bodytext fc-darkgrey"> Multimediedesign</h3>
             </div>
-            <h3 className='font-bodytext fc-darkgrey'> Multimediedesign</h3>
-        </div>
-        <div className='flex'>
-            <div className='iconsizeProfile'>
-            <LocationMarkerIcon/>
+            <div className="flex">
+              <div className="iconsizeProfile">
+                <LocationMarkerIcon />
+              </div>
+              <h3 className="font-bodytext fc-darkgrey">Aarhus C </h3>
             </div>
-            <h3 className='font-bodytext fc-darkgrey'>Aarhus C </h3>
+          </div>
+          <div className=" flex editProfile">
+            <NavLink to="/editprofile">
+              <PencilAltIcon className="iconsizeEdit" />
+            </NavLink>
+            <NavLink to="/practical">
+              <DotsVerticalIcon className="iconsizeEdit" />
+            </NavLink>
+          </div>
         </div>
-    </div>
-    <div className=' flex editProfile'>
-    <NavLink to="/editprofile">
-    <PencilAltIcon className='iconsizeEdit'/>
-    </NavLink>
-    <NavLink to="/practical">
-    <DotsVerticalIcon className='iconsizeEdit'/>
-    </NavLink>
-    </div>
-    </div>
 
+        <div className="savingsProfile">
+          <div className="moneyProfile flex bg-green">
+            <h3 className="font-btn fc-white besparelseProfile">
+              Penge <br></br>besparelse
+            </h3>
+            <h2 className="font-bely fc-white">200kr</h2>
+          </div>
 
-    <div className='savingsProfile'>
-   
-    <div className='moneyProfile flex bg-green'>
-        <h3 className='font-btn fc-white besparelseProfile'>Penge <br></br>besparelse</h3>
-        <h2 className='font-bely fc-white'>200kr</h2>
-    </div>
-   
-    <div className='co2Profile flex bg-darkgreen'>
-        <h3 className='font-btn fc-white'>CO2 <br></br> besparelse</h3>
-        <h2 className='font-bely fc-white'>2kg</h2>
-    </div>
-    </div>
+          <div className="co2Profile flex bg-darkgreen">
+            <h3 className="font-btn fc-white">
+              CO2 <br></br> besparelse
+            </h3>
+            <h2 className="font-bely fc-white">2kg</h2>
+          </div>
+        </div>
 
-    <div>
-        <h2 className='font-header'>Mine annoncer</h2>
-        
-    </div>
-
-    </section>
-  )
+        <div>
+          <h2 className="font-header">Mine annoncer</h2>
+        </div>
+      </section>
+    );
 }
