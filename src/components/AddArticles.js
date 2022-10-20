@@ -3,18 +3,25 @@ import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage, db } from "./../firebaseConfig";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function AddArticle() {
   const [formData, setFormData] = useState({
     title: "",
+    author: "",
+    ISBN: "",
+    edition: "",
+    description: "",
     image: "",
     price: "",
     createdAt: Timestamp.now().toDate(),
   });
+  const navigate = useNavigate();
 
   const [progress, setProgress] = useState(0);
-
+  
   // returns from onChange values below, takes the event and returns
+  // hver gang form felter ændres
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -23,6 +30,7 @@ export default function AddArticle() {
     setFormData({ ...formData, image: e.target.files[0] });
   };
 
+  // onsubmit
   const handlePublish = () => {
     if (!formData.title || !formData.image || !formData.price) {
       alert("Husk at udfyld alle felterne");
@@ -84,6 +92,8 @@ export default function AddArticle() {
               toast("Article added successfully", { type: "success" });
               //reset progress on success
               setProgress(0);
+            
+              return navigate ("/profile" ) 
             })
             .catch((err) => {
               toast("Error adding article", { type: "error" });
@@ -91,6 +101,7 @@ export default function AddArticle() {
         });
       }
     );
+
   };
 
   return (

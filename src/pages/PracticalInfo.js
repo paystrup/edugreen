@@ -1,7 +1,27 @@
 import React from 'react'
+import {ChevronRightIcon, ArrowLongLeftIcon} from '@heroicons/react/24/outline'
+import { NavLink } from 'react-router-dom';
+
 
 export default function PracticalInfo() {
   return (
-    <div>PracticalInfo</div>
+    <section className="paddingWide">
+      <div className="PracticalIcon goBack">
+      <NavLink to="/profile" className="flex iconsize goBackp"><ArrowLongLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></NavLink>
+      </div>
+      <h2 className="font-header">Praktisk Information</h2>
+      <div className="font-btn practicalInfo">
+      <hr/>
+
+      <h3 className="praktisk iconsize flex"> Personlige oplysninger <NavLink to="/p"><ChevronRightIcon/></NavLink></h3> 
+      <hr/> 
+      <h3 className="praktisk iconsize flex">  NemId verificer <NavLink to="/p"><ChevronRightIcon/></NavLink></h3>
+      <hr/>
+      <h3 className="praktisk iconsize flex"> Betaling <NavLink to="/p"><ChevronRightIcon/></NavLink></h3>
+      <hr/>
+      <h3 className="praktisk iconsize flex"> Hjælp <NavLink to="/p"><ChevronRightIcon/></NavLink></h3>
+      <hr/>
+      </div>
+    </section>
   )
 }

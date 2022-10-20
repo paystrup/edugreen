@@ -81,7 +81,7 @@
 .font-bodytext {
   font-family: var(--inter);
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .font-bodytextBig {
@@ -122,11 +122,18 @@
   font-size: 20px;
 }
 
+.font-blog-big-bold {
+  font-family: var(--inter);
+  font-weight: 700;
+  font-size: 20px;
+}
+
 .font-describe-title {
   font-family: var(--inter);
   font-weight: 500;
   font-size: 11px;
   letter-spacing: 4px;
+  text-transform: uppercase;
 }
 /* -------------------------------------------- */
 /* background color */

@@ -24,7 +24,7 @@ function Buymessage() {
     <div className='chat-error-message'>
       <p className='font-header'>Ingen beskeder at vise</p>
       <p className='font-bodytext'>find bøger</p> 
-      <button className=' btn-large font-btn fc-white bg-green'>Find søger</button>
+      <button className=' btn-large font-btn fc-white bg-green'>Find bøger</button>
       <hr/>
     </div>
   );

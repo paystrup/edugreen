@@ -1,48 +1,52 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
+import { ArrowLongLeftIcon} from '@heroicons/react/24/outline'
+
 
 export default function EditProfile() {
   return (
-    <section className="paddingWide">
+    <section className="paddingWide redigerProfil">
+      <div className="PracticalIcon goBack">
+      <NavLink to="/profile" className="flex iconsize goBackp"><ArrowLongLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></NavLink>
+      </div>
       <h2 className="font-header">Rediger din profil</h2>
       <div className="flex">
         <div className="imageProfile bg-darkgreen"></div>
-        <form className="font-input">
+
+        <form className="font-input editForm editName">
           <label>
-            Fulde Navn <br></br>
-            <input type="text" name="name" className="bg-lightgrey" />
+            Fulde Navn 
+            <input type="text" name="name"  />
           </label>
         </form>
       </div>
 
-      <form className="font-input">
+      <form className="font-input editForm ">
         <label>
-          Lokation <br></br>
-          <input type="text" name="location" className="bg-lightgrey" />
+          Lokation 
+          <input type="text" name="location" />
         </label>
         <br></br>
         <label>
-          Beskrivelse <br></br>
-          <input type="text" name="description" className="bg-lightgrey" />
+          Beskrivelse 
+          <textarea type="textarea" name="description" />
         </label>
         <br></br>
-        <label for="education">
-          Uddannelse <br></br>
-          <select id="education" className="bg-lightgrey">
-            <option value="multimediedesign">Multimediedesign</option>
+        <label for="education" className="editEducation">
+          Uddannelse(r) 
+          <select id="education" >
+            <option value="multimediedesign"> Multimediedesign</option>
             <option value="jura">Jura</option>
             <option value="medicin">Medicin</option>
             <option value="erhvervsoekonomi">Erhvervsøkonomi</option>
           </select>
         </label>
         <br></br>
-        <input type="checkbox" name="multimediedesign" value="" />
-        <label for="multimediedesign"> Multimediedesign</label>
-        <input type="checkbox" name="ux" value="" />
-        <label for="ux"> UX</label>
-        <input type="checkbox" name="ui" value="" />
-        <label for="ui">UI</label>
-
-        <input type="submit" value="Submit" />
+<h3 className="font-input">Interesser</h3>
+<div className="flex interesser">
+  <button className="bg-darkgreen fc-white interestsBtn">Multimediedesign</button>
+</div>
+        <input className="editSubmit" type="submit" value="Submit" />
       </form>
     </section>
   );

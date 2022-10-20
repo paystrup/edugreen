@@ -36,6 +36,16 @@ button {
   padding: 10% 5%;
 }
 
+/* ---------- Page Padding Bottom ------------*/
+.PaddingPage {
+  padding-bottom: 70px;
+}
+
+/* ---------- Font Padding ------------*/
+.font-padding {
+  padding: 0.5rem 0;
+}
+
 /* ------------ NAV MOBILE ----------- */
 .navMobile {
   display: none;
@@ -277,20 +287,20 @@ nav a {
 }
 
 .iconsizeProfile {
-  color: rgb(91, 91, 91);
+  color: var(--darkgrey);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
 }
 
 .editProfile {
-  padding-left: 15%;
+  padding-left: 8%;
 }
 
 .moneyProfile {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   padding: 5%;
   border-radius: 12px;
   padding: 20px;
@@ -308,9 +318,92 @@ nav a {
 }
 
 .savingsProfile {
-  padding-top: 15%;
+  padding-top: 10%;
 }
+
 /* ----------- Edit profile - EditProfile.JS --------------*/
+section.redigerProfil > * {
+  margin-bottom: 5%;
+}
+
+.editForm input, .editForm textarea, .editForm select {
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+
+.editForm input, .editForm select {
+  font-family: var(--inter);
+  color: var(--darkgrey);
+  font-weight: 400;
+  font-size: 15px;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--darkgreen);
+} 
+
+.editForm textarea {
+  font-family: var(--inter);
+  color: var(--darkgrey);
+  font-weight: 400;
+  font-size: 15px;
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--darkgreen);
+  height: 7rem;
+  margin-bottom: 5%;
+}
+
+.editName {
+  width: 70%;
+  margin-left: 10%;
+  margin-right: 1%;
+}
+
+.editSubmit  {
+  background-color: var(--green);
+  border: none;
+}
+
+.interesser {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.interestsBtn {
+  0.7rem 1rem  height: 35px;
+  border-radius: 12px;
+}
+
+/*------------ PRAKTISK INFO - PracticalInfo.js----------*/
+
+.goBack a{
+  color: black;
+  text-decoration: none;
+}
+.goBack a:visited{
+  color: black;
+}
+
+.goBackp p {
+  margin-top: 1.5%;
+  padding-left: 2%;
+}
+
+.PracticalIcon {
+  margin-bottom: 10%;
+}
+
+.practicalInfo hr {
+  margin-bottom: 12%;
+  margin-top: 12%;
+}
+
+.praktisk {
+  justify-content: space-between;
+}
 
 /* ----------- OPRET BOG - OPRETSALG.JS --------------*/
 .opretBogForm {
@@ -366,11 +459,18 @@ nav a {
 .blogPostPage img {
   width: 100%;
   height: auto;
-  padding: 0.5rem 0;
+  margin: 1rem 0;
+  border-radius: 25px;
 }
+
 .blogPostPage article {
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
+
+.blogSection h3 {
+  padding-bottom: 1rem;
+}
+
 /* ------------ BOOK TEASERS -------------- */
 .article-wapper {
   display: grid;
@@ -446,6 +546,23 @@ nav a {
   100% {
     background-color: var(--lightgrey);
   }
+}
+
+/* ------------ BOOKAGENT -------------- */
+.BookAgentCard {
+  display: flex;
+  align-items: flex-end;
+  color: white;
+  background-color: var(--darkgreen);
+  min-height: 25vh;
+  border-radius: 25px;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.BookAgentTitle {
+  padding-bottom: 2rem;
 }
 
 /* ------------ RESPONSIVE BREAKPOINTS -------------- */

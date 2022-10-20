@@ -19,13 +19,12 @@ export default function BlogPage() {
     getPost();
   }, [slug]);
 
-  //   Se om det det virker
   return (
-    <section className="blogPostPage paddingWide">
+    <section className="blogPostPage paddingWide PaddingPage">
       {post.acf?.title ? (
         <div>
-          <p className="font-describe-title">BLOGPOST</p>
-          <h1>{post?.acf?.title}</h1>
+          <p className="font-describe-title font-padding">BLOGPOST</p>
+          <h1 className="font-belyBig paddingHeader">{post?.acf?.title}</h1>
           {post.acf?.headerimage ? (
             <img src={post.acf?.headerimage} alt={post.acf?.title} />
           ) : (
@@ -37,100 +36,50 @@ export default function BlogPage() {
       )}
 
       {post.acf?.section1_title ? (
-        <article className="project-text">
-          <h3>{post.acf?.section1_title}</h3>
-          <p>{post.acf?.section1_text && parse(post.acf?.section1_text)}</p>
-          {post.acf?.section1_image1 ? (
-            <img
-              src={post.acf?.section1_image1}
-              alt={post.acf?.section1_title}
-            />
-          ) : (
-            ""
-          )}
-          {post.acf?.section1_image2 ? (
-            <img
-              src={post.acf?.section1_image2}
-              alt={post.acf?.section1_title}
-            />
-          ) : (
-            ""
-          )}
+        <article className="blogSection">
+          <h3 className="font-header">{post.acf?.section1_title}</h3>
+          <p className="font-bodytext">{post.acf?.section1_text && parse(post.acf?.section1_text)}</p>
         </article>
-      ) : (
-        ""
-      )}
+      ) : ''}
+
+      {post.acf?.section1_image1 ?
+        <img src={post.acf?.section1_image1} alt={post.acf?.section1_title}/> 
+      : ''} 
+      {post.acf?.section1_image2 ?
+        <img src={post.acf?.section1_image2} alt={post.acf?.section1_title}/> 
+      : ''}
+     
+      
 
       {post.acf?.section2_title ? (
-        <article className="project-text">
-          <h3>{post.acf?.section2_title}</h3>
-          <p>{post.acf?.section2_text && parse(post.acf?.section2_text)}</p>
-          {post.acf?.section2_image1 ? (
-            <img
-              src={post.acf?.section2_image1}
-              alt={post.acf?.section2_title}
-            />
-          ) : (
-            ""
-          )}
-          {post.acf?.section2_image2 ? (
-            <img
-              src={post.acf?.section2_image2}
-              alt={post.acf?.section2_title}
-            />
-          ) : (
-            ""
-          )}
+        <article className="blogSection">
+          <h3 className="font-header">{post.acf?.section2_title}</h3>
+          <p className="font-bodytext">{post.acf?.section2_text && parse(post.acf?.section2_text)}</p>
         </article>
-      ) : (
-        ""
-      )}
+      ) : ''}
+          
+      {post.acf?.section2_image1 ?
+        <img src={post.acf?.section2_image1} alt={post.acf?.section2_title}/>
+      : ''}
+      {post.acf?.section2_image2 ?
+        <img src={post.acf?.section2_image2} alt={post.acf?.section2_title}/>
+      : ''}
+        
 
       {post.acf?.section3_title ? (
-        <article className="project-text">
-          <h3>{post.acf?.section3_title}</h3>
-          <p>{post.acf?.section3_text && parse(post.acf?.section3_text)}</p>
-          {post.acf?.section3_image1 ? (
-            <img
-              src={post.acf?.section3_image1}
-              alt={post.acf?.section3_title}
-            />
-          ) : (
-            ""
-          )}
-          {post.acf?.section3_image2 ? (
-            <img
-              src={post.acf?.section3_image2}
-              alt={post.acf?.section3_title}
-            />
-          ) : (
-            ""
-          )}
+        <article className="blogSection">
+          <h3 className="font-header">{post.acf?.section3_title}</h3>
+          <p className="font-bodytext">{post.acf?.section3_text && parse(post.acf?.section3_text)}</p>
         </article>
-      ) : (
-        ""
-      )}
+      ) : ''}
+
+      {post.acf?.section3_image1 ?
+        <img src={post.acf?.section3_image1} alt={post.acf?.section3_title}/>
+      : ''}
+
+      {post.acf?.section3_image2 ?
+        <img src={post.acf?.section3_image2} alt={post.acf?.section3_title}/>
+      : ''}
     </section>
   );
 }
-
-/*
-            {post.acf?.section1_title ? 
-            <article>
-                <h3>{post.acf?.section1_title}</h3>
-                <p>{post.acf?.section1_text && parse(post.acf?.section1_text)}</p>
-                {post.acf?.section1_image1 ? <img src={post.acf?.section1_image1} alt={post.acf?.section1_title}/> : ''}
-                {post.acf?.section1_image2 ? <img src={post.acf?.section1_image2} alt={post.acf?.section1_title}/> : ''}
-            </article>
-            : ''}
-
-            {post.acf?.section2_title ? 
-            <article>
-                <h3>{post.acf?.section2_title}</h3>
-                <p>{post.acf?.section2_text && parse(post.acf?.section2_text)}</p>
-                {post.acf?.section2_image1 ? <img src={post.acf?.section2_image1} alt={post.acf?.section2_title}/> : ''}
-                {post.acf?.section2_image2 ? <img src={post.acf?.section2_image2} alt={post.acf?.section2_title}/> : ''}
-            </article>
-            : ''}
-
-*/

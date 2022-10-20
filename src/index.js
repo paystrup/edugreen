@@ -5,8 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-//import "bootstrap/dist/css/bootstrap.css";
-//import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
 import {ToastContainer} from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

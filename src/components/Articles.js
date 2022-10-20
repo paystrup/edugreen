@@ -1,4 +1,4 @@
-import { collection, onSnapshot, orderBy, query} from "firebase/firestore";
+import { collection, orderBy, onSnapshot, query} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 
@@ -27,10 +27,10 @@ export default function Articles() {
   return (
     <div className="article-wapper">{
       articles.length === 0 ? (
-      <p>No articles found</p> ):(
+      <p>Ingen bøger fundet</p> ):(
         articles.map(({id, title, author, ISBN, edition, price, description, imageUrl, createdAt})=> (
           <div className="border mt-3 p-3 bg-light" key={id}>
-            <div className="row">
+            <div className="row ghgbjhjh">
               <div className="col-3">
                 <img src={imageUrl} alt="title" style={{height: 180, width:180}} />
               </div>

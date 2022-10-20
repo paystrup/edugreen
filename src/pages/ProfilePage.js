@@ -18,16 +18,16 @@ export default function ProfilePage() {
             <div className='iconsizeProfile'>
             <BuildingOfficeIcon/>
             </div>
-            <h3 className='font-bodytext'> Multimediedesign</h3>
+            <h3 className='font-bodytext fc-darkgrey'> Multimediedesign</h3>
         </div>
         <div className='flex'>
             <div className='iconsizeProfile'>
             <MapPinIcon/>
             </div>
-            <h3 className='font-bodytext'>Aarhus C </h3>
+            <h3 className='font-bodytext fc-darkgrey'>Aarhus C </h3>
         </div>
     </div>
-    <div className='iconsize flex editProfile'>
+    <div className='iconsize flex editProfile '>
     <NavLink to="/editprofile">
     <PencilSquareIcon/>
     </NavLink>
