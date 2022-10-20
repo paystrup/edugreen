@@ -1,17 +1,26 @@
 import React from 'react'
 import { OfficeBuildingIcon, LocationMarkerIcon, PencilAltIcon, DotsVerticalIcon} from '@heroicons/react/outline'
 import { NavLink } from 'react-router-dom';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebaseConfig.js";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function ProfilePage() {
+    const [user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
+    if (loading) return <h1>Indlæser ...</h1>;
+    if (!user) navigate("/login");
+    if (user)
+
   return (
     <section className='profilesection paddingWide'>
-        <div className='flex'>
+        <div className='flex redigerIkoner '>
             <div className='imageProfile bg-darkgreen'></div>
- 
+
         <div className='blockProfile paddingWide'>
-            <h2 className='font-header'>John Doe</h2>
+            <h2 className='font-profilename'>{user.displayName}</h2>
 
 
         <div className='flex'>
@@ -27,16 +36,16 @@ export default function ProfilePage() {
             <h3 className='font-bodytext fc-darkgrey'>Aarhus C </h3>
         </div>
     </div>
-    <div className='iconsize flex editProfile '>
+    <div className=' flex editProfile'>
     <NavLink to="/editprofile">
-    <PencilAltIcon/>
+    <PencilAltIcon className='iconsizeEdit'/>
     </NavLink>
     <NavLink to="/practical">
-    <DotsVerticalIcon/>
+    <DotsVerticalIcon className='iconsizeEdit'/>
     </NavLink>
+    </div>
+    </div>
 
-    </div>
-    </div>
 
     <div className='savingsProfile'>
    

@@ -17,7 +17,21 @@ const handleFormChange = (index, event) => {
 }
 const addFields = () => {
   let newfield = { name: '', age: '' }
+
+  setInputFields([...inputFields, newfield])
 }
+
+const submit = (e) => {
+  e.preventDefault();
+  console.log(inputFields)
+}
+
+const removeFields = (index) => {
+  let data = [...inputFields];
+  data.splice(index, 1)
+  setInputFields(data)
+}
+
   return (
     <section className="paddingWide redigerProfil PaddingPage">
       <div className="PracticalIcon goBack">
@@ -77,7 +91,7 @@ const addFields = () => {
       </form>
 
       <div className="hej">
-      <form>
+      <form onSubmit={submit}>
         {inputFields.map((input, index) => {
           return (
             <div key={index}>
@@ -91,6 +105,9 @@ const addFields = () => {
           )
         })}
 <button onClick={addFields}>Add More..</button>
+<button onClick={submit}>Submit</button>
+<button onClick={() => removeFields()}>Remove</button>
+
       </form>
     </div>
 

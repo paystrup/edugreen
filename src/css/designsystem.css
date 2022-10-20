@@ -59,6 +59,7 @@
 .font-bely {
   font-family: var(--bely);
   font-family: 500;
+  font-weight: 500;
   font-size: 34px;
   overflow-wrap: break-word;
 }
@@ -135,6 +136,13 @@
   letter-spacing: 4px;
   text-transform: uppercase;
 }
+.font-profilename{
+  font-family: var(--inter);
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
 /* -------------------------------------------- */
 /* background color */
 /* -------------------------------------------- */
@@ -206,7 +214,7 @@
   text-align: center;
   display: inline-block;
   padding: 15px 0px;
-  width: 100%;
+  width: 327px;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -265,6 +273,10 @@
   width: 30px;
   height: 30px;
   stroke: var(--darkgreen);
+}
+
+.active svg{
+  stroke: var(--green);
 }
 
 /*.iconsizeOutline svg {

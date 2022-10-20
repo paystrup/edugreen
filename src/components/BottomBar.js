@@ -10,7 +10,7 @@ export default function BottomBar() {
     <div className="wrapper-bottombar">
       <ul className="bottombar">
         <li>
-          <NavLink to="/" className='iconsize'>
+          <NavLink to="/" end className='iconsize'>
             <HomeIcon />
           </NavLink>
         </li>
@@ -34,7 +34,7 @@ export default function BottomBar() {
         </li>
 
         <li>
-          <NavLink to="/profile" className='iconsize iconsizeOutline'>
+          <NavLink to="/profile" className='iconsize'>
             <UserIcon />
           </NavLink>
         </li>

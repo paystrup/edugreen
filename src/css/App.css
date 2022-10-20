@@ -17,6 +17,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
 button {
   background: none;
   color: inherit;
@@ -24,6 +25,7 @@ button {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  border: none;
 }
 
 /* ---------- Padding wide ------------*/
@@ -285,6 +287,16 @@ nav a {
   height: 70px;
 }
 
+.redigerIkoner {
+  justify-content: space-around;
+}
+
+.iconsizeEdit {
+  width: 20px;
+  height: 20px;
+  color: black;
+}
+
 .iconsizeProfile {
   color: var(--darkgrey);
   display: flex;
@@ -294,9 +306,6 @@ nav a {
   height: 15px;
 }
 
-.editProfile {
-  padding-left: 8%;
-}
 
 .moneyProfile {
   margin-bottom: 5%;
@@ -605,7 +614,15 @@ section.redigerProfil > * {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  gap: 2.5em;
+}
+.auth-provideres{
+  flex-direction: column;
   gap: 1em;
+}
+.email-btn-wrapper{
+  flex-direction: column;
+  gap: 0.5em;
 }
 /* ------------ BOOKAGENT -------------- */
 .BookAgentCard {
@@ -618,6 +635,9 @@ section.redigerProfil > * {
   padding-left: 1.2rem;
   padding-right: 1.2rem;
   padding-bottom: 1rem;
+}
+.fontting{
+text-transform: capitalize;
 }
 
 .BookAgentTitle {

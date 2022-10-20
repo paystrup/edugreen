@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
+import { NavLink } from 'react-router-dom';
+import { ArrowNarrowLeftIcon} from '@heroicons/react/outline'
+
 
 export default function BlogPage() {
   const [post, setPost] = useState({});
@@ -21,6 +24,10 @@ export default function BlogPage() {
 
   return (
     <section className="blogPostPage paddingWide PaddingPage">
+      <div className="PracticalIcon goBack">
+      <NavLink to="/" end className="flex iconsize goBackp"><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></NavLink>
+      </div>
+
       {post.acf?.title ? (
         <div>
           <p className="font-describe-title font-padding">BLOGPOST</p>

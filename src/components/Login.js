@@ -48,7 +48,8 @@ export default function Login() {
         </div>
         <div className="login-wrapper paddingWide">
         <h2 className="font-header">Login eller opret profil</h2>
-        <
+
+            <div className="flex auth-provideres">
             <button className="btn-login flex font-btn"
                 onClick={GoogleLogin}
                 
@@ -71,6 +72,11 @@ export default function Login() {
                 <FcGoogle className="" />
                 Fortsæt med google
             </button>
+        </div>
+        <div className="flex email-btn-wrapper">
+            <button className="btn-large bg-darkgreen font-btn fc-white">Fortsæt med Email</button>
+            
+        </div>
         </div>
     </section>
   );

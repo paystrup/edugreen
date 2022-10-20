@@ -4,8 +4,11 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage, db } from "./../firebaseConfig";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConfig.js";
 
 export default function AddArticle() {
+  console.log(auth.currentUser.uid); // tjek at der logges username fra auth
+
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -15,6 +18,7 @@ export default function AddArticle() {
     image: "",
     price: "",
     createdAt: Timestamp.now().toDate(),
+    user: auth.currentUser.uid
   });
   const navigate = useNavigate();
 
@@ -73,6 +77,7 @@ export default function AddArticle() {
           description: "",
           image: "",
           price: "",
+          user: auth.currentUser.uid
         });
 
         //adddoc is a promise
@@ -87,16 +92,18 @@ export default function AddArticle() {
             imageUrl: url,
             price: formData.price,
             createdAt: Timestamp.now().toDate(),
+            user: auth.currentUser.uid
           })
+          
             .then(() => {
-              toast("Article added successfully", { type: "success" });
+              toast("Din bog er nu sat til salg", { type: "success" });
               //reset progress on success
               setProgress(0);
             
               return navigate ("/profile" ) 
             })
             .catch((err) => {
-              toast("Error adding article", { type: "error" });
+              toast("Der er sket en fejl. Prøv igen.", { type: "error" });
             });
         });
       }

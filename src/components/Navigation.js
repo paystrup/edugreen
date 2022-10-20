@@ -15,7 +15,7 @@ export default function Navigation() {
     return (
         <nav>
             <div className='navMobile paddingWide'>
-                <NavLink to="/" className='navLogo'>
+                <NavLink to="/" end className='navLogo'>
                     <img src={logoBig} alt="EduGreen"></img>
                 </NavLink>
                 <ul>
@@ -33,7 +33,7 @@ export default function Navigation() {
             </div>
 
             <div className='navDesktop paddingWide'>
-                    <NavLink to="/" className='navLogo'><img src={logoBig} alt="EduGreen"></img></NavLink>
+                    <NavLink to="/" end className='navLogo'><img src={logoBig} alt="EduGreen"></img></NavLink>
                     <ul>
                         <li><NavLink to="/">Hjem</NavLink></li>
                         <li><NavLink to="/favourites">Mine favoritter</NavLink></li>

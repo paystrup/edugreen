@@ -10,7 +10,7 @@ export default function LandingPage() {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   console.log(user);
-  if (loading) return <h1>Loading</h1>;
+  if (loading) return <h1>Indlæser ...</h1>;
   if (!user) navigate("/login");
   if (user)
   return (
