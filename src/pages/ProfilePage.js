@@ -22,8 +22,8 @@ export default function ProfilePage() {
       <section className="profilesection paddingWide">
         <div className="flex redigerIkoner ">
          <div className="flex imgName-wrapper">
-          <div className="imageProfile bg-darkgreen">
-            <img className="imgageh" 
+          <div >
+            <img className="imageProfile" 
               src={auth.currentUser.photoURL} alt="" 
               onError={(e) => {
               e.target.onerror = null
@@ -76,8 +76,7 @@ export default function ProfilePage() {
         
         <ProfileUserPosts />
         <div className="signOut">
-          <h1>Log ud {user.displayName}</h1>
-          <button className="font-btn btn-large-stroke" onClick={() => auth.signOut()}>Sign out</button>
+          <button className="font-btn btn-large-stroke signOutBtn" onClick={() => auth.signOut()}>Log ud {user.displayName}</button>
         </div>
 
 

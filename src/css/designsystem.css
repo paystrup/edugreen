@@ -228,7 +228,7 @@
   border: 2px;
   border-radius: 12px;
   cursor: pointer;
-  border-color: var(--lightgrey);
+  border: 2px solid var(--lightgrey);
 }
 
 /* Medium buttons */

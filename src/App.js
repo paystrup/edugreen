@@ -26,12 +26,12 @@ function App() {
     setTimeout(() => {
       loader.style.display = "none";
       setLoading(false);
-    }, 1500);
+    }, 2000);
   }
 
 
 
-
+  // loading animations
   return (
     !loading && ( 
 
@@ -54,8 +54,6 @@ function App() {
         <Route path="/splash" element={<SplashPage/>}/>
       </Routes>
       <BottomBar />
-
-
     </main>
     )
   );

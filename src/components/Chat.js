@@ -2,18 +2,14 @@ import {useState} from 'react';
 import { useNavigate} from 'react-router-dom';
 
 export default function Chat() {
-
-
-
   const [page, setPage] = useState("sale");
 
- 
 
 
   return (
     <div>
-      <div className='chat-buttons'>
-        <button className=' chat-buttonschange font-btn' onClick={() => setPage("sale")}>Salg</button>
+      <div className='chat-buttons' id="wrapper">
+        <button  className=' chat-buttonschange font-btn ' onClick={() => setPage("sale")}>Salg</button>
         <button className=' chat-buttonschange font-btn' onClick={() => setPage("buy")}>Køb</button>
       </div>
 

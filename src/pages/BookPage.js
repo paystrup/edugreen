@@ -48,17 +48,23 @@ export default function BookPage() {
   if (loading) return <h1>Indlæser ...</h1>;
   if (!user) navigate("/login");
   if (user)
-    return (
-      <>
-        {articles.map((article, index) =>
-          article.id === id ? (
-            <section className="paddingWide">
-              {/* TITLE-HEARTICON */}
-              <div className="flex title-author-hearticon">
-                <div>
-                  <h1 className="font-header">{article.title}</h1>
+  return (
+    <>
+        {articles.map((article, index) => (
+            article.id === id ? (
+              <section>
+                {/* CROSS ICON */}
+                <div className="flex crossicon-wrapper">
+                <button className="iconsize">
+                  <XIcon />
+                </button>
                 </div>
-                <button className="iconsizeHeart">
+                {/* TITLE-HEARTICON */}
+                <div className="flex title-author-hearticon">
+                  <div>
+                    <h1 className="font-header">{article.title}</h1>
+                  </div>
+                <button className="iconsiz">
                   <HeartIcon />
                 </button>
               </div>
