@@ -36,13 +36,18 @@
         height: 100vh;
         justify-content: center;
         width: 100vw;
-        top: calc(-100%);
+        top: 0;
+        left: 0;
       }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="loader" class="bg-container"></div>
+    <div id="loader" class="bg-container">
+      <video width="400" height="200" controls autoplay>
+        <source src="/src/assets/video/loaderLogo.mp4" type="video/mp4">
+    </video>
+    </div>
     <div id="root"></div>
     <!--
       This HTML file is a template.

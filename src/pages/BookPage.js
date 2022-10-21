@@ -58,7 +58,7 @@ export default function BookPage() {
                   <div>
                     <h1 className="font-header">{article.title}</h1>
                   </div>
-                <button className="iconsiz">
+                <button className="iconsize">
                   <HeartIcon />
                 </button>
                 </div>

@@ -283,12 +283,15 @@ nav a {
   color: var(--white);
 }
 
+
+
 /*-----------ProfilePage------------*/
 .blockProfile {
   display: block;
 }
+
 .imageProfile {
-  border-radius: 50%;
+  border-radius: 50% ;
   width: 70px;
   height: 70px;
 }
@@ -336,6 +339,7 @@ nav a {
 .imgName-wrapper{
   gap: 2em;
 }
+
 
 /* ----------- Edit profile - EditProfile.JS --------------*/
 section.redigerProfil > * {

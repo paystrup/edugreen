@@ -2,6 +2,10 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 import { ArrowNarrowLeftIcon, XIcon, PlusIcon} from '@heroicons/react/outline'
 import {useState} from "react"
+import { auth } from "../firebaseConfig.js";
+import logoBig from '../assets/svg/logo-big.svg';
+
+
 
 
 export default function EditProfile() {
@@ -39,7 +43,14 @@ const removeFields = (index) => {
       </div>
       <h2 className="font-header">Rediger din profil</h2>
       <div className="flex">
-        <div className="imageProfile bg-darkgreen"></div>
+        <div className="imageProfile bg-darkgreen">
+        <img className="imageProfile" 
+              src={auth.currentUser.photoURL} alt="" 
+              onError={(e) => {
+              e.target.onerror = null
+              e.target.src = {logoBig};
+            }}/>
+        </div>
 
         <form className="font-input editForm editName">
           <label>

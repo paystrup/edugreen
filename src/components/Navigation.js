@@ -15,7 +15,7 @@ export default function Navigation() {
     const navigate = useNavigate();
     const params = useParams();
     console.log(params); //udskriver det slug navn man er inde på i log
-    const id = params.slug;
+    const id = params.id;
 
     const location = useLocation();
     console.log(location.pathname);
@@ -24,7 +24,7 @@ export default function Navigation() {
         <nav>
             <div className='navMobile paddingWide'>
 
-                {location.pathname}&  '/practical' || '/editprofile' ?
+                {location.pathname === '/practical' || location.pathname === '/editprofile' || location.pathname === (`/blog/${id}`) ?
                 
                 (
                     <div className="PracticalIcon goBack">
