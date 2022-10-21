@@ -52,7 +52,7 @@ export default function BookPage() {
     <>
         {articles.map((article, index) => (
             article.id === id ? (
-              <section>
+              <section className="PaddingPage paddingWide">
                 {/* CROSS ICON */}
                 <div className="flex crossicon-wrapper">
                 <button className="iconsize">
@@ -173,7 +173,7 @@ export default function BookPage() {
               </div>
             </section>
           ) : null
-        )}
+        ))}
       </>
     );
 }

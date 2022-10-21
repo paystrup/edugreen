@@ -248,6 +248,8 @@ export default function AddArticle() {
           <option value="" disabled selected>Bogens stand</option>
           <option value="Som ny">Som ny</option>
           <option value="God men brugt">God men brugt</option>
+          <option value="Brugt">Brugt</option>
+          <option value="Meget brugt">Meget bbrugt</option>
         </select>
         
         
