@@ -253,6 +253,10 @@ nav a {
   margin-bottom: 3em;
   margin-top: 2em;
 }
+
+.btnActiveSale {
+  background-color:var(--darkgreen);
+}
 .wrapper-messages {
   display: flex;
   flex-direction: row;
@@ -618,6 +622,15 @@ section.redigerProfil > * {
   justify-content: center;
   gap: 1em;
 }
+
+.btnContinue {
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+}
 .login-wrapper {
   display: flex;
   justify-content: center;
@@ -659,6 +672,42 @@ section.redigerProfil > * {
   line-height: 2;
   padding-top: 5%;
 }
+
+/* ------------ BOOKPAGE -------------- */
+.crossicon-wrapper{
+  justify-content: end;
+}
+
+.title-author-hearticon{
+  justify-content: space-between;
+}
+
+.price-watch{
+  justify-content: space-between;
+}
+
+.Align-Number-book{
+  align-self: center;
+}
+.wrapper-price-profile-description-delevery{
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 50px;
+}
+
+.wrapper-information{
+  flex-direction: column;
+  gap: 1em;
+}
+.iconheart svg {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 30px;
+  height: 30px;
+  stroke: var(--darkgreen);
+}
+
 
 
 /* ------------- SIGN OUT ----------------*/

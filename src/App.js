@@ -49,7 +49,7 @@ function App() {
         <Route path="/login" element={<SignIn />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/notification" element={<NotificationPage />} />
-        <Route path="/:slug" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="/bookpage/:id" element={<BookPage />} exact={true} />
         <Route path="/splash" element={<SplashPage/>}/>
       </Routes>

@@ -10,7 +10,7 @@ export default function SplashPage() {
     navigate('/');
   }
   const navigateToLogin = () => {
-    navigate('/login/');
+    navigate('/login');
   }
 
 

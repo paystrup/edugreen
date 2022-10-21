@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
-import { useNavigate } from 'react-router-dom';
-import { ArrowNarrowLeftIcon} from '@heroicons/react/outline'
 
 export default function BlogPage() {
   const [post, setPost] = useState({});
   const params = useParams();
   console.log(params); //udskriver det slug navn man er inde på i log
   const slug = params.slug;
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function getPost() {
@@ -26,10 +22,6 @@ export default function BlogPage() {
 
   return (
     <section className="blogPostPage paddingWide PaddingPage">
-
-      <div className="PracticalIcon goBack">
-        <p onClick={() => navigate(-1)} className="flex iconsize goBackp"><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></p>
-      </div>
 
       {post.acf?.title ? (
         <div>
@@ -98,5 +90,10 @@ export default function BlogPage() {
 /*
 
       <button onClick={() => navigate(-1)}><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></button>
+
+
+      <div className="PracticalIcon goBack">
+        <button onClick={() => navigate(-1)} className="flex iconsize goBackp"><ArrowNarrowLeftIcon/>GÅ TILBAGE</button>
+      </div>
 
       */

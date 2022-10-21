@@ -73,9 +73,9 @@ export default function Login() {
                 Fortsæt med google
             </button>
         </div>
-        <div className="flex email-btn-wrapper">
+        <div>
             <button className="btn-large bg-darkgreen font-btn fc-white">Fortsæt med Email</button>
-            <button className="font-bodytext" onClick={() => navigate("/")}>Fortsæt uden login</button>
+            <button className="font-bodytext btnContinue" onClick={() => navigate("/")}>Fortsæt uden login</button>
             
         </div>
         </div>

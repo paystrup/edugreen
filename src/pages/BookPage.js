@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import { HeartIcon, EyeIcon, XIcon, RefreshIcon,LocationMarkerIcon } from "@heroicons/react/outline";
+import logoBig from '../assets/svg/logo-big.svg';
+import { auth } from "../firebaseConfig.js";
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 
 export default function BookPage() {
   const [articles, setArticles] = useState([]);
@@ -31,12 +37,116 @@ export default function BookPage() {
 
   //   Se om det det virker
   // not suitable for big arrays maybe, loops through the whole db
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+  if (loading) return <h1>Indlæser ...</h1>;
+  if (!user) navigate("/login");
+  if (user)
   return (
     <>
         {articles.map((article, index) => (
             article.id === id ? (
+              <section>
+                {/* CROSS ICON */}
+                <div className="flex crossicon-wrapper">
+                <button className="iconsize">
+                  <XIcon />
+                </button>
+                </div>
+                {/* TITLE-HEARTICON */}
+                <div className="flex title-author-hearticon">
+                  <div>
+                    <h1 className="font-header">{article.title}</h1>
+                  </div>
+                <button className="iconsiz">
+                  <HeartIcon />
+                </button>
+                </div>
+                 {/* AUTOUR */}
+                <h3 className="font-bodytext fc-darkgrey">{article.author}</h3>
+                {/* IMAGE */}
                <img src={article.imageUrl} alt="title" style={{height: 180, width:180}} />
-            
+               <div className="flex wrapper-price-profile-description-delevery">
+                {/* PRICE-WATCHICON */}
+               <div className="flex price-watch">
+                <h2 className="font-header">{article.price} DKK</h2>
+                <div className="flex price-watch">
+                  <div className="iconsize">
+                    <EyeIcon />
+                  </div>
+                  <p className="Align-Number-book">0</p>
+                  <div className="iconsize">
+                    <HeartIcon />
+                  </div>
+                  <p className="Align-Number-book">0</p>
+                </div>
+               </div>
+               {/* PROFILE - SALES */}
+               <div className="flex space-between">
+                <div className="flex">
+                  <img className="imgageh" 
+                    src={logoBig} alt="" 
+                   />
+                   <h2 className="font-profilename">{user.displayName}</h2>
+                </div>
+                <div className="flex">
+                  <div className="iconsize">
+                   <RefreshIcon />
+                  </div>
+                  <p>10 salg</p>
+                </div>
+               </div>
+               {/* DESCRIPTION */}
+               <div>
+                <p className="font-bodytextBig fc-darkgrey">{article.description}</p>
+               </div>
+               {/* DELEVERY */}
+               <div className="flex space-between">
+                   <p className="font-bodytextBig">Afhentning eller levering</p>
+                    <div className="flex">
+                    <div className="iconsize">
+                     <LocationMarkerIcon />
+                    </div>
+                    <p>Aarhus C</p>
+                  </div>
+               </div>
+               </div>
+              {/* ADVANCED INFORMATION */}
+              <div className="flex wrapper-information">
+              {/* oprettet */}
+              <div className="flex space-between">
+                <p className="font-describe-title fc-darkgrey">Oprettet</p>
+                <div className="flex">
+                  <div className="iconsize">
+                    <LocationMarkerIcon />
+                  </div>
+                  <p>{article.createdAt.toDate().toDateString()}</p>
+                </div>
+              </div>
+              {/* udgave */}
+              <div className="flex space-between">
+                <p className="font-describe-title fc-darkgrey">Udgave</p>
+                <div>
+                  <p>{article.edition}</p>
+                </div>
+              </div>
+              {/* stand */}
+              <div className="flex space-between">
+                <p className="font-describe-title fc-darkgrey">Stand</p>
+                <div>
+                  <p>{article.condition}</p>
+                </div>
+              </div>
+              {/* isbn */}
+              <div className="flex space-between">
+                <p className="font-describe-title fc-darkgrey">ISBN</p>
+                <div>
+                  <p>{article.ISBN}</p>
+                </div>
+              </div>
+              {/* BUTTONS */}
+              </div>
+            </section>
             ) 
             : null
         ))}

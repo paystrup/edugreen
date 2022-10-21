@@ -1,8 +1,15 @@
 import {useState} from 'react';
+import { useNavigate} from 'react-router-dom';
 
 export default function Chat() {
+
+
+
   const [page, setPage] = useState("sale");
-  
+
+ 
+
+
   return (
     <div>
       <div className='chat-buttons'>
@@ -20,21 +27,34 @@ export default function Chat() {
   );
 }
 function Buymessage() {
+  const navigate = useNavigate();
+
+  const navigateToSearch = () => {
+    navigate('/search');
+  }
   return (
     <div className='chat-error-message'>
-      <p className='font-header'>Ingen beskeder at vise</p>
-      <p className='font-bodytext'>find bøger</p> 
-      <button className=' btn-large font-btn fc-white bg-green'>Find bøger</button>
+      <p className='font-header'>Du har ingen ny beskeder</p>
+      <p className='font-bodytext'>Find dine nye studiebøger brugt og spar på pengene og miljøet &#128525;</p> 
+      <button className=' btn-large font-btn fc-white bg-green' onClick={navigateToSearch}>Find bøger</button>
       <hr/>
     </div>
   );
 }
+
+
+
 function Sellmessage() {
+  const navigate = useNavigate();
+
+  const navigateToSalg = () => {
+    navigate('/salg');
+  }
   return (
     <div className='chat-error-message'>
-      <p className='font-header'>Ingen nye beskeder</p>
-      <p className='font-bodytext'>opret bog annonce her</p> 
-       <button className=' btn-large font-btn fc-white bg-green'>Sælg dine bøger</button>
+      <p className='font-header'>Du har ingen nye beskeder</p>
+      <p className='font-bodytext'>Begynd at sælg dine gamle bøger og få råd til flere øl i fredagsbaren &#128525;</p> 
+       <button className=' btn-large font-btn fc-white bg-green' onClick={navigateToSalg}>Sæt dine bøger til salg</button>
       <hr/>
     </div>
   );

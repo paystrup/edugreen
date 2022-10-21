@@ -55,7 +55,7 @@ export default function BigCarousel({ posts }) {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat"
           }}
-          onClick={() => navigate(post.slug)}
+          onClick={() => navigate("/blog/" + post.slug)}
         >
           <div>
             <div className="overlay"></div>
