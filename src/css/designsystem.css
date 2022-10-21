@@ -214,7 +214,7 @@
   text-align: center;
   display: inline-block;
   padding: 15px 0px;
-  width: 327px;
+  width: 100%;
   border-radius: 12px;
   cursor: pointer;
 }

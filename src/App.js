@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/App.css";
 import "./css/designsystem.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Router } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Navigation from "./components/Navigation";
 import BottomBar from "./components/BottomBar";
@@ -27,8 +27,13 @@ function App() {
       setLoading(false);
     }, 1500);
   }
+
+
+
+
   return (
     !loading && ( 
+
     <main>
       <Navigation />
       <Routes>
@@ -44,9 +49,11 @@ function App() {
         <Route path="/notification" element={<NotificationPage />} />
         <Route path="/:slug" element={<BlogPage />} />
         <Route path="/bookpage/:id" element={<BookPage />} exact={true} />
-        <Route path="/splash" element={<SplashPage />} />
+        <Route path="/splash" element={<SplashPage/>}/>
       </Routes>
       <BottomBar />
+
+
     </main>
     )
   );

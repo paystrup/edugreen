@@ -47,7 +47,7 @@ export default function Articleteaser() {
         {articles.length === 0 ? (
           <p>Ingen bøger fundet</p>
         ) : (
-          articles.slice(0, visible).map(({ id, title, price, imageUrl }) => (
+          articles.slice(0, visible).map(({ id, title, price, imageUrl, condition }) => (
             <div
               className="card-teaser-wrapper flex"
               key={id}
@@ -76,7 +76,7 @@ export default function Articleteaser() {
                     <p className="font-bookTeaser">DKK</p>
                   </div>
                   {/* INDSÆT STAND I ARTICLE */}
-                  <p className="font-bodytextBig fc-darkgrey">stand god</p>
+                  <p className="font-bodytextBig fc-darkgrey">{condition}</p>
                 </div>
               </div>
             </div>

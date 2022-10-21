@@ -10,10 +10,6 @@ export default function Articleteaser() {
   
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
-  const [visible, setVisible] = useState(4);
-  const showMoreArticles = () => {
-    setVisible((prevValue) => prevValue + 4);
-  };
 
   useEffect(() => {
     // collection from firebase

@@ -5,6 +5,7 @@ import { storage, db } from "./../firebaseConfig";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
+import { UddannelserList } from "../data/uddannelserDK";
 
 export default function AddArticle() {
   console.log(auth.currentUser.uid); // tjek at der logges username fra auth
@@ -15,8 +16,10 @@ export default function AddArticle() {
     ISBN: "",
     edition: "",
     education: "",
+    year: "",
     description: "",
     image: "",
+    condition: "",
     price: "",
     createdAt: Timestamp.now().toDate(),
     user: auth.currentUser.uid
@@ -75,8 +78,11 @@ export default function AddArticle() {
           author: "",
           ISBN: "",
           edition: "",
+          education: "",
+          year: "",
           description: "",
           image: "",
+          condition: "",
           price: "",
           user: auth.currentUser.uid
         });
@@ -92,6 +98,9 @@ export default function AddArticle() {
             edition: formData.edition,
             imageUrl: url,
             price: formData.price,
+            education: formData.education,
+            condition: formData.condition,
+            year: formData.year,
             createdAt: Timestamp.now().toDate(),
             user: auth.currentUser.uid
           })
@@ -164,7 +173,36 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         />
 
-        {/* description */}
+        {/* Year */}
+        <input
+          id="year"
+          type="number"
+          name="year"
+          className="form-control"
+          placeholder="Årstal"
+          value={formData.year}
+          onChange={(e) => handleChange(e)}
+        />
+
+        {/* Education */}
+        <select 
+          id="education" 
+          name="education" 
+          placeholder="Uddannelse"
+          className="form-control"
+          value={formData.education}
+          onChange={(e) => handleChange(e)}
+        >
+          {
+            UddannelserList.map(({uddannelse, id}, index) => {
+                return (
+                  <option value={uddannelse} key={id}>{uddannelse}</option>
+                )
+            })
+          }
+        </select>
+        
+        {/* Description */}
         <label htmlFor="" className="font-header">
           Beskrivelse
         </label>
@@ -192,6 +230,26 @@ export default function AddArticle() {
           onChange={(e) => handleImageChange(e)}
         />
 
+        {/* Condition */}
+        <label htmlFor="" className="font-header">
+          Hvordan er standen?
+        </label>
+
+        <select 
+          id="condition" 
+          name="condition" 
+          placeholder="Bogens stand"
+          className="form-control"
+          value={formData.condition}
+          onChange={(e) => handleChange(e)}
+        >
+          <option value="Som ny">Som ny</option>
+          <option value="God men brugt">God men brugt</option>
+        </select>
+        
+        
+        
+        
         {/* price */}
         <label htmlFor="" className="font-header">
           Hvad skal prisen være?
