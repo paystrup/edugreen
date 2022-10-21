@@ -159,8 +159,6 @@ nav a {
   color: var(--white);
 }
 
-
-
 /* --------------- BIG CAROUSEL SWIPER.JS ----------------- */
 .carouselSection {
   padding-top: 2rem;
@@ -255,7 +253,7 @@ nav a {
 }
 
 .btnActiveSale {
-  background-color:var(--darkgreen);
+  background-color: var(--darkgreen);
 }
 .wrapper-messages {
   display: flex;
@@ -333,7 +331,7 @@ nav a {
 .savingsProfile {
   padding-top: 10%;
 }
-.imgName-wrapper{
+.imgName-wrapper {
   gap: 2em;
 }
 
@@ -458,7 +456,8 @@ section.redigerProfil > * {
   display: none;
 }
 
-.opretBogForm input, select {
+.opretBogForm input,
+select {
   font-family: var(--inter);
   color: black;
   font-weight: 400;
@@ -661,7 +660,7 @@ section.redigerProfil > * {
 }
 
 .splashIndhold {
-  padding-top: 90% ;
+  padding-top: 90%;
 }
 
 .splashBtn {
@@ -674,44 +673,51 @@ section.redigerProfil > * {
 }
 
 /* ------------ BOOKPAGE -------------- */
-.crossicon-wrapper{
+.crossicon-wrapper {
   justify-content: end;
 }
 
-.title-author-hearticon{
+.title-author-hearticon {
   justify-content: space-between;
 }
 
-.price-watch{
+.price-watch {
   justify-content: space-between;
+  align-items: center;
 }
 
-.Align-Number-book{
+.Align-Number-book {
   align-self: center;
 }
-.wrapper-price-profile-description-delevery{
+.wrapper-price-profile-description-delevery {
   flex-direction: column;
   gap: 1em;
   margin-bottom: 50px;
 }
 
-.wrapper-information{
+.wrapper-information {
   flex-direction: column;
   gap: 1em;
 }
-.iconheart svg {
-  display: flex;
-  justify-content: center;
-  align-items: start;
+.iconsizeHeart svg {
   width: 30px;
   height: 30px;
   stroke: var(--darkgreen);
 }
-
-
+button.iconsizeHeart {
+  display: flex;
+}
+.image-wrapper-book {
+  width: 100%;
+  min-height: 45vh;
+  border-radius: 12px;
+}
+.iconandnumber {
+  gap: 6px;
+}
 
 /* ------------- SIGN OUT ----------------*/
-.signOut{
+.signOut {
   padding-bottom: 10rem;
 }
 

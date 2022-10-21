@@ -2,12 +2,18 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-import { HeartIcon, EyeIcon, XIcon, RefreshIcon,LocationMarkerIcon } from "@heroicons/react/outline";
-import logoBig from '../assets/svg/logo-big.svg';
+import {
+  HeartIcon,
+  EyeIcon,
+  XIcon,
+  RefreshIcon,
+  LocationMarkerIcon,
+  ClockIcon,
+} from "@heroicons/react/outline";
+import logoBig from "../assets/svg/logo-big.svg";
 import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-
 
 export default function BookPage() {
   const [articles, setArticles] = useState([]);
@@ -42,119 +48,129 @@ export default function BookPage() {
   if (loading) return <h1>Indlæser ...</h1>;
   if (!user) navigate("/login");
   if (user)
-  return (
-    <>
-        {articles.map((article, index) => (
-            article.id === id ? (
-              <section>
-                {/* CROSS ICON */}
-                <div className="flex crossicon-wrapper">
-                <button className="iconsize">
-                  <XIcon />
-                </button>
+    return (
+      <>
+        {articles.map((article, index) =>
+          article.id === id ? (
+            <section className="paddingWide">
+              {/* TITLE-HEARTICON */}
+              <div className="flex title-author-hearticon">
+                <div>
+                  <h1 className="font-header">{article.title}</h1>
                 </div>
-                {/* TITLE-HEARTICON */}
-                <div className="flex title-author-hearticon">
-                  <div>
-                    <h1 className="font-header">{article.title}</h1>
-                  </div>
-                <button className="iconsiz">
+                <button className="iconsizeHeart">
                   <HeartIcon />
                 </button>
-                </div>
-                 {/* AUTOUR */}
-                <h3 className="font-bodytext fc-darkgrey">{article.author}</h3>
-                {/* IMAGE */}
-               <img src={article.imageUrl} alt="title" style={{height: 180, width:180}} />
-               <div className="flex wrapper-price-profile-description-delevery">
+              </div>
+              {/* AUTOUR */}
+              <h3 className="font-bodytext fc-darkgrey">{article.author}</h3>
+              {/* IMAGE */}
+              <div
+                className="image-wrapper-book"
+                style={{
+                  backgroundImage: `url(${article.imageUrl})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              {/* <img
+                src={article.imageUrl}
+                alt="title"
+                style={{ height: 180, width: 180 }}
+              /> */}
+              <div className="flex wrapper-price-profile-description-delevery">
                 {/* PRICE-WATCHICON */}
-               <div className="flex price-watch">
-                <h2 className="font-header">{article.price} DKK</h2>
                 <div className="flex price-watch">
-                  <div className="iconsize">
-                    <EyeIcon />
+                  <h2 className="font-header">{article.price} DKK</h2>
+                  <div className="flex price-watch iconandnumber">
+                    <div className="iconsize-small-grey">
+                      <EyeIcon />
+                    </div>
+                    <p className="Align-Number-book font-bodytext fc-darkgrey">
+                      0
+                    </p>
+                    <div className="iconsize-small-grey">
+                      <HeartIcon />
+                    </div>
+                    <p className="Align-Number-book font-bodytext fc-darkgrey">
+                      0
+                    </p>
                   </div>
-                  <p className="Align-Number-book">0</p>
-                  <div className="iconsize">
-                    <HeartIcon />
+                </div>
+                {/* PROFILE - SALES */}
+                <div className="flex space-between align-center">
+                  <div className="flex align-center">
+                    <img className="imgageh" src={logoBig} alt="" />
+                    <h2 className="font-bodytext">{user.displayName}</h2>
                   </div>
-                  <p className="Align-Number-book">0</p>
-                </div>
-               </div>
-               {/* PROFILE - SALES */}
-               <div className="flex space-between">
-                <div className="flex">
-                  <img className="imgageh" 
-                    src={logoBig} alt="" 
-                   />
-                   <h2 className="font-profilename">{user.displayName}</h2>
-                </div>
-                <div className="flex">
-                  <div className="iconsize">
-                   <RefreshIcon />
+                  <div className="flex align-center">
+                    <div className="iconsize-small-green">
+                      <RefreshIcon />
+                    </div>
+                    <p className="font-bodytext fc-darkgreen">10 salg</p>
                   </div>
-                  <p>10 salg</p>
                 </div>
-               </div>
-               {/* DESCRIPTION */}
-               <div>
-                <p className="font-bodytextBig fc-darkgrey">{article.description}</p>
-               </div>
-               {/* DELEVERY */}
-               <div className="flex space-between">
-                   <p className="font-bodytextBig">Afhentning eller levering</p>
-                    <div className="flex">
-                    <div className="iconsize">
-                     <LocationMarkerIcon />
+                {/* DESCRIPTION */}
+                <div>
+                  <p className="font-bodytextBig fc-darkgrey">
+                    {article.description}
+                  </p>
+                </div>
+                {/* DELEVERY */}
+                <div className="flex space-between align-center">
+                  <p className="font-bodytextBig">Afhentning eller levering</p>
+                  <div className="flex">
+                    <div className="iconsize-small-black">
+                      <LocationMarkerIcon />
                     </div>
                     <p>Aarhus C</p>
                   </div>
-               </div>
-               </div>
+                </div>
+              </div>
               {/* ADVANCED INFORMATION */}
               <div className="flex wrapper-information">
-              {/* oprettet */}
-              <div className="flex space-between">
-                <p className="font-describe-title fc-darkgrey">Oprettet</p>
-                <div className="flex">
-                  <div className="iconsize">
-                    <LocationMarkerIcon />
+                {/* oprettet */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Oprettet</p>
+                  <div className="flex">
+                    <div className="iconsize-small-black">
+                      <ClockIcon />
+                    </div>
+                    <p className="font-bodytext">
+                      {article.createdAt.toDate().toDateString()}
+                    </p>
                   </div>
-                  <p>{article.createdAt.toDate().toDateString()}</p>
                 </div>
-              </div>
-              {/* udgave */}
-              <div className="flex space-between">
-                <p className="font-describe-title fc-darkgrey">Udgave</p>
-                <div>
-                  <p>{article.edition}</p>
+                {/* udgave */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Udgave</p>
+                  <div>
+                    <p className="font-bodytext">{article.edition}</p>
+                  </div>
                 </div>
-              </div>
-              {/* stand */}
-              <div className="flex space-between">
-                <p className="font-describe-title fc-darkgrey">Stand</p>
-                <div>
-                  <p>{article.condition}</p>
+                {/* stand */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Stand</p>
+                  <div>
+                    <p className="font-bodytext">{article.condition}</p>
+                  </div>
                 </div>
-              </div>
-              {/* isbn */}
-              <div className="flex space-between">
-                <p className="font-describe-title fc-darkgrey">ISBN</p>
-                <div>
-                  <p>{article.ISBN}</p>
+                {/* isbn */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">ISBN</p>
+                  <div>
+                    <p className="font-bodytext">{article.ISBN}</p>
+                  </div>
                 </div>
-              </div>
-              {/* BUTTONS */}
+                {/* BUTTONS */}
               </div>
             </section>
-            ) 
-            : null
-        ))}
-    </>
-
-  );
+          ) : null
+        )}
+      </>
+    );
 }
-
 
 /* <div className="article-wapper">
     

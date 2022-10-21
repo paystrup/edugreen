@@ -136,7 +136,7 @@
   letter-spacing: 4px;
   text-transform: uppercase;
 }
-.font-profilename{
+.font-profilename {
   font-family: var(--inter);
   font-weight: 600;
   font-size: 20px;
@@ -266,6 +266,10 @@
   justify-content: space-between;
 }
 
+.align-center {
+  align-items: center;
+}
+
 /* -------------------------------------------- */
 /* Icons */
 /* -------------------------------------------- */
@@ -279,8 +283,33 @@
   stroke: var(--darkgreen);
 }
 
-.active svg{
+.active svg {
   stroke: var(--green);
+}
+
+.iconsize-small-grey svg {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 20px;
+  height: 20px;
+  stroke: var(--darkgrey);
+}
+.iconsize-small-black svg {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 20px;
+  height: 20px;
+  stroke: var(--black);
+}
+.iconsize-small-green svg {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 15px;
+  height: 15px;
+  stroke: var(--darkgreen);
 }
 
 /*.iconsizeOutline svg {
