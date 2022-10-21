@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ArrowNarrowLeftIcon} from '@heroicons/react/outline'
-
 
 export default function BlogPage() {
   const [post, setPost] = useState({});
   const params = useParams();
   console.log(params); //udskriver det slug navn man er inde på i log
   const slug = params.slug;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getPost() {
@@ -22,15 +23,17 @@ export default function BlogPage() {
     getPost();
   }, [slug]);
 
+
   return (
     <section className="blogPostPage paddingWide PaddingPage">
+
       <div className="PracticalIcon goBack">
-      <NavLink to="/" end className="flex iconsize goBackp"><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></NavLink>
+        <p onClick={() => navigate(-1)} className="flex iconsize goBackp"><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></p>
       </div>
 
       {post.acf?.title ? (
         <div>
-          <p className="font-describe-title font-padding">BLOGPOST</p>
+          <p className="font-describe-title font-padding">Blogpost</p>
           <h1 className="font-belyBig paddingHeader">{post?.acf?.title}</h1>
           {post.acf?.headerimage ? (
             <img src={post.acf?.headerimage} alt={post.acf?.title} />
@@ -90,3 +93,10 @@ export default function BlogPage() {
     </section>
   );
 }
+
+
+/*
+
+      <button onClick={() => navigate(-1)}><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></button>
+
+      */

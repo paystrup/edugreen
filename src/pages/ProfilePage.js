@@ -9,6 +9,8 @@ import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
+import logoBig from '../assets/svg/logo-big.svg';
+import ProfileUserPosts from '../components/ProfileUserPosts.js'
 
 export default function ProfilePage() {
   const [user, loading] = useAuthState(auth);
@@ -20,7 +22,12 @@ export default function ProfilePage() {
       <section className="profilesection paddingWide">
         <div className="flex redigerIkoner ">
           <div className="imageProfile bg-darkgreen">
-            <img className="imgageh" src={auth.currentUser.photoURL} alt="" />
+            <img className="imgageh" 
+              src={auth.currentUser.photoURL} alt="" 
+              onError={(e) => {
+              e.target.onerror = null
+              e.target.src = {logoBig};
+            }}/>
           </div>
 
           <div className="blockProfile paddingWide">
@@ -30,7 +37,7 @@ export default function ProfilePage() {
               <div className="iconsizeProfile">
                 <OfficeBuildingIcon />
               </div>
-              <h3 className="font-bodytext fc-darkgrey"> Multimediedesign</h3>
+              <h3 className="font-bodytext fc-darkgrey">Multimediedesign</h3>
             </div>
             <div className="flex">
               <div className="iconsizeProfile">
@@ -64,10 +71,8 @@ export default function ProfilePage() {
             <h2 className="font-bely fc-white">2kg</h2>
           </div>
         </div>
-
-        <div>
-          <h2 className="font-header">Mine annoncer</h2>
-        </div>
+        
+        <ProfileUserPosts />
       </section>
     );
 }

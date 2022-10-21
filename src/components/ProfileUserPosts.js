@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { HeartIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConfig.js";
 
 export default function Articleteaser() {
+  console.log(auth.currentUser.uid); // tjek at der logges username fra auth
+  
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [visible, setVisible] = useState(4);
@@ -32,23 +35,14 @@ export default function Articleteaser() {
     });
   }, []);
 
+
   return (
-    <section>
-      <div className="flex card-title-btn paddingWide">
-        <p className="font-header">Sidst besøgte</p>
-        <button
-          onClick={showMoreArticles}
-          className="font-btn bg-darkgreen fc-white readmore-btn"
-        >
-          se mere
-        </button>
-      </div>
-      <div className="article-wapper paddingWide">
-        {articles.length === 0 ? (
-          <p>Ingen bøger fundet</p>
-        ) : (
-          articles.slice(0, visible).map(({ id, title, price, imageUrl }) => (
-            <div
+    <section className="PaddingPage">
+        <h2 className="font-header">Mine Annoncer</h2>
+      {articles.map(({ user, id, imageUrl, title, price }) => (
+        user === auth.currentUser.uid
+        ? (
+          <div
               className="card-teaser-wrapper flex"
               key={id}
               onClick={() => navigate("/bookpage/" + id)}
@@ -80,9 +74,15 @@ export default function Articleteaser() {
                 </div>
               </div>
             </div>
-          ))
-        )}
-      </div>
+
+
+
+        )
+
+        : null
+      ))}
+
     </section>
   );
 }
+

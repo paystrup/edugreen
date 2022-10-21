@@ -15,9 +15,20 @@ import Favourites from "./pages/Favourites";
 import NotificationPage from "./pages/NotificationPage";
 import BookPage from "./pages/BookPage";
 import SignIn from "./pages/SignIn";
+import SplashPage from "./pages/SplashPage";
+import {useState} from 'react';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const loader = document.getElementById("loader");
+  if (loader) {
+    setTimeout(() => {
+      loader.style.display = "none";
+      setLoading(false);
+    }, 1500);
+  }
   return (
+    !loading && ( 
     <main>
       <Navigation />
       <Routes>
@@ -33,9 +44,11 @@ function App() {
         <Route path="/notification" element={<NotificationPage />} />
         <Route path="/:slug" element={<BlogPage />} />
         <Route path="/bookpage/:id" element={<BookPage />} exact={true} />
+        <Route path="/splash" element={<SplashPage />} />
       </Routes>
       <BottomBar />
     </main>
+    )
   );
 }
 

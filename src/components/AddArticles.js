@@ -14,6 +14,7 @@ export default function AddArticle() {
     author: "",
     ISBN: "",
     edition: "",
+    education: "",
     description: "",
     image: "",
     price: "",
