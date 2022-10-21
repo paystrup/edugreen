@@ -21,6 +21,7 @@ export default function ProfilePage() {
     return (
       <section className="profilesection paddingWide">
         <div className="flex redigerIkoner ">
+         <div className="flex imgName-wrapper">
           <div className="imageProfile bg-darkgreen">
             <img className="imgageh" 
               src={auth.currentUser.photoURL} alt="" 
@@ -30,7 +31,7 @@ export default function ProfilePage() {
             }}/>
           </div>
 
-          <div className="blockProfile paddingWide">
+          <div className="blockProfile ">
             <h2 className="font-profilename">{user.displayName}</h2>
 
             <div className="flex">
@@ -45,6 +46,7 @@ export default function ProfilePage() {
               </div>
               <h3 className="font-bodytext fc-darkgrey">Aarhus C </h3>
             </div>
+          </div>
           </div>
           <div className=" flex editProfile">
             <NavLink to="/editprofile">
@@ -73,6 +75,13 @@ export default function ProfilePage() {
         </div>
         
         <ProfileUserPosts />
+        <div className="signOut">
+          <h1>Log ud {user.displayName}</h1>
+          <button className="font-btn btn-large-stroke" onClick={() => auth.signOut()}>Sign out</button>
+        </div>
+
+
+
       </section>
     );
 }

@@ -75,6 +75,7 @@ export default function Login() {
         </div>
         <div className="flex email-btn-wrapper">
             <button className="btn-large bg-darkgreen font-btn fc-white">Fortsæt med Email</button>
+            <button className="font-bodytext" onClick={() => navigate("/")}>Fortsæt uden login</button>
             
         </div>
         </div>

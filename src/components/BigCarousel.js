@@ -23,7 +23,7 @@ export default function BigCarousel({ posts }) {
       grabCursor={true}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
-      mousewheel={true}
+      // mousewheel={true}
       keyboard={{
         enabled: true,
       }}
@@ -32,6 +32,19 @@ export default function BigCarousel({ posts }) {
       }}
       modules={[Keyboard, Mousewheel, Pagination]}
       className="mySwiper"
+      breakpoints={{
+        // when window width is >= 1px
+      1: {
+      slidesPerView: 1.2,
+      initialSlide: 1
+      },
+     // when window width is >= 768px
+      960: {
+      slidesPerView: 2,
+      initialSlide: 1
+      },
+  }}
+      
     >
       {posts.map((post) => (
         <SwiperSlide
@@ -40,7 +53,7 @@ export default function BigCarousel({ posts }) {
             backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.9248074229691877) 6%, rgba(0,0,0,0) 100%), url("${post._embedded["wp:featuredmedia"][0].source_url}")`,
             backgroundPosition: "center",
             backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
+            backgroundRepeat: "no-repeat"
           }}
           onClick={() => navigate(post.slug)}
         >

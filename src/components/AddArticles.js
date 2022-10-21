@@ -24,6 +24,7 @@ export default function AddArticle() {
     createdAt: Timestamp.now().toDate(),
     user: auth.currentUser.uid
   });
+  
   const navigate = useNavigate();
 
   const [progress, setProgress] = useState(0);
@@ -193,6 +194,7 @@ export default function AddArticle() {
           value={formData.education}
           onChange={(e) => handleChange(e)}
         >
+          <option value="" disabled selected>Uddannelse</option>
           {
             UddannelserList.map(({uddannelse, id}, index) => {
                 return (
@@ -243,6 +245,7 @@ export default function AddArticle() {
           value={formData.condition}
           onChange={(e) => handleChange(e)}
         >
+          <option value="" disabled selected>Bogens stand</option>
           <option value="Som ny">Som ny</option>
           <option value="God men brugt">God men brugt</option>
         </select>

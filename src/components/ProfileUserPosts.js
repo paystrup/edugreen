@@ -34,50 +34,51 @@ export default function Articleteaser() {
 
   return (
     <section className="PaddingPage">
-        <h2 className="font-header">Mine Annoncer</h2>
-      {articles.map(({ user, id, imageUrl, title, price }) => (
-        user === auth.currentUser.uid
-        ? (
-          <div
-              className="card-teaser-wrapper flex"
-              key={id}
-              onClick={() => navigate("/bookpage/" + id)}
-            >
+        <h2 className="font-header">Mine annoncer</h2>
+        <div className="article-wapper">
+          {articles.map(({ user, id, imageUrl, title, price, condition }) => (
+            user === auth.currentUser.uid
+            ? (
               <div
-                className="image-teaser-wrapper"
-                style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${imageUrl})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <button className="iconsize favorite-icon">
-                  <HeartIcon />
-                </button>
-              </div>
-              <div className="col-9 ps-4">
-                <div>
-                  <h2 className="font-bookTeaser book-cut-title">{title}</h2>
-                </div>
-                <div className="flex book-text-wrapper">
-                  <div className="price-wrapper flex">
-                    <p className="font-bookTeaser price-cut">{price}</p>
-                    <p className="font-bookTeaser">DKK</p>
+                  className="card-teaser-wrapper flex"
+                  key={id}
+                  onClick={() => navigate("/bookpage/" + id)}
+                >
+                  <div
+                    className="image-teaser-wrapper"
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${imageUrl})`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  >
+                    <button className="iconsize favorite-icon">
+                      <HeartIcon />
+                    </button>
                   </div>
-                  {/* INDSÆT STAND I ARTICLE */}
-                  <p className="font-bodytextBig fc-darkgrey">stand god</p>
+                  <div className="col-9 ps-4">
+                    <div>
+                      <h2 className="font-bookTeaser book-cut-title">{title}</h2>
+                    </div>
+                    <div className="flex book-text-wrapper">
+                      <div className="price-wrapper flex">
+                        <p className="font-bookTeaser price-cut">{price}</p>
+                        <p className="font-bookTeaser">DKK</p>
+                      </div>
+                      {/* INDSÆT STAND I ARTICLE */}
+                      <p className="font-bodytextBig fc-darkgrey">{condition}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
 
 
-        )
+            )
 
-        : null
-      ))}
-
+            : null
+          ))}
+        </div>
     </section>
   );
 }

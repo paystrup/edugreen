@@ -20,12 +20,12 @@ export default function Navigation() {
                 </NavLink>
                 <ul>
                     <li>
-                        <NavLink to="/notifications" className='iconsize'>
+                        <NavLink to="/search" className='iconsize'>
                             <SearchIcon />
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/search" className='iconsize'>
+                        <NavLink to="/notification" className='iconsize'>
                             <BellIcon />
                         </NavLink>
                     </li>
@@ -37,9 +37,9 @@ export default function Navigation() {
                     <ul>
                         <li><NavLink to="/">Hjem</NavLink></li>
                         <li><NavLink to="/favourites">Mine favoritter</NavLink></li>
-                        <li><NavLink to="/">Sælg bog</NavLink></li>
+                        <li><NavLink to="/salg">Sælg bog</NavLink></li>
                         <li>
-                            <NavLink to="/" className='iconsize'>
+                            <NavLink to="/search" className='iconsize'>
                                 <SearchIcon />
                             </NavLink>
                         </li>

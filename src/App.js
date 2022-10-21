@@ -17,6 +17,7 @@ import BookPage from "./pages/BookPage";
 import SignIn from "./pages/SignIn";
 import SplashPage from "./pages/SplashPage";
 import {useState} from 'react';
+import Search from "./pages/Search";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/practical" element={<PracticalInfo />} />
         <Route path="/chat" element={<ChatPage />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/salg" element={<OpretSalg />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/favourites" element={<Favourites />} />
