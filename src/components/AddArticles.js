@@ -7,8 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 import { UddannelserList } from "../data/uddannelserDK";
 
+
+// til bookpage, send auth userImgUrl med + navn
+// kan derefter displayes
+
+
 export default function AddArticle() {
-  console.log(auth.currentUser.uid); // tjek at der logges username fra auth
+  console.log(auth.currentUser); // tjek at der logges authenticated user
 
   const [formData, setFormData] = useState({
     title: "",
@@ -22,7 +27,9 @@ export default function AddArticle() {
     condition: "",
     price: "",
     createdAt: Timestamp.now().toDate(),
-    user: auth.currentUser.uid
+    user: auth.currentUser.uid,
+    userImage: auth.currentUser.photoURL,
+    userName: auth.currentUser.displayName
   });
   
   const navigate = useNavigate();
@@ -39,14 +46,15 @@ export default function AddArticle() {
     setFormData({ ...formData, image: e.target.files[0] });
   };
 
-  // onsubmit
+  // Onsubmit, handle the data transfer to firebase firestore
   const handlePublish = () => {
-    if (!formData.title || !formData.image || !formData.price) {
+    // validate inputs, if empty return error - all except ISBN
+    if (!formData.title || !formData.author || !formData.edition || !formData.education || !formData.year || !formData.description || !formData.image || !formData.price || !formData.condition ) {
       alert("Husk at udfyld alle felterne");
       return;
     }
 
-    // alert for price too low
+    // Alert for price too low, check if price is between 2-2000 DKK or return alert
     if (formData.price < 2 || formData.price > 2000) {
       alert(
         "Din pris er uden for grænsen. Indtast en ny pris mellem 2-2000 DKK"
@@ -62,6 +70,7 @@ export default function AddArticle() {
     );
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
+    // Show and log the progress on imageUpload for the progressbar
     uploadImage.on(
       "state_changed",
       (snapshot) => {
@@ -73,6 +82,7 @@ export default function AddArticle() {
       (err) => {
         console.log(err);
       },
+      // store the data in the state
       () => {
         setFormData({
           title: "",
@@ -85,10 +95,13 @@ export default function AddArticle() {
           image: "",
           condition: "",
           price: "",
-          user: auth.currentUser.uid
+          user: auth.currentUser.uid,
+          userImage: auth.currentUser.photoURL,
+          userName: auth.currentUser.displayName
         });
 
         //adddoc is a promise
+        // add values stored in the state to the doc with addDoc
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
           const articleRef = collection(db, "articles");
           addDoc(articleRef, {
@@ -103,9 +116,12 @@ export default function AddArticle() {
             condition: formData.condition,
             year: formData.year,
             createdAt: Timestamp.now().toDate(),
-            user: auth.currentUser.uid
+            user: auth.currentUser.uid,
+            userImage: auth.currentUser.photoURL,
+            userName: auth.currentUser.displayName
           })
           
+            // confirmation toast + redirect after success
             .then(() => {
               toast("Din bog er nu sat til salg", { type: "success" });
               //reset progress on success
@@ -113,6 +129,7 @@ export default function AddArticle() {
             
               return navigate ("/profile" ) 
             })
+            // catch error toast, if article wasn't uploaded
             .catch((err) => {
               toast("Der er sket en fejl. Prøv igen.", { type: "error" });
             });
@@ -127,7 +144,7 @@ export default function AddArticle() {
       <h2 className="font-header paddingHeader">Opret bogsalg</h2>
 
       <div className="bogSalgInputContainer">
-        {/* title */}
+        {/* Title */}
         <input
           id="bookTitle"
           type="text"
@@ -138,7 +155,7 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         />
 
-        {/* author */}
+        {/* Author(s) */}
         <input
           id="author"
           type="text"
@@ -216,7 +233,7 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         />
 
-        {/* image */}
+        {/* Image */}
         <label htmlFor="imageUpload" className="font-header">
           Billeder
         </label>
@@ -251,11 +268,8 @@ export default function AddArticle() {
           <option value="Brugt">Brugt</option>
           <option value="Meget brugt">Meget bbrugt</option>
         </select>
-        
-        
-        
-        
-        {/* price */}
+      
+        {/* Price */}
         <label htmlFor="" className="font-header">
           Hvad skal prisen være?
         </label>
@@ -269,7 +283,8 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      {/* progress - if progress is 0 return none */}
+
+      {/* Progress - if progress is 0 return none */}
       {progress === 0 ? null : (
         <div className="progress">
           <div

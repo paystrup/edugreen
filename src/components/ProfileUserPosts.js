@@ -71,11 +71,7 @@ export default function Articleteaser() {
                     </div>
                   </div>
                 </div>
-
-
-
             )
-
             : null
           ))}
         </div>

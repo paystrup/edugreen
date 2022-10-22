@@ -24,7 +24,7 @@ export default function ProfilePage() {
          <div className="flex imgName-wrapper">
           <div >
             <img className="imageProfile" 
-              src={auth.currentUser.photoURL} alt="" 
+              src={auth.currentUser.photoURL} alt={user.displayName} 
               onError={(e) => {
               e.target.onerror = null
               e.target.src = {logoBig};
@@ -44,7 +44,7 @@ export default function ProfilePage() {
               <div className="iconsizeProfile">
                 <LocationMarkerIcon />
               </div>
-              <h3 className="font-bodytext fc-darkgrey">Aarhus C </h3>
+              <h3 className="font-bodytext fc-darkgrey">Aarhus C</h3>
             </div>
           </div>
           </div>
@@ -78,8 +78,6 @@ export default function ProfilePage() {
         <div className="signOut">
           <button className="font-btn btn-large-stroke signOutBtn" onClick={() => auth.signOut()}>Log ud {user.displayName}</button>
         </div>
-
-
 
       </section>
     );

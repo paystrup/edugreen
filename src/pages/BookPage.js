@@ -37,7 +37,6 @@ export default function BookPage() {
 
       // change state -> importing the array from the db
       setArticles(articles);
-      console.log(articles[0]);
     });
   }, [id]);
 
@@ -53,22 +52,16 @@ export default function BookPage() {
         {articles.map((article, index) => (
             article.id === id ? (
               <section className="PaddingPage paddingWide">
-                {/* CROSS ICON */}
-                <div className="flex crossicon-wrapper">
-                <button className="iconsize">
-                  <XIcon />
-                </button>
-                </div>
                 {/* TITLE-HEARTICON */}
                 <div className="flex title-author-hearticon">
                   <div>
                     <h1 className="font-header">{article.title}</h1>
                   </div>
-                <button className="iconsiz">
+                <button className="iconsize">
                   <HeartIcon />
                 </button>
               </div>
-              {/* AUTOUR */}
+              {/* AUTHOR(S) */}
               <h3 className="font-bodytext fc-darkgrey">{article.author}</h3>
               {/* IMAGE */}
               <div
@@ -107,8 +100,8 @@ export default function BookPage() {
                 {/* PROFILE - SALES */}
                 <div className="flex space-between align-center">
                   <div className="flex align-center">
-                    <img className="imgageh" src={logoBig} alt="" />
-                    <h2 className="font-bodytext">{user.displayName}</h2>
+                    <img className="userBookImage" src={article.userImage} alt="" />
+                    <h2 className="font-bodytext">{article.userName}</h2>
                   </div>
                   <div className="flex align-center">
                     <div className="iconsize-small-green">
