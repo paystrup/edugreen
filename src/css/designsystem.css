@@ -91,6 +91,13 @@
   font-size: 16px;
 }
 
+.font-bodytextBigBold {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+
 .font-btn {
   font-family: var(--inter);
   font-weight: 600;

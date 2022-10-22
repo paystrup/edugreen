@@ -709,9 +709,16 @@ select {
 }
 
 .wrapper-information {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   flex-direction: column;
   gap: 1em;
 }
+
+.bookDescription{
+  margin-bottom: 1.5rem;
+}
+
 .iconsizeHeart svg {
   width: 30px;
   height: 30px;

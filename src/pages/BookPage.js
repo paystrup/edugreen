@@ -96,7 +96,7 @@ export default function BookPage() {
               </div>
 
               {/* BESKRIVELSE */}
-              <div>
+              <div className="bookDescription">
                 <p className="font-bodytextBig fc-darkgrey">
                   {article.description}
                 </p>
@@ -104,12 +104,12 @@ export default function BookPage() {
 
               {/* AFHENTNING ELLER LEVERING */}
               <div className="flex space-between align-center">
-                <p className="font-bodytextBig">Afhentning eller levering</p>
+                <p className="font-bodytextBigBold">Afhentning eller levering</p>
                 <div className="flex gap02">
                   <div className="iconsize-small-black">
                       <LocationMarkerIcon />
                   </div>
-                  <p className="font-bodytext fc-darkgreen">Aarhus C</p>
+                  <p className="font-bodytextBigBold fc-darkgreen">Aarhus C</p>
                 </div>
               </div>
               
@@ -124,8 +124,24 @@ export default function BookPage() {
                         <ClockIcon />
                       </div>
                       <p className="font-bodytext">
-                        {/* {article.createdAt.toDate().toDateString()} */}
+                        {/* {article.createdAt} */}
                       </p>
+                  </div>
+                </div>
+
+                {/* STAND */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Stand</p>
+                  <div>
+                    <p className="font-bodytext">{article.condition}</p>
+                  </div>
+                </div>
+
+                {/* STAND */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Uddannelse</p>
+                  <div>
+                    <p className="font-bodytext">{article.education}</p>
                   </div>
                 </div>
                 
@@ -137,17 +153,23 @@ export default function BookPage() {
                   </div>
                 </div>
 
+                {/* ÅRSTAL */}
                 <div className="flex space-between align-center">
-                  <p className="font-describe-title fc-darkgrey">Stand</p>
+                  <p className="font-describe-title fc-darkgrey">Årstal</p>
                   <div>
-                    <p className="font-bodytext">{article.condition}</p>
+                    <p className="font-bodytext">{article.year}</p>
+                  </div>
+                </div>
+
+                {/* ISBN */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">ISBN</p>
+                  <div>
+                    <p className="font-bodytext">{article.ISBN}</p>
                   </div>
                 </div>
 
               </div>
-
-
-             
 
             </div>
         )}
@@ -155,23 +177,3 @@ export default function BookPage() {
       </section>
     );
 }
-
-// THIS NEEDS TO BE ADDED AGAIN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-//                 {/* stand */}
-//                 <div className="flex space-between align-center">
-//                   <p className="font-describe-title fc-darkgrey">Stand</p>
-//                   <div>
-//                     <p className="font-bodytext">{article.condition}</p>
-//                   </div>
-//                 </div>
-//                 {/* isbn */}
-//                 <div className="flex space-between align-center">
-//                   <p className="font-describe-title fc-darkgrey">ISBN</p>
-//                   <div>
-//                     <p className="font-bodytext">{article.ISBN}</p>
-//                   </div>
-//                 </div>
-//                 {/* BUTTONS */}
-//               </div>
-//             </section> */}
