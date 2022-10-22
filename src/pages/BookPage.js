@@ -36,10 +36,12 @@ export default function BookPage() {
   if (user)
   return (
       <section className="PaddingPage paddingWide">
+        {/* DELETE BUTTON IF IT'S OWNED BY USER SIGNED IN */}
         {article.user === auth.currentUser.uid && (<DeleteArticle id={article.id} imageUrl={article.imageUrl}/>)}
         
         {article && (
             <div>
+              {/* ARTICLE HEADER */}
               <div className="flex title-author-hearticon">
                 <div>
                   <h1 className="font-header">{article.title}</h1>
@@ -49,8 +51,10 @@ export default function BookPage() {
                 </button>
               </div>
 
+              {/* AUTHOR(S) */}
               <h3 className="font-bodytext fc-darkgrey">Af {article.author}</h3>
 
+              {/* ARTICLE MAIN IMAGE */}
               <div
                  className="image-wrapper-book"
                  style={{
@@ -61,7 +65,8 @@ export default function BookPage() {
                  }}
               >         
               </div>
-
+              
+              {/* PRICE + VIEWS + LIKES */}
               <div className="flex space-between">
                  <h3 className="font-header">{article.price} DKK</h3>
                  <div className="flex gap1 align-center">
@@ -73,24 +78,74 @@ export default function BookPage() {
                         <HeartIcon />
                         <p className="font-bodytext fc-darkgrey">0</p>
                     </div>
-
                  </div>
-          
-                
               </div>
-
+              
+              {/* USER PROFILE PIC AND NAME */}
               <div className="flex space-between align-center">
                  <div className="flex align-center">
                     <img className="userBookImage" src={article.userImage} alt="Profilepicture user"></img>
                     <h2 className="font-bodytext">{article.userName}</h2>
                  </div>
-                 <div className="flex align-center">
+                 <div className="flex align-center gap02">
                     <div className="iconsize-small-green">
                         <RefreshIcon />
                     </div>
                     <p className="font-bodytext fc-darkgreen">10 salg</p>
                   </div>
               </div>
+
+              {/* BESKRIVELSE */}
+              <div>
+                <p className="font-bodytextBig fc-darkgrey">
+                  {article.description}
+                </p>
+              </div>
+
+              {/* AFHENTNING ELLER LEVERING */}
+              <div className="flex space-between align-center">
+                <p className="font-bodytextBig">Afhentning eller levering</p>
+                <div className="flex gap02">
+                  <div className="iconsize-small-black">
+                      <LocationMarkerIcon />
+                  </div>
+                  <p className="font-bodytext fc-darkgreen">Aarhus C</p>
+                </div>
+              </div>
+              
+              {/* ADVANCED INFO */}
+              <div className="flex wrapper-information">
+
+                {/* DATO OPRETTET */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Oprettet</p>
+                  <div className="flex gap02">
+                      <div className="iconsize-small-black">
+                        <ClockIcon />
+                      </div>
+                      <p className="font-bodytext">
+                        {/* {article.createdAt.toDate().toDateString()} */}
+                      </p>
+                  </div>
+                </div>
+                
+                {/* UDGAVE */}
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Udgave</p>
+                  <div>
+                    <p className="font-bodytext">{article.edition}. udgave</p>
+                  </div>
+                </div>
+
+                <div className="flex space-between align-center">
+                  <p className="font-describe-title fc-darkgrey">Stand</p>
+                  <div>
+                    <p className="font-bodytext">{article.condition}</p>
+                  </div>
+                </div>
+
+              </div>
+
 
              
 
@@ -103,51 +158,6 @@ export default function BookPage() {
 
 // THIS NEEDS TO BE ADDED AGAIN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-//                   <div className="flex align-center">
-//                     <div className="iconsize-small-green">
-//                       <RefreshIcon />
-//                     </div>
-//                     <p className="font-bodytext fc-darkgreen">10 salg</p>
-//                   </div>
-//                 </div>
-//                 {/* DESCRIPTION */}
-//                 <div>
-//                   <p className="font-bodytextBig fc-darkgrey">
-//                     {article.description}
-//                   </p>
-//                 </div>
-//                 {/* DELEVERY */}
-//                 <div className="flex space-between align-center">
-//                   <p className="font-bodytextBig">Afhentning eller levering</p>
-//                   <div className="flex">
-//                     <div className="iconsize-small-black">
-//                       <LocationMarkerIcon />
-//                     </div>
-//                     <p>Aarhus C</p>
-//                   </div>
-//                 </div>
-//               </div>
-//               {/* ADVANCED INFORMATION */}
-//               <div className="flex wrapper-information">
-//                 {/* oprettet */}
-//                 <div className="flex space-between align-center">
-//                   <p className="font-describe-title fc-darkgrey">Oprettet</p>
-//                   <div className="flex">
-//                     <div className="iconsize-small-black">
-//                       <ClockIcon />
-//                     </div>
-//                     <p className="font-bodytext">
-//                       {article.createdAt.toDate().toDateString()}
-//                     </p>
-//                   </div>
-//                 </div>
-//                 {/* udgave */}
-//                 <div className="flex space-between align-center">
-//                   <p className="font-describe-title fc-darkgrey">Udgave</p>
-//                   <div>
-//                     <p className="font-bodytext">{article.edition}</p>
-//                   </div>
-//                 </div>
 //                 {/* stand */}
 //                 <div className="flex space-between align-center">
 //                   <p className="font-describe-title fc-darkgrey">Stand</p>
