@@ -18,6 +18,7 @@ import SignIn from "./pages/SignIn";
 import SplashPage from "./pages/SplashPage";
 import {useState} from 'react';
 import Search from "./pages/Search";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,7 @@ function App() {
     !loading && ( 
 
     <main>
+      <ScrollToTop />
       <Navigation />
       <Routes>
         <Route path="/" element={<LandingPage />} />
