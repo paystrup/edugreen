@@ -37,8 +37,15 @@ export default function BookPage() {
   return (
       <section className="PaddingPage paddingWide">
         {/* DELETE BUTTON IF IT'S OWNED BY USER SIGNED IN */}
-        {article.user === auth.currentUser.uid && (<DeleteArticle id={article.id} imageUrl={article.imageUrl}/>)}
-        
+        {article.user === auth.currentUser.uid && (
+          <div className="bookEditBtn flex flexCol gap05">
+            <DeleteArticle id={article.id} imageUrl={article.imageUrl}/>
+            <button className="font-btn btn-large bg-darkgreen fc-white">Rediger opslag</button>
+          </div>
+          
+          
+        )}
+
         {article && (
             <div>
               {/* ARTICLE HEADER */}

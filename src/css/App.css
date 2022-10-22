@@ -162,7 +162,7 @@ nav a {
 /* --------------- BIG CAROUSEL SWIPER.JS ----------------- */
 .carouselSection {
   padding-top: 2rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 
 .swiper-pagination {
@@ -685,6 +685,10 @@ select {
   width: 40px;
   border-radius: 50%;
   margin-right: 0.4rem;
+}
+
+.bookEditBtn{
+  margin-bottom: 2rem;
 }
 .crossicon-wrapper {
   justify-content: end;

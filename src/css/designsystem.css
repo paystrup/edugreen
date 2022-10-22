@@ -273,8 +273,16 @@
   display: flex;
 }
 
+.flexCol {
+  flex-direction: column;
+}
+
 .gap1{
   gap: 1rem;
+}
+
+.gap05{
+  gap: 0.5rem;
 }
 
 .gap02{

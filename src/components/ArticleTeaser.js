@@ -40,7 +40,7 @@ export default function Articleteaser() {
           onClick={showMoreArticles}
           className="font-btn bg-darkgreen fc-white readmore-btn"
         >
-          se mere
+          Se mere
         </button>
       </div>
       <div className="article-wapper paddingWide">
