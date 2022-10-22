@@ -242,6 +242,18 @@
   border: 2px solid var(--lightgrey);
 }
 
+.btn-large-strokeWide {
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 100%;
+  border: 2px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid var(--lightgrey);
+}
+
 /* Medium buttons */
 .btn-medium {
   border: none;

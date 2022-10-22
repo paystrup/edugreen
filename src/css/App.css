@@ -531,30 +531,36 @@ select {
   position: relative;
   flex-direction: column;
   gap: 10px;
+  cursor: pointer;
 }
+
 .image-teaser-wrapper {
   background-color: var(--lightgrey);
   animation: pulse 1.5s 1 ease-in-out;
   border-radius: 12px;
 }
+
 .book-teaser-image {
-  width: 155px;
+  max-width: 155px;
   height: 155px;
   object-fit: cover;
   border-radius: 12px;
 }
+
 .book-cut-title {
   overflow: hidden;
   max-width: 150px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .price-cut {
   overflow: hidden;
   max-width: 4ch;
   white-space: nowrap;
   text-overflow: clip;
 }
+
 .price-wrapper {
   gap: 2px;
 }
@@ -563,21 +569,25 @@ select {
   justify-content: space-between;
   align-items: center;
 }
+
 .favorite-icon {
   position: absolute;
   top: 5px;
   right: 5px;
 }
+
 .favorite-icon path {
   fill: none;
   stroke: var(--green);
   stroke-width: 2px;
 }
+
 .readmore-btn {
   width: 100px;
   height: 35px;
   border-radius: 12px;
 }
+
 .card-title-btn {
   justify-content: space-between;
 }
@@ -687,9 +697,14 @@ select {
   margin-right: 0.4rem;
 }
 
+.bookHeader{
+  margin-bottom: 1.5rem;
+}
+
 .bookEditBtn{
   margin-bottom: 2rem;
 }
+
 .crossicon-wrapper {
   justify-content: end;
 }
@@ -721,6 +736,7 @@ select {
 
 .bookDescription{
   margin-bottom: 1.5rem;
+  line-height: 140%;
 }
 
 .bookpageUserInfo{
@@ -779,9 +795,11 @@ button.iconsizeHeart {
   .navMobile {
     display: none;
   }
+
   .bottombar {
     display: none;
   }
+
   .card-teaser-wrapper {
     width: 250px;
     height: auto;
@@ -809,10 +827,12 @@ button.iconsizeHeart {
     width: 200px;
     height: auto;
   }
+
   .image-teaser-wrapper {
     width: 200px;
     height: 200px;
   }
+
   .article-wapper {
     grid-template-columns: repeat(4, 0fr);
     justify-content: space-between;
@@ -831,14 +851,17 @@ button.iconsizeHeart {
   .wrapper-bottombar {
     display: flex;
   }
+
   .card-teaser-wrapper {
     width: 200px;
     height: auto;
   }
+
   .image-teaser-wrapper {
     width: 200px;
     height: 200px;
   }
+
   .article-wapper {
     grid-template-columns: repeat(auto-fill, minmax(200px, 0fr));
     justify-content: space-between;
@@ -865,10 +888,12 @@ button.iconsizeHeart {
     width: 155px;
     height: auto;
   }
+
   .image-teaser-wrapper {
     width: 155px;
     height: 155px;
   }
+
   .article-wapper {
     grid-template-columns: repeat(auto-fill, minmax(155px, 0fr));
     justify-content: space-between;

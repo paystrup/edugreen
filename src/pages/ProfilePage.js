@@ -76,7 +76,7 @@ export default function ProfilePage() {
         
         <ProfileUserPosts />
         <div className="signOut">
-          <button className="font-btn btn-large-stroke signOutBtn" onClick={() => auth.signOut()}>Log ud {user.displayName}</button>
+          <button className="font-btn btn-large-strokeWide signOutBtn" onClick={() => auth.signOut()}>Log ud {user.displayName}</button>
         </div>
 
       </section>

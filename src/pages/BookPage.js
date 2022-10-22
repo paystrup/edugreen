@@ -36,30 +36,31 @@ export default function BookPage() {
   if (user)
   return (
       <section className="PaddingPage paddingWide">
-        {/* DELETE BUTTON IF IT'S OWNED BY USER SIGNED IN */}
+        {/* DELETE + EDIT BUTTON IF IT'S OWNED BY USER SIGNED IN */}
         {article.user === auth.currentUser.uid && (
           <div className="bookEditBtn flex flexCol gap05">
             <DeleteArticle id={article.id} imageUrl={article.imageUrl}/>
             <button className="font-btn btn-large bg-darkgreen fc-white">Rediger opslag</button>
           </div>
-          
-          
         )}
 
         {article && (
             <div>
               {/* ARTICLE HEADER */}
-              <div className="flex title-author-hearticon">
-                <div>
-                  <h1 className="font-header">{article.title}</h1>
+              <div className="bookHeader">
+                <div className=" flex title-author-hearticon">
+                  <div>
+                    <h1 className="font-header">{article.title}</h1>
+                  </div>
+                  <button className="iconsize">
+                    <HeartIcon />
+                  </button>
                 </div>
-                <button className="iconsize">
-                  <HeartIcon />
-                </button>
-              </div>
 
-              {/* AUTHOR(S) */}
-              <h3 className="font-bodytext fc-darkgrey">Af {article.author}</h3>
+                {/* AUTHOR(S) */}
+                <h3 className="font-bodytext fc-darkgrey">Af {article.author}</h3>
+              </div>
+ 
 
               {/* ARTICLE MAIN IMAGE */}
               <div

@@ -53,7 +53,8 @@ export default function BigCarousel({ posts }) {
             backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.9248074229691877) 6%, rgba(0,0,0,0) 100%), url("${post._embedded["wp:featuredmedia"][0].source_url}")`,
             backgroundPosition: "center",
             backgroundSize: "cover",
-            backgroundRepeat: "no-repeat"
+            backgroundRepeat: "no-repeat",
+            cursor: "pointer"
           }}
           onClick={() => navigate("/blog/" + post.slug)}
         >
