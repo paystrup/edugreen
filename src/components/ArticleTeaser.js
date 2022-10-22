@@ -35,7 +35,7 @@ export default function Articleteaser() {
   return (
     <section>
       <div className="flex card-title-btn paddingWide">
-        <p className="font-header">Sidst besøgte</p>
+        <p className="font-header">Nyeste bøger</p>
         <button
           onClick={showMoreArticles}
           className="font-btn bg-darkgreen fc-white readmore-btn"
@@ -45,7 +45,7 @@ export default function Articleteaser() {
       </div>
       <div className="article-wapper paddingWide">
         {articles.length === 0 ? (
-          <p>Ingen bøger fundet</p>
+          <p className="font-bodytext fc-darkgreen">Ingen bøger fundet</p>
         ) : (
           articles.slice(0, visible).map(({ id, title, price, imageUrl, condition }) => (
             <div

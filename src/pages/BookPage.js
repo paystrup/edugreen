@@ -67,7 +67,7 @@ export default function BookPage() {
               </div>
               
               {/* PRICE + VIEWS + LIKES */}
-              <div className="flex space-between">
+              <div className="bookpagePrice flex space-between">
                  <h3 className="font-header">{article.price} DKK</h3>
                  <div className="flex gap1 align-center">
                     <div className="gap02 flex iconsize-small-grey">
@@ -82,10 +82,10 @@ export default function BookPage() {
               </div>
               
               {/* USER PROFILE PIC AND NAME */}
-              <div className="flex space-between align-center">
+              <div className="bookpageUserInfo flex space-between align-center">
                  <div className="flex align-center">
                     <img className="userBookImage" src={article.userImage} alt="Profilepicture user"></img>
-                    <h2 className="font-bodytext">{article.userName}</h2>
+                    <h2 className="font-bodytextBigBold">{article.userName}</h2>
                  </div>
                  <div className="flex align-center gap02">
                     <div className="iconsize-small-green">

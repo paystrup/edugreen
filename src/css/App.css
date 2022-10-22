@@ -719,6 +719,15 @@ select {
   margin-bottom: 1.5rem;
 }
 
+.bookpageUserInfo{
+  margin-bottom: 1rem;
+}
+
+.bookpagePrice{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .iconsizeHeart svg {
   width: 30px;
   height: 30px;
