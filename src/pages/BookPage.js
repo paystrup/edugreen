@@ -12,6 +12,7 @@ import {
 import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
+import DeleteArticle from "../components/DeleteArticle";
 
 export default function BookPage() {
   const [article, setArticle] = useState([]);
@@ -35,6 +36,8 @@ export default function BookPage() {
   if (user)
   return (
       <section className="PaddingPage paddingWide">
+        {article.user === auth.currentUser.uid && (<DeleteArticle id={article.id} imageUrl={article.imageUrl}/>)}
+        
         {article && (
             <div>
               <div className="flex title-author-hearticon">

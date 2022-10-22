@@ -152,6 +152,10 @@
   background-color: var(--green);
 }
 
+.bg-red {
+  background-color: rgb(255, 90, 90);
+}
+
 .bg-lightgreen {
   background-color: var(--lightgreen);
 }

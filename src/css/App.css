@@ -636,6 +636,7 @@ select {
   border-radius: 12px;
   cursor: pointer;
 }
+
 .login-wrapper {
   display: flex;
   justify-content: center;
