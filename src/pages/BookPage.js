@@ -5,12 +5,10 @@ import { db } from "../firebaseConfig";
 import {
   HeartIcon,
   EyeIcon,
-  XIcon,
   RefreshIcon,
   LocationMarkerIcon,
   ClockIcon,
 } from "@heroicons/react/outline";
-import logoBig from "../assets/svg/logo-big.svg";
 import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
