@@ -266,6 +266,14 @@
   display: flex;
 }
 
+.gap1{
+  gap: 1rem;
+}
+
+.gap02{
+  gap: 0.2rem;
+}
+
 .space-between {
   justify-content: space-between;
 }
@@ -299,6 +307,7 @@
   height: 20px;
   stroke: var(--darkgrey);
 }
+
 .iconsize-small-black svg {
   display: flex;
   justify-content: center;
@@ -307,12 +316,13 @@
   height: 20px;
   stroke: var(--black);
 }
+
 .iconsize-small-green svg {
   display: flex;
   justify-content: center;
   align-items: end;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   stroke: var(--darkgreen);
 }
 

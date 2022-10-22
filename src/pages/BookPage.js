@@ -61,6 +61,39 @@ export default function BookPage() {
                  }}
               >         
               </div>
+
+              <div className="flex space-between">
+                 <h3 className="font-header">{article.price} DKK</h3>
+                 <div className="flex gap1 align-center">
+                    <div className="gap02 flex iconsize-small-grey">
+                        <EyeIcon />
+                        <p className="font-bodytext fc-darkgrey">0</p>
+                    </div>
+                    <div className="gap02 flex iconsize-small-grey align-center">
+                        <HeartIcon />
+                        <p className="font-bodytext fc-darkgrey">0</p>
+                    </div>
+
+                 </div>
+          
+                
+              </div>
+
+              <div className="flex space-between align-center">
+                 <div className="flex align-center">
+                    <img className="userBookImage" src={article.userImage} alt="Profilepicture user"></img>
+                    <h2 className="font-bodytext">{article.userName}</h2>
+                 </div>
+                 <div className="flex align-center">
+                    <div className="iconsize-small-green">
+                        <RefreshIcon />
+                    </div>
+                    <p className="font-bodytext fc-darkgreen">10 salg</p>
+                  </div>
+              </div>
+
+             
+
             </div>
         )}
         
@@ -69,12 +102,7 @@ export default function BookPage() {
 }
 
 // THIS NEEDS TO BE ADDED AGAIN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//                 {/* PROFILE - SALES */}
-//                 <div className="flex space-between align-center">
-//                   <div className="flex align-center">
-//                     <img className="userBookImage" src={article.userImage} alt="" />
-//                     <h2 className="font-bodytext">{article.userName}</h2>
-//                   </div>
+
 //                   <div className="flex align-center">
 //                     <div className="iconsize-small-green">
 //                       <RefreshIcon />
