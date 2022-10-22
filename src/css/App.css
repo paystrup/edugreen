@@ -358,7 +358,8 @@ section.redigerProfil > * {
 }
 
 .editForm input,
-.editForm select {
+.editForm select,
+.editForm option {
   font-family: var(--inter);
   color: var(--darkgrey);
   font-weight: 400;
@@ -379,7 +380,6 @@ section.redigerProfil > * {
   border-radius: 12px;
   border: 1px solid var(--darkgreen);
   height: 7rem;
-  margin-bottom: 5%;
 }
 
 .editName {
@@ -423,6 +423,11 @@ section.redigerProfil > * {
 .iconsizeCross {
   width: 20px;
   height: 20px;
+}
+
+option .iconsize{
+  width: 30px;
+  height: 30px;
 }
 
 /*------------ PRAKTISK INFO - PracticalInfo.js----------*/
@@ -753,6 +758,7 @@ select {
   height: 30px;
   stroke: var(--darkgreen);
 }
+
 button.iconsizeHeart {
   display: flex;
 }
@@ -782,6 +788,7 @@ button.iconsizeHeart {
   padding-right: 1.2rem;
   padding-bottom: 1rem;
 }
+
 .fontting {
   text-transform: capitalize;
 }

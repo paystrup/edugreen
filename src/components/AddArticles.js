@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 import { UddannelserList } from "../data/uddannelserDK";
+import { ViewGridIcon } from "@heroicons/react/outline";
 
 
 // til bookpage, send auth userImgUrl med + navn
@@ -180,27 +181,29 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         />
 
-        {/* Edition */}
-        <input
-          id="edition"
-          type="number"
-          name="edition"
-          className="form-control"
-          placeholder="Udgave"
-          value={formData.edition}
-          onChange={(e) => handleChange(e)}
-        />
+        <div className="flex gap1">
+          {/* Edition */}
+          <input
+            id="edition"
+            type="number"
+            name="edition"
+            className="form-control"
+            placeholder="Udgave"
+            value={formData.edition}
+            onChange={(e) => handleChange(e)}
+          />
 
-        {/* Year */}
-        <input
-          id="year"
-          type="number"
-          name="year"
-          className="form-control"
-          placeholder="Årstal"
-          value={formData.year}
-          onChange={(e) => handleChange(e)}
-        />
+          {/* Year */}
+          <input
+            id="year"
+            type="number"
+            name="year"
+            className="form-control"
+            placeholder="Årstal"
+            value={formData.year}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
 
         {/* Education */}
         <select 
@@ -211,7 +214,7 @@ export default function AddArticle() {
           value={formData.education}
           onChange={(e) => handleChange(e)}
         >
-          <option value="" disabled selected>Uddannelse</option>
+          <option value="" disabled selected><ViewGridIcon className="iconsize-small-black"/>Vælg uddannelse</option>
           {
             UddannelserList.map(({uddannelse, id}, index) => {
                 return (
@@ -262,11 +265,11 @@ export default function AddArticle() {
           value={formData.condition}
           onChange={(e) => handleChange(e)}
         >
-          <option value="" disabled selected>Bogens stand</option>
+          <option value="" disabled selected>Vælg bogens stand</option>
           <option value="Som ny">Som ny</option>
-          <option value="God men brugt">God men brugt</option>
-          <option value="Brugt">Brugt</option>
-          <option value="Meget brugt">Meget bbrugt</option>
+          <option value="God">God</option>
+          <option value="Lidt brugt">Lidt brugt</option>
+          <option value="Meget brugt">Meget brugt</option>
         </select>
       
         {/* Price */}
