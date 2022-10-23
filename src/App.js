@@ -30,8 +30,6 @@ function App() {
     }, 2000);
   }
 
-
-
   // loading animations
   return (
     !loading && ( 

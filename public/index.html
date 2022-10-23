@@ -22,7 +22,7 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>EduGreen - Din markedsplads for brugte studiebøger</title>
-        <style>
+    <style>
       .loadingpage {
         width: 300px;
         -webkit-animation: logo-scale 1s infinite ease-in-out;
@@ -31,7 +31,7 @@
 
       .bg-container {
         align-items: center;
-        background-color: #24dd74;
+        background-color: white;
         display: flex;
         height: 100vh;
         justify-content: center;
@@ -39,14 +39,13 @@
         top: 0;
         left: 0;
       }
+
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="loader" class="bg-container">
-      <video width="400" height="200" controls autoplay>
-        <source src="src/assets/video/loaderLogo.mp4" type="video/mp4">
-    </video>
+      <img class="loadingpage" src="/src//assets/images/skov.jpeg" alt="">
     </div>
     <div id="root"></div>
     <!--
