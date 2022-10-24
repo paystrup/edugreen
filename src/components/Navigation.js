@@ -27,7 +27,7 @@ export default function Navigation() {
                 {location.pathname === '/practical' || location.pathname === '/editprofile' || location.pathname === (`/blog/${id}`) ?
                 
                 (
-                    <div className="PracticalIcon goBack">
+                    <div className=" goBack">
                         <p onClick={() => navigate(-1)} className="flex iconsize goBackp"><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></p>
                     </div>
                 )

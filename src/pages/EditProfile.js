@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import { ArrowNarrowLeftIcon, XIcon, PlusIcon} from '@heroicons/react/outline'
-import {useState} from "react"
 import { auth } from "../firebaseConfig.js";
 import logoBig from '../assets/svg/logo-big.svg';
 
@@ -10,31 +9,8 @@ import logoBig from '../assets/svg/logo-big.svg';
 
 export default function EditProfile() {
 
-  const [inputFields, setInputFields] = useState([
-    {interests: ''}
-])
 
-const handleFormChange = (index, event) => {
-  let data = [...inputFields];
-  data[index][event.target.name] = event.target.value;
-  setInputFields(data);
-}
-const addFields = () => {
-  let newfield = { name: '', age: '' }
 
-  setInputFields([...inputFields, newfield])
-}
-
-const submit = (e) => {
-  e.preventDefault();
-  console.log(inputFields)
-}
-
-const removeFields = (index) => {
-  let data = [...inputFields];
-  data.splice(index, 1)
-  setInputFields(data)
-}
 
   return (
     <section className="paddingWide redigerProfil PaddingPage">
@@ -98,30 +74,8 @@ const removeFields = (index) => {
   <PlusIcon className='crossIcon iconsizeCross'/></button>
 
 </div>
-        <input className="editSubmit" type="submit" value="Submit" />
       </form>
-
-      <div className="hej">
-      <form onSubmit={submit}>
-        {inputFields.map((input, index) => {
-          return (
-            <div key={index}>
-              <input
-                name='interests'
-                placeholder='Interesser'
-                value={input.interests}
-                onChange={event => handleFormChange(index, event)}
-              />
-            </div>
-          )
-        })}
-<button onClick={addFields}>Add More..</button>
-<button onClick={submit}>Submit</button>
-<button onClick={() => removeFields()}>Remove</button>
-
-      </form>
-    </div>
-
+      <input className="editSubmit btn-large font-btn" type="submit" value="Submit" />
 
     </section>
   );

@@ -23,11 +23,6 @@
     -->
     <title>EduGreen - Din markedsplads for brugte studiebøger</title>
     <style>
-      .loadingpage {
-        width: 300px;
-        -webkit-animation: logo-scale 1s infinite ease-in-out;
-        animation: logo-scale 1s infinite ease-in-out;
-      }
 
       .bg-container {
         align-items: center;
@@ -35,7 +30,7 @@
         display: flex;
         height: 100vh;
         justify-content: center;
-        width: 100vw;
+        width: 100%;
         top: 0;
         left: 0;
       }
@@ -45,7 +40,9 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="loader" class="bg-container">
-      <img class="loadingpage" src="/src//assets/images/skov.jpeg" alt="">
+      <video width="300" height="200" autoplay muted loop>
+        <source src="loaderLogo.mp4" type="video/mp4" />
+      </video>
     </div>
     <div id="root"></div>
     <!--

@@ -230,6 +230,17 @@
   cursor: pointer;
 }
 
+.btn-largeFixed {
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 315px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
 .btn-large-stroke {
   text-decoration: none;
   text-align: center;

@@ -1,4 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
+import { SiFacebook, SiApple } from "react-icons/si";
 import {
   signInWithPopup,
   GoogleAuthProvider
@@ -36,6 +37,7 @@ export default function Login() {
 
   return (
     <section className="loginSection">
+
         <div className="loginHeader"
             style={{
                 backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.9248074229691877) 6%, rgba(0,0,0,0) 100%), url("${loginHeaderImage}")`,
@@ -47,38 +49,35 @@ export default function Login() {
 
         </div>
         <div className="login-wrapper paddingWide">
-        <h2 className="font-header">Login eller opret profil</h2>
+              <h2 className="font-header ">Login eller opret profil</h2>
+              <div className="flex auth-provideres loginIcons">
+                  <button className="btn-login flex align-center font-btn"
+                      onClick={GoogleLogin}
+                  >
+                      <FcGoogle className="" />
+                      Fortsæt med Google
+                  </button>
 
-            <div className="flex auth-provideres">
-            <button className="btn-login flex font-btn"
-                onClick={GoogleLogin}
-                
-            >
-                <FcGoogle className="" />
-                Fortsæt med google
-            </button>
+                  <button className="btn-login flex font-btn align-center facebookLogin"
+                      onClick={GoogleLogin}
+                  >
+                      <SiFacebook className="" />
+                      Fortsæt med Facebook
+                  </button>
 
-            <button className="btn-login flex font-btn"
-                onClick={GoogleLogin}
->
-                <FcGoogle className="" />
-                Fortsæt med google
-            </button>
+                  <button className="btn-login flex align-center font-btn"
+                      onClick={GoogleLogin}    
+                  >
+                      <SiApple className="" />
+                      Fortsæt med Apple
+                  </button>
+              </div>
+              <div className="flex align-center flexCol">
+                  <button className="btn-largeFixed bg-darkgreen font-btn fc-white ">Fortsæt med Email</button>
+                  <button className="font-bodytext btnContinue" onClick={() => navigate("/")}>Gå til forsiden</button>
 
-            <button className="btn-login flex font-btn"
-                onClick={GoogleLogin}
-                
-            >
-                <FcGoogle className="" />
-                Fortsæt med google
-            </button>
-        </div>
-        <div>
-            <button className="btn-large bg-darkgreen font-btn fc-white">Fortsæt med Email</button>
-            <button className="font-bodytext btnContinue" onClick={() => navigate("/")}>Fortsæt uden login</button>
-            
-        </div>
-        </div>
+              </div>
+            </div>
     </section>
   );
 }

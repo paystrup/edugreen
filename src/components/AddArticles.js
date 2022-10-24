@@ -170,10 +170,7 @@ export default function AddArticle() {
         {/* ISBN */}
         <input
           id="ISBN"
-          type="number"
-          min="1"
-          max="9999999"
-          step="1"
+          type="text"
           name="ISBN"
           className="form-control"
           placeholder="ISBN"
@@ -223,11 +220,14 @@ export default function AddArticle() {
             })
           }
         </select>
-        
+
         {/* Description */}
         <label htmlFor="" className="font-header">
           Beskrivelse
         </label>
+        <p className="font-bodytextBig fc-darkgrey">
+          Angiv information omkring bogen, <span className="font-bodytextBigBold fc-black">om der er overstregninger</span>, eventuelle fejl og mangler, der er værd at vide for køber.
+        </p>
         <textarea
           name="description"
           className="form-control"
@@ -261,11 +261,11 @@ export default function AddArticle() {
           id="condition" 
           name="condition" 
           placeholder="Bogens stand"
-          className="form-control"
+          className="form-control form-select"
           value={formData.condition}
           onChange={(e) => handleChange(e)}
         >
-          <option value="" disabled selected>Vælg bogens stand</option>
+          <option className="optioncolor" value="" disabled selected>Vælg bogens stand</option>
           <option value="Som ny">Som ny</option>
           <option value="God">God</option>
           <option value="Lidt brugt">Lidt brugt</option>
