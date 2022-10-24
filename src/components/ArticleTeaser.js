@@ -1,12 +1,15 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
-import { HeartIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import LikeArticle from "./LikeArticle"; 
+import { auth } from "../firebaseConfig.js";
 
 export default function Articleteaser() {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
+  const [user] = useAuthState(auth);
   const [visible, setVisible] = useState(4);
   const showMoreArticles = () => {
     setVisible((prevValue) => prevValue + 4);
@@ -47,7 +50,7 @@ export default function Articleteaser() {
         {articles.length === 0 ? (
           <p className="font-bodytext fc-darkgreen">Ingen bøger fundet</p>
         ) : (
-          articles.slice(0, visible).map(({ id, title, price, imageUrl, condition }) => (
+          articles.slice(0, visible).map(({ id, title, price, imageUrl, condition, likes }) => (
             <div
               className="card-teaser-wrapper flex"
               key={id}
@@ -62,9 +65,9 @@ export default function Articleteaser() {
                   backgroundRepeat: "no-repeat",
                 }}
               >
-                <button className="iconsize favorite-icon">
-                  <HeartIcon />
-                </button>
+              <div className="favorite-icon iconsize">
+                {user && <LikeArticle id={id} likes={likes} />}
+              </div> 
               </div>
               <div className="col-9 ps-4">
                 <div>

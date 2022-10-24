@@ -533,6 +533,27 @@ select {
   appearance: none;
 }
 
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  padding: 1rem 1rem;
+  border-radius: 12px;
+  background-color: var(--lightgrey);
+  display: inline-block;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-file-upload img{
+  height: 80%;
+}
+
 
 /* ------------ BLOG POSTS - PAGE -------------- */
 .blogPostPage img {
@@ -604,12 +625,6 @@ select {
   position: absolute;
   top: 5px;
   right: 5px;
-}
-
-.favorite-icon path {
-  fill: none;
-  stroke: var(--green);
-  stroke-width: 2px;
 }
 
 .readmore-btn {
@@ -852,16 +867,26 @@ button.iconsizeHeart {
   }
 
   .card-teaser-wrapper {
-    width: 100%;
+    width: 20vw;
     height: auto;
   }
   .image-teaser-wrapper {
-    width: 100%;
-    min-height: 100%;
+    width: 20vw;
+    height: 20vw;
   }
   .article-wapper {
     grid-template-columns: repeat(4, 0fr);
+    grid-auto-rows: auto;
     justify-content: space-between;
+  }
+
+/*---Carroussel---*/ 
+.font-describe-title {
+  font-size: 30px;
+}
+  /* book agent card */
+  .BookAgentCard {
+    height: 50vh;
   }
 }
 
@@ -875,13 +900,13 @@ button.iconsizeHeart {
   }
 
   .card-teaser-wrapper {
-    width: 200px;
+    width: 20vw;
     height: auto;
   }
 
   .image-teaser-wrapper {
-    width: 200px;
-    height: 200px;
+    width: 20vw;
+    height: 20vw;
   }
 
   .article-wapper {
@@ -904,17 +929,17 @@ button.iconsizeHeart {
   }
 
   .card-teaser-wrapper {
-    width: 200px;
+    width: 25vw;
     height: auto;
   }
 
   .image-teaser-wrapper {
-    width: 200px;
-    height: 200px;
+    width: 25vw;
+    height: 25vw;
   }
 
   .article-wapper {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 0fr));
+    grid-template-columns: repeat(3, 0fr);
     justify-content: space-between;
   }
 
@@ -936,17 +961,17 @@ button.iconsizeHeart {
     display: flex;
   }
   .card-teaser-wrapper {
-    width: 155px;
+    width: 40vw;
     height: auto;
   }
 
   .image-teaser-wrapper {
-    width: 155px;
-    height: 155px;
+    width: 40vw;
+    height: 40vw;
   }
 
   .article-wapper {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 0fr));
+  grid-template-columns: repeat(auto-fill, minmax(40vw, 0fr));
     justify-content: space-between;
   }
 
@@ -967,15 +992,15 @@ button.iconsizeHeart {
     display: flex;
   }
   .card-teaser-wrapper {
-    width: 250px;
+    width: 90vw;
     height: auto;
   }
   .image-teaser-wrapper {
-    width: 250px;
-    height: 250px;
+    width: 90vw;
+    height: 90vw;
   }
   .article-wapper {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 0fr));
+    grid-template-columns: repeat(auto-fill, minmax(90vw, 0fr));
     justify-content: center;
   }
 

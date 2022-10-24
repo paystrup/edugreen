@@ -136,6 +136,7 @@
   font-size: 20px;
 }
 
+
 .font-describe-title {
   font-family: var(--inter);
   font-weight: 500;
@@ -143,6 +144,7 @@
   letter-spacing: 4px;
   text-transform: uppercase;
 }
+
 .font-profilename {
   font-family: var(--inter);
   font-weight: 600;
@@ -150,6 +152,7 @@
   text-transform: uppercase;
   text-transform: capitalize;
 }
+
 /* -------------------------------------------- */
 /* background color */
 /* -------------------------------------------- */

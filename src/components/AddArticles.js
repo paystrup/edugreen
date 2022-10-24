@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 import { UddannelserList } from "../data/uddannelserDK";
 import { ViewGridIcon } from "@heroicons/react/outline";
+import UploadCameraIcon from '../assets/svg/cameraicon.svg';
 
 
 // til bookpage, send auth userImgUrl med + navn
@@ -238,12 +239,14 @@ export default function AddArticle() {
         />
 
         {/* Image */}
-        <label htmlFor="imageUpload" className="font-header">
+        <label className="font-header">
           Billeder
         </label>
         <p className="font-bodytextBig fc-darkgrey">
           Vi anbefaler min. 3 billeder for hurtigere salg
         </p>
+        <label htmlFor="imageUpload" className="font-header custom-file-upload"><img src={UploadCameraIcon} alt="CameraIcon"></img></label>
+        
         <input
           id="imageUpload"
           type="file"
