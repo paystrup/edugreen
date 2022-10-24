@@ -36,7 +36,7 @@ export default function Articleteaser() {
     <section className="PaddingPage">
         <h2 className="font-header">Mine annoncer</h2>
         <div className="article-wapper">
-          {articles.map(({ user, id, imageUrl, title, price, condition }) => (
+          {articles.map(({ user, id, imageUrl, title, price, condition,}) => (
             user === auth.currentUser.uid
             ? (
               <div

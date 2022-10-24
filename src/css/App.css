@@ -26,6 +26,12 @@ button {
   cursor: pointer;
   outline: inherit;
   border: none;
+  opacity: 1;
+  transition: 0.3s;
+}
+button:hover{
+  opacity: 0.8;
+  transition-timing-function: ease-in-out;
 }
 textarea:focus, input:focus, select:focus{
     outline-color: var(--green);
@@ -479,13 +485,20 @@ option .iconsize{
 
 .opretBogForm input, select {
   font-family: var(--inter);
-  color: black;
   font-weight: 400;
   font-size: 15px;
   width: 100%;
   padding: 0.7rem 1rem;
   border-radius: 12px;
   border: 1px solid var(--darkgreen);
+}
+
+.opretBogForm input {
+  color: var(--black);
+}
+
+select {
+  color: var(--darkgrey);
 }
 
 .opretBogForm textarea {
@@ -500,19 +513,18 @@ option .iconsize{
   height: 7rem;
 }
 
-
 .opretBogForm input::placeholder {
   font-family: var(--inter);
   color: var(--darkgrey);
   font-weight: 400;
   font-size: 15px;
 }
-select::placeholder {
+/* select::placeholder {
   font-family: var(--inter);
-  color: var(--darkgrey);
+  color: var(--green);
   font-weight: 400;
   font-size: 15px;
-}
+} */
 
 .bogSalgInputContainer {
   display: flex;
@@ -523,10 +535,6 @@ select::placeholder {
 
 .paddingHeader {
   padding-bottom: 1.2rem;
-}
-
-option .optioncolor{
-  color: red !important;
 }
 
 select {
@@ -730,17 +738,28 @@ input[type="file"] {
   z-index: 11111;
 }
 
-.splashIndhold {
-  padding-top: 100%;
+.splashBtn {
+  margin-top: 2%;
 }
 
-.splashBtn {
-  margin-top: 5%;
+.splashIndhold{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100vh;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+
+.splashIndhold h2{
+  font-size: 5rem;
+  max-width: 15ch;
 }
 
 .splashIndhold p {
   line-height: 2;
   padding-top: 5%;
+  font-size: 1.2rem;
 }
 
 .splashBody{
@@ -870,24 +889,25 @@ button.iconsizeHeart {
     width: 20vw;
     height: auto;
   }
+
   .image-teaser-wrapper {
     width: 20vw;
     height: 20vw;
   }
+
   .article-wapper {
     grid-template-columns: repeat(4, 0fr);
     grid-auto-rows: auto;
     justify-content: space-between;
   }
 
-/*---Carroussel---*/ 
-.font-describe-title {
-  font-size: 30px;
-}
+  /*---Carroussel---*/ 
+
   /* book agent card */
   .BookAgentCard {
     height: 50vh;
   }
+  
 }
 
 @media only screen and (max-width: 1280px) {
@@ -946,6 +966,10 @@ button.iconsizeHeart {
   .swiper-slide {
     min-height: 40vh;
   }
+
+  .splashIndhold{
+    padding-bottom: 10%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -978,7 +1002,25 @@ button.iconsizeHeart {
   .swiper-slide {
     min-height: 25vh;
   }
+
+  /* SPLASH PAGE */
+
+  .splashIndhold h2{
+    font-size: 2rem;
+    max-width: 15ch;
+  }
+  
+  .splashIndhold p {
+    line-height: 2;
+    padding-top: 5%;
+    font-size: 1rem;
+  }
+
+  .splashIndhold{
+    padding-bottom: 10%;
+  }
 }
+
 @media screen and (max-width: 370px) {
   .navMobile {
     display: flex;
@@ -1006,5 +1048,20 @@ button.iconsizeHeart {
 
   .swiper-slide {
     min-height: 30vh;
+  }
+
+  .splashIndhold h2{
+    font-size: 2rem;
+    max-width: 15ch;
+  }
+  
+  .splashIndhold p {
+    line-height: 2;
+    padding-top: 5%;
+    font-size: 1rem;
+  }
+
+  .splashIndhold{
+    padding-bottom: 10%;
   }
 }

@@ -54,34 +54,34 @@ export default function Articleteaser() {
             <div
               className="card-teaser-wrapper flex"
               key={id}
-              onClick={() => navigate("/bookpage/" + id)}
             >
-              <div
-                className="image-teaser-wrapper"
-                style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${imageUrl})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-              <div className="favorite-icon iconsize">
-                {user && <LikeArticle id={id} likes={likes} />}
-              </div> 
-              </div>
-              <div className="col-9 ps-4">
-                <div>
-                  <h2 className="font-bookTeaser book-cut-title">{title}</h2>
+                <div className="favorite-icon iconsize-green">
+                  {user && <LikeArticle id={id} likes={likes} />}
+                </div> 
+                <div
+                  className="image-teaser-wrapper"
+                  style={{
+                    backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${imageUrl})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                  onClick={() => navigate("/bookpage/" + id)}
+                >
                 </div>
-                <div className="flex book-text-wrapper">
-                  <div className="price-wrapper flex">
-                    <p className="font-bookTeaser price-cut">{price}</p>
-                    <p className="font-bookTeaser">DKK</p>
+                <div className="col-9 ps-4">
+                  <div>
+                    <h2 className="font-bookTeaser book-cut-title">{title}</h2>
                   </div>
-                  {/* INDSÆT STAND I ARTICLE */}
-                  <p className="font-bodytextBig fc-darkgrey">{condition}</p>
+                  <div className="flex book-text-wrapper">
+                    <div className="price-wrapper flex">
+                      <p className="font-bookTeaser price-cut">{price}</p>
+                      <p className="font-bookTeaser">DKK</p>
+                    </div>
+                    {/* INDSÆT STAND I ARTICLE */}
+                    <p className="font-bodytextBig fc-darkgrey">{condition}</p>
+                  </div>
                 </div>
-              </div>
             </div>
           ))
         )}

@@ -13,6 +13,7 @@ import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DeleteArticle from "../components/DeleteArticle";
+import LikeArticle from "../components/LikeArticle";
 
 export default function BookPage() {
   const [article, setArticle] = useState([]);
@@ -52,9 +53,9 @@ export default function BookPage() {
                   <div>
                     <h1 className="font-header">{article.title}</h1>
                   </div>
-                  <button className="iconsize">
-                    <HeartIcon />
-                  </button>
+                  <div className="iconsize-green">
+                    {user && <LikeArticle id={id} likes={article.likes} />}
+                  </div> 
                 </div>
 
                 {/* AUTHOR(S) */}
@@ -84,7 +85,7 @@ export default function BookPage() {
                     </div>
                     <div className="gap02 flex iconsize-small-grey align-center">
                         <HeartIcon />
-                        <p className="font-bodytext fc-darkgrey">0</p>
+                        <p className="font-bodytext fc-darkgrey">{article.likes?.length}</p>
                     </div>
                  </div>
               </div>

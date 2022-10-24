@@ -153,6 +153,21 @@
   text-transform: capitalize;
 }
 
+@media only screen and (min-width: 1281px) {
+  .font-describe-title {
+    font-family: var(--inter);
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .font-blog-big {
+    font-family: var(--inter);
+    font-weight: 500;
+    font-size: 30px;
+  }
+}
 /* -------------------------------------------- */
 /* background color */
 /* -------------------------------------------- */
@@ -334,6 +349,14 @@
   width: 30px;
   height: 30px;
   stroke: var(--darkgreen);
+}
+.iconsize-green svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  stroke: var(--green);
 }
 
 .active svg {

@@ -35,7 +35,7 @@ export default function LikeArticle({ id, likes }) {
     <div>
         
       <HeartIcon
-        className="iconsize"
+        className="iconsize-green"
         style={{
           cursor: "pointer",
           fill: likes?.includes(user.uid) ? "var(--green)" : null,

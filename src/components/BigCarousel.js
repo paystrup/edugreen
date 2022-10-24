@@ -60,7 +60,7 @@ export default function BigCarousel({ posts }) {
         >
           <div>
             <div className="overlay"></div>
-            <p className="font-describe-title font-padding">Blogpost</p>
+            <p className="font-describe-title font-padding blogpostText">Blogpost</p>
             <h3 className="font-blog-big">{post?.acf?.title}</h3>
           </div>
         </SwiperSlide>
