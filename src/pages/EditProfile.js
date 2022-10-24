@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
-import { ArrowNarrowLeftIcon, XIcon, PlusIcon} from '@heroicons/react/outline'
+import {  XIcon, PlusIcon} from '@heroicons/react/outline'
 import { auth } from "../firebaseConfig.js";
 import logoBig from '../assets/svg/logo-big.svg';
 
@@ -9,14 +8,8 @@ import logoBig from '../assets/svg/logo-big.svg';
 
 export default function EditProfile() {
 
-
-
-
   return (
     <section className="paddingWide redigerProfil PaddingPage">
-      <div className="PracticalIcon goBack">
-      <NavLink to="/profile" className="flex iconsize goBackp"><ArrowNarrowLeftIcon/><p className="font-bodytext">GÅ TILBAGE</p></NavLink>
-      </div>
       <h2 className="font-header">Rediger din profil</h2>
       <div className="flex">
         <div className="imageProfile bg-darkgreen">

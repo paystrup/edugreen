@@ -210,6 +210,7 @@ export default function AddArticle() {
           className="form-control"
           value={formData.education}
           onChange={(e) => handleChange(e)}
+          
         >
           <option value="" disabled selected><ViewGridIcon className="iconsize-small-black"/>Vælg uddannelse</option>
           {
@@ -261,7 +262,7 @@ export default function AddArticle() {
           id="condition" 
           name="condition" 
           placeholder="Bogens stand"
-          className="form-control form-select"
+          className="form-control"
           value={formData.condition}
           onChange={(e) => handleChange(e)}
         >

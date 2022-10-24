@@ -54,36 +54,32 @@ select::placeholder{
 }
 
 /* ------------ NAV MOBILE ----------- */
-.navMobile {
+.navMobile{
   display: none;
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  height: 110px;
 }
 
-.navMobile ul {
+.navMobile ul{
   display: flex;
   gap: 2rem;
 }
 
-.navLogo img {
+.navLogo img{
   height: 38px;
 }
 
-.navLogo img:hover {
-  opacity: 0.5;
-  transition: 0.5s;
-}
-
-.navDesktop {
+.navDesktop{
   display: flex;
   justify-content: space-between;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.navDesktop ul {
+.navDesktop ul{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,11 +90,11 @@ nav ul {
   list-style-type: none;
 }
 
-nav a:active {
-  color: var(--darkgreen);
+.active{
+  color: var(--green);
 }
 
-nav a {
+nav a{
   color: var(--black);
   text-decoration: none;
   font-family: var(--inter);
@@ -107,11 +103,11 @@ nav a {
   text-transform: uppercase;
 }
 
-nav ul {
+nav ul{
   list-style-type: none;
 }
 
-nav a {
+nav a{
   color: var(--black);
   text-decoration: none;
   font-family: var(--inter);
@@ -129,6 +125,7 @@ nav a {
   bottom: 0;
   width: 100%;
   background-color: var(--white);
+  box-shadow: 0px 0 10px var(--lightgrey);
   height: 70px;
   padding-left: 5%;
   padding-right: 5%;
@@ -258,9 +255,6 @@ nav a {
   margin-top: 2em;
 }
 
-.btnActiveSale {
-  background-color: var(--darkgreen);
-}
 .wrapper-messages {
   display: flex;
   flex-direction: row;
@@ -305,8 +299,8 @@ nav a {
 }
 
 .iconsizeEdit {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   color: black;
 }
 
@@ -315,9 +309,15 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+
 }
+.ProfileInfo h2,  .iconsGroup {
+  padding-bottom: 3px;
+}
+
 
 .moneyProfile {
   margin-bottom: 5%;
@@ -341,7 +341,7 @@ nav a {
   padding-top: 10%;
 }
 .imgName-wrapper {
-  gap: 2em;
+  gap: 1em;
 }
 
 
@@ -438,19 +438,22 @@ option .iconsize{
 }
 
 /*------------ PRAKTISK INFO - PracticalInfo.js----------*/
-
 .goBack a {
   color: black;
   text-decoration: none;
 }
+
+.goBack p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 .goBack a:visited {
   color: black;
 }
 
-.goBackp p {
-  margin-top: 1.5%;
-  padding-left: 2%;
-}
 
 .PracticalIcon {
   margin-bottom: 10%;
@@ -568,8 +571,8 @@ select {
 }
 
 .book-teaser-image {
-  max-width: 155px;
-  height: 155px;
+  max-width: 125;
+  height: 125px;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -834,6 +837,12 @@ button.iconsizeHeart {
 
 /* ------------ RESPONSIVE BREAKPOINTS -------------- */
 @media only screen and (min-width: 1281px) {
+
+  .navLogo img:hover {
+    opacity: 0.5;
+    transition: 0.5s;
+  }
+  
   .navMobile {
     display: none;
   }
@@ -843,12 +852,12 @@ button.iconsizeHeart {
   }
 
   .card-teaser-wrapper {
-    width: 250px;
+    width: 100%;
     height: auto;
   }
   .image-teaser-wrapper {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    min-height: 100%;
   }
   .article-wapper {
     grid-template-columns: repeat(4, 0fr);
@@ -937,7 +946,7 @@ button.iconsizeHeart {
   }
 
   .article-wapper {
-    grid-template-columns: repeat(auto-fill, minmax(155px, 0fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 0fr));
     justify-content: space-between;
   }
 

@@ -32,19 +32,22 @@ export default function ProfilePage() {
           </div>
 
           <div className="blockProfile ">
+          <div className="ProfileInfo">
+
             <h2 className="font-profilename">{user.displayName}</h2>
 
-            <div className="flex">
+            <div className="flex iconsGroup">
               <div className="iconsizeProfile">
                 <OfficeBuildingIcon />
               </div>
               <h3 className="font-bodytext fc-darkgrey">Multimediedesign</h3>
             </div>
-            <div className="flex">
+            <div className="flex iconsGroup">
               <div className="iconsizeProfile">
                 <LocationMarkerIcon />
               </div>
               <h3 className="font-bodytext fc-darkgrey">Aarhus C</h3>
+            </div>
             </div>
           </div>
           </div>
