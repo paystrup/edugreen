@@ -1,37 +1,59 @@
-import {useState} from 'react';
+import { useState } from "react";
+import emptystateBell from "../assets/svg/emptystateBell.svg";
+import emptystateBook from "../assets/svg/emptystateBook.svg";
 
 export default function Chat() {
-  const [page, setPage] = useState("sale");
-  
+  const [page, setPage] = useState("all");
+
   return (
     <div>
-      <div className='chat-buttons'>
-        <button className=' chat-buttonschange font-btn' onClick={() => setPage("sale")}>Alle</button>
-        <button className=' chat-buttonschange font-btn' onClick={() => setPage("buy")}>Bogagent</button>
+      {/* all notifications and bookagent btns */}
+      <div className="chat-buttons">
+        <button
+          className=" chat-buttonschange font-btn"
+          onClick={() => setPage("all")}
+        >
+          Alle
+        </button>
+        <button
+          className=" chat-buttonschange font-btn"
+          onClick={() => setPage("bookagent")}
+        >
+          Bogagent
+        </button>
       </div>
 
-      <div className='pageContent'>
-        {page === "sale" && <Sellmessage/>}
-        {page === "buy" && <Buymessage/>}
-
+      <div className="pageContent">
+        {page === "all" && <Allnotification />}
+        {page === "bookagent" && <Bookagentnotification />}
       </div>
-      
     </div>
   );
 }
-function Buymessage() {
+// Bookagent notification btn
+function Bookagentnotification() {
   return (
-    <div className='chat-error-message'>
-      <p className='font-header'>Ingen Bogaggent</p>
-      <hr/>
+    <div className="chat-error-message">
+      <img src={emptystateBook} alt="Man and message illustration"></img>
+      <p className="font-header">Kommer snart!</p>
+
+      <p className="font-bodytext">
+        Opret din egen bogagent og få notifikationer når dine favoritter kommer
+        til salg.{" "}
+      </p>
+
+      <hr />
     </div>
   );
 }
-function Sellmessage() {
+
+// All notifications btn
+function Allnotification() {
   return (
-    <div className='chat-error-message'>
-      <p className='font-header'>Ingen notifikationer</p>
-      <hr/>
+    <div className="chat-error-message">
+      <img src={emptystateBell} alt="Man and message illustration"></img>
+      <p className="font-header">Du har ingen notifikationer</p>
+      <hr />
     </div>
   );
 }

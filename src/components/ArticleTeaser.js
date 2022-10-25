@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import LikeArticle from "./LikeArticle"; 
+import LikeArticle from "./LikeArticle";
 import { auth } from "../firebaseConfig.js";
 
 export default function Articleteaser() {
@@ -50,14 +50,13 @@ export default function Articleteaser() {
         {articles.length === 0 ? (
           <p className="font-bodytext fc-darkgreen">Ingen bøger fundet</p>
         ) : (
-          articles.slice(0, visible).map(({ id, title, price, imageUrl, condition, likes }) => (
-            <div
-              className="card-teaser-wrapper flex"
-              key={id}
-            >
+          articles
+            .slice(0, visible)
+            .map(({ id, title, price, imageUrl, condition, likes }) => (
+              <div className="card-teaser-wrapper flex" key={id}>
                 <div className="favorite-icon iconsize-green">
                   {user && <LikeArticle id={id} likes={likes} />}
-                </div> 
+                </div>
                 <div
                   className="image-teaser-wrapper"
                   style={{
@@ -67,8 +66,7 @@ export default function Articleteaser() {
                     backgroundRepeat: "no-repeat",
                   }}
                   onClick={() => navigate("/bookpage/" + id)}
-                >
-                </div>
+                ></div>
                 <div className="col-9 ps-4">
                   <div>
                     <h2 className="font-bookTeaser book-cut-title">{title}</h2>
@@ -78,12 +76,12 @@ export default function Articleteaser() {
                       <p className="font-bookTeaser price-cut">{price}</p>
                       <p className="font-bookTeaser">DKK</p>
                     </div>
-                    {/* INDSÆT STAND I ARTICLE */}
+                    {/* INSERT 'STAND' IN ARTICLE */}
                     <p className="font-bodytextBig fc-darkgrey">{condition}</p>
                   </div>
                 </div>
-            </div>
-          ))
+              </div>
+            ))
         )}
       </div>
     </section>

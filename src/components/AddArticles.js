@@ -7,12 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 import { UddannelserList } from "../data/uddannelserDK";
 import { ViewGridIcon } from "@heroicons/react/outline";
-import UploadCameraIcon from '../assets/svg/cameraicon.svg';
+import UploadCameraIcon from "../assets/svg/cameraicon.svg";
 
-
-// til bookpage, send auth userImgUrl med + navn
+// for bookpage, send auth userImgUrl + name
+//til bookpage, send auth userImgUrl med + navn
 // kan derefter displayes
-
 
 export default function AddArticle() {
   console.log(auth.currentUser); // tjek at der logges authenticated user
@@ -31,15 +30,15 @@ export default function AddArticle() {
     createdAt: Timestamp.now().toDate(),
     user: auth.currentUser.uid,
     userImage: auth.currentUser.photoURL,
-    userName: auth.currentUser.displayName
+    userName: auth.currentUser.displayName,
   });
-  
+
   const navigate = useNavigate();
 
   const [progress, setProgress] = useState(0);
-  
+
   // returns from onChange values below, takes the event and returns
-  // hver gang form felter ændres
+  // Everytime form fields changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -51,7 +50,17 @@ export default function AddArticle() {
   // Onsubmit, handle the data transfer to firebase firestore
   const handlePublish = () => {
     // validate inputs, if empty return error - all except ISBN
-    if (!formData.title || !formData.author || !formData.edition || !formData.education || !formData.year || !formData.description || !formData.image || !formData.price || !formData.condition ) {
+    if (
+      !formData.title ||
+      !formData.author ||
+      !formData.edition ||
+      !formData.education ||
+      !formData.year ||
+      !formData.description ||
+      !formData.image ||
+      !formData.price ||
+      !formData.condition
+    ) {
       alert("Husk at udfyld alle felterne");
       return;
     }
@@ -99,7 +108,7 @@ export default function AddArticle() {
           price: "",
           user: auth.currentUser.uid,
           userImage: auth.currentUser.photoURL,
-          userName: auth.currentUser.displayName
+          userName: auth.currentUser.displayName,
         });
 
         //adddoc is a promise
@@ -120,16 +129,15 @@ export default function AddArticle() {
             createdAt: Timestamp.now().toDate(),
             user: auth.currentUser.uid,
             userImage: auth.currentUser.photoURL,
-            userName: auth.currentUser.displayName
+            userName: auth.currentUser.displayName,
           })
-          
             // confirmation toast + redirect after success
             .then(() => {
               toast("Din bog er nu sat til salg", { type: "success" });
               //reset progress on success
               setProgress(0);
-            
-              return navigate ("/profile" ) 
+
+              return navigate("/profile");
             })
             // catch error toast, if article wasn't uploaded
             .catch((err) => {
@@ -138,7 +146,6 @@ export default function AddArticle() {
         });
       }
     );
-
   };
 
   return (
@@ -204,23 +211,25 @@ export default function AddArticle() {
         </div>
 
         {/* Education */}
-        <select 
-          id="education" 
-          name="education" 
+        <select
+          id="education"
+          name="education"
           placeholder="Uddannelse"
           className="form-control"
           value={formData.education}
           onChange={(e) => handleChange(e)}
-          
         >
-          <option value="" disabled selected><ViewGridIcon className="iconsize-small-black"/>Vælg uddannelse</option>
-          {
-            UddannelserList.map(({uddannelse, id}, index) => {
-                return (
-                  <option value={uddannelse} key={id}>{uddannelse}</option>
-                )
-            })
-          }
+          <option value="" disabled selected>
+            <ViewGridIcon className="iconsize-small-black" />
+            Vælg uddannelse
+          </option>
+          {UddannelserList.map(({ uddannelse, id }, index) => {
+            return (
+              <option value={uddannelse} key={id}>
+                {uddannelse}
+              </option>
+            );
+          })}
         </select>
 
         {/* Description */}
@@ -228,7 +237,11 @@ export default function AddArticle() {
           Beskrivelse
         </label>
         <p className="font-bodytextBig fc-darkgrey">
-          Angiv information omkring bogen, <span className="font-bodytextBigBold fc-black">om der er overstregninger</span>, eventuelle fejl og mangler, der er værd at vide for køber.
+          Angiv information omkring bogen,{" "}
+          <span className="font-bodytextBigBold fc-black">
+            om der er overstregninger
+          </span>
+          , eventuelle fejl og mangler, der er værd at vide for køber.
         </p>
         <textarea
           name="description"
@@ -239,14 +252,14 @@ export default function AddArticle() {
         />
 
         {/* Image */}
-        <label className="font-header">
-          Billeder
-        </label>
+        <label className="font-header">Billeder</label>
         <p className="font-bodytextBig fc-darkgrey">
           Vi anbefaler min. 3 billeder for hurtigere salg
         </p>
-        <label htmlFor="imageUpload" className="font-header custom-file-upload"><img src={UploadCameraIcon} alt="CameraIcon"></img></label>
-        
+        <label htmlFor="imageUpload" className="font-header custom-file-upload">
+          <img src={UploadCameraIcon} alt="CameraIcon"></img>
+        </label>
+
         <input
           id="imageUpload"
           type="file"
@@ -261,21 +274,23 @@ export default function AddArticle() {
           Hvordan er standen?
         </label>
 
-        <select 
-          id="condition" 
-          name="condition" 
+        <select
+          id="condition"
+          name="condition"
           placeholder="Bogens stand"
           className="form-control"
           value={formData.condition}
           onChange={(e) => handleChange(e)}
         >
-          <option className="optioncolor" value="" disabled selected>Vælg bogens stand</option>
+          <option className="optioncolor" value="" disabled selected>
+            Vælg bogens stand
+          </option>
           <option value="Som ny">Som ny</option>
           <option value="God">God</option>
           <option value="Lidt brugt">Lidt brugt</option>
           <option value="Meget brugt">Meget brugt</option>
         </select>
-      
+
         {/* Price */}
         <label htmlFor="" className="font-header">
           Hvad skal prisen være?

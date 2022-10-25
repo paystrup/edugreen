@@ -29,14 +29,19 @@ button {
   opacity: 1;
   transition: 0.3s;
 }
-button:hover{
+/* button:hover {
+  background-color: var(--green);
   opacity: 0.8;
+  text-decoration: underline;
   transition-timing-function: ease-in-out;
+} */
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline-color: var(--green);
 }
-textarea:focus, input:focus, select:focus{
-    outline-color: var(--green);
-}
-select::placeholder{
+select::placeholder {
   color: aqua;
 }
 
@@ -60,7 +65,7 @@ select::placeholder{
 }
 
 /* ------------ NAV MOBILE ----------- */
-.navMobile{
+.navMobile {
   display: none;
   justify-content: space-between;
   align-items: center;
@@ -69,23 +74,23 @@ select::placeholder{
   height: 110px;
 }
 
-.navMobile ul{
+.navMobile ul {
   display: flex;
   gap: 2rem;
 }
 
-.navLogo img{
+.navLogo img {
   height: 38px;
 }
 
-.navDesktop{
+.navDesktop {
   display: flex;
   justify-content: space-between;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.navDesktop ul{
+.navDesktop ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,11 +101,11 @@ nav ul {
   list-style-type: none;
 }
 
-.active{
+.active {
   color: var(--green);
 }
 
-nav a{
+nav a {
   color: var(--black);
   text-decoration: none;
   font-family: var(--inter);
@@ -109,11 +114,11 @@ nav a{
   text-transform: uppercase;
 }
 
-nav ul{
+nav ul {
   list-style-type: none;
 }
 
-nav a{
+nav a {
   color: var(--black);
   text-decoration: none;
   font-family: var(--inter);
@@ -237,6 +242,14 @@ nav a{
   background-color: rgb(0, 0, 0);
 }
 
+.font-describe-title {
+  font-size: 11px;
+}
+
+.font-blog-big {
+  font-size: 20px;
+}
+
 /* ------- LANDING BIG CAROUSEL TOP ---------- */
 .carouselHeader {
   padding-left: 5%;
@@ -251,6 +264,10 @@ nav a{
     rgba(0, 0, 0, 0.7651435574229692) 0%,
     rgba(107, 121, 9, 0) 100%
   );
+}
+
+.font-belyBig {
+  font-size: 2.2rem;
 }
 /* ------- CHAT ---------- */
 .chat-buttons {
@@ -270,6 +287,12 @@ nav a{
   flex-direction: column;
   gap: 1em;
 }
+.chat-error-message img {
+  width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
 .chat-buttonschange {
   border: none;
   text-decoration: none;
@@ -287,15 +310,13 @@ nav a{
   color: var(--white);
 }
 
-
-
 /*-----------ProfilePage------------*/
 .blockProfile {
   display: block;
 }
 
 .imageProfile {
-  border-radius: 50% ;
+  border-radius: 50%;
   width: 70px;
   height: 70px;
 }
@@ -318,12 +339,11 @@ nav a{
   width: 20px;
   height: 20px;
   margin-right: 5px;
-
 }
-.ProfileInfo h2,  .iconsGroup {
+.ProfileInfo h2,
+.iconsGroup {
   padding-bottom: 3px;
 }
-
 
 .moneyProfile {
   margin-bottom: 5%;
@@ -349,7 +369,6 @@ nav a{
 .imgName-wrapper {
   gap: 1em;
 }
-
 
 /* ----------- Edit profile - EditProfile.JS --------------*/
 section.redigerProfil > * {
@@ -403,7 +422,6 @@ section.redigerProfil > * {
 .editSubmit {
   background-color: var(--green);
   border: none;
-
 }
 
 .interesser {
@@ -438,7 +456,7 @@ section.redigerProfil > * {
   height: 20px;
 }
 
-option .iconsize{
+option .iconsize {
   width: 30px;
   height: 30px;
 }
@@ -449,7 +467,7 @@ option .iconsize{
   text-decoration: none;
 }
 
-.goBack p{
+.goBack p {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -459,7 +477,6 @@ option .iconsize{
 .goBack a:visited {
   color: black;
 }
-
 
 .PracticalIcon {
   margin-bottom: 10%;
@@ -483,7 +500,8 @@ option .iconsize{
   display: none;
 }
 
-.opretBogForm input, select {
+.opretBogForm input,
+select {
   font-family: var(--inter);
   font-weight: 400;
   font-size: 15px;
@@ -558,10 +576,9 @@ input[type="file"] {
   align-items: center;
 }
 
-.custom-file-upload img{
+.custom-file-upload img {
   height: 80%;
 }
-
 
 /* ------------ BLOG POSTS - PAGE -------------- */
 .blogPostPage img {
@@ -717,9 +734,8 @@ input[type="file"] {
   gap: 0.5em;
 }
 
-
-.facebookLogin svg{
-  fill: #4267B2;
+.facebookLogin svg {
+  fill: #4267b2;
 }
 
 .loginIcons svg {
@@ -742,7 +758,7 @@ input[type="file"] {
   margin-top: 2%;
 }
 
-.splashIndhold{
+.splashIndhold {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -751,7 +767,7 @@ input[type="file"] {
   padding-top: 5%;
 }
 
-.splashIndhold h2{
+.splashIndhold h2 {
   font-size: 5rem;
   max-width: 15ch;
 }
@@ -762,23 +778,23 @@ input[type="file"] {
   font-size: 1.2rem;
 }
 
-.splashBody{
+.splashBody {
   margin-bottom: 2rem;
 }
 
 /* ------------ BOOKPAGE -------------- */
-.userBookImage{
+.userBookImage {
   height: 40px;
   width: 40px;
   border-radius: 50%;
   margin-right: 0.4rem;
 }
 
-.bookHeader{
+.bookHeader {
   margin-bottom: 1.5rem;
 }
 
-.bookEditBtn{
+.bookEditBtn {
   margin-bottom: 2rem;
 }
 
@@ -811,16 +827,16 @@ input[type="file"] {
   gap: 1em;
 }
 
-.bookDescription{
+.bookDescription {
   margin-bottom: 1.5rem;
   line-height: 140%;
 }
 
-.bookpageUserInfo{
+.bookpageUserInfo {
   margin-bottom: 1rem;
 }
 
-.bookpagePrice{
+.bookpagePrice {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -871,12 +887,11 @@ button.iconsizeHeart {
 
 /* ------------ RESPONSIVE BREAKPOINTS -------------- */
 @media only screen and (min-width: 1281px) {
-
   .navLogo img:hover {
     opacity: 0.5;
     transition: 0.5s;
   }
-  
+
   .navMobile {
     display: none;
   }
@@ -901,13 +916,98 @@ button.iconsizeHeart {
     justify-content: space-between;
   }
 
-  /*---Carroussel---*/ 
+  /*---Carroussel---*/
 
+  .font-belyBig {
+    font-size: 50px;
+  }
+
+  .font-describe-title {
+    font-size: 21px;
+  }
+
+  .font-blog-big {
+    font-size: 30px;
+  }
   /* book agent card */
   .BookAgentCard {
     height: 50vh;
   }
-  
+
+  /*----Footer-----*/
+
+  footer {
+    box-shadow: 0px 0 10px var(--lightgrey);
+  }
+
+  Footer ul {
+    list-style-type: none;
+  }
+
+  Footer a {
+    color: var(--black);
+    text-decoration: none;
+    font-family: var(--inter);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  Footer ul {
+    list-style-type: none;
+  }
+
+  Footer a {
+    color: var(--black);
+    text-decoration: none;
+    font-family: var(--inter);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .FooterLogo img {
+    height: 60px;
+  }
+
+  .FooterDesk {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+  }
+
+  .FooterDesk ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .FooterImg {
+    z-index: 2;
+  }
+
+  .detmedsmaat {
+    display: flex;
+    z-index: 2;
+    bottom: 0.1vw;
+  }
+
+  #foot4 {
+    margin-left: 5vw;
+  }
+
+  #foot5 {
+    margin-left: 5vw;
+  }
+
+  #foot6 {
+    margin-left: 50vw;
+  }
+
+  #foot7 {
+    margin-left: 5vw;
+  }
 }
 
 @media only screen and (max-width: 1280px) {
@@ -967,7 +1067,7 @@ button.iconsizeHeart {
     min-height: 40vh;
   }
 
-  .splashIndhold{
+  .splashIndhold {
     padding-bottom: 10%;
   }
 }
@@ -995,7 +1095,7 @@ button.iconsizeHeart {
   }
 
   .article-wapper {
-  grid-template-columns: repeat(auto-fill, minmax(40vw, 0fr));
+    grid-template-columns: repeat(auto-fill, minmax(40vw, 0fr));
     justify-content: space-between;
   }
 
@@ -1005,18 +1105,18 @@ button.iconsizeHeart {
 
   /* SPLASH PAGE */
 
-  .splashIndhold h2{
+  .splashIndhold h2 {
     font-size: 2rem;
     max-width: 15ch;
   }
-  
+
   .splashIndhold p {
     line-height: 2;
     padding-top: 5%;
     font-size: 1rem;
   }
 
-  .splashIndhold{
+  .splashIndhold {
     padding-bottom: 10%;
   }
 }
@@ -1050,18 +1150,18 @@ button.iconsizeHeart {
     min-height: 30vh;
   }
 
-  .splashIndhold h2{
+  .splashIndhold h2 {
     font-size: 2rem;
     max-width: 15ch;
   }
-  
+
   .splashIndhold p {
     line-height: 2;
     padding-top: 5%;
     font-size: 1rem;
   }
 
-  .splashIndhold{
+  .splashIndhold {
     padding-bottom: 10%;
   }
 }

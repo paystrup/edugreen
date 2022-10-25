@@ -9,8 +9,8 @@ import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
-import logoBig from '../assets/svg/logo-big.svg';
-import ProfileUserPosts from '../components/ProfileUserPosts.js'
+import logoBig from "../assets/svg/logo-big.svg";
+import ProfileUserPosts from "../components/ProfileUserPosts.js";
 
 export default function ProfilePage() {
   const [user, loading] = useAuthState(auth);
@@ -21,35 +21,40 @@ export default function ProfilePage() {
     return (
       <section className="profilesection paddingWide">
         <div className="flex redigerIkoner ">
-         <div className="flex imgName-wrapper">
-          <div >
-            <img className="imageProfile" 
-              src={auth.currentUser.photoURL} alt={user.displayName} 
-              onError={(e) => {
-              e.target.onerror = null
-              e.target.src = {logoBig};
-            }}/>
-          </div>
+          <div className="flex imgName-wrapper">
+            <div>
+              {/* Gets the users picture from firebase. If there is an error, the logo will show */}
+              <img
+                className="imageProfile"
+                src={auth.currentUser.photoURL}
+                alt={user.displayName}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = { logoBig };
+                }}
+              />
+            </div>
 
-          <div className="blockProfile ">
-          <div className="ProfileInfo">
+            <div className="blockProfile ">
+              <div className="ProfileInfo">
+                <h2 className="font-profilename">{user.displayName}</h2>
 
-            <h2 className="font-profilename">{user.displayName}</h2>
-
-            <div className="flex iconsGroup">
-              <div className="iconsizeProfile">
-                <OfficeBuildingIcon />
+                <div className="flex iconsGroup">
+                  <div className="iconsizeProfile">
+                    <OfficeBuildingIcon />
+                  </div>
+                  <h3 className="font-bodytext fc-darkgrey">
+                    Multimediedesign
+                  </h3>
+                </div>
+                <div className="flex iconsGroup">
+                  <div className="iconsizeProfile">
+                    <LocationMarkerIcon />
+                  </div>
+                  <h3 className="font-bodytext fc-darkgrey">Aarhus C</h3>
+                </div>
               </div>
-              <h3 className="font-bodytext fc-darkgrey">Multimediedesign</h3>
             </div>
-            <div className="flex iconsGroup">
-              <div className="iconsizeProfile">
-                <LocationMarkerIcon />
-              </div>
-              <h3 className="font-bodytext fc-darkgrey">Aarhus C</h3>
-            </div>
-            </div>
-          </div>
           </div>
           <div className=" flex editProfile">
             <NavLink to="/editprofile">
@@ -76,12 +81,16 @@ export default function ProfilePage() {
             <h2 className="font-bely fc-white">2kg</h2>
           </div>
         </div>
-        
+
         <ProfileUserPosts />
         <div className="signOut">
-          <button className="font-btn btn-large-strokeWide signOutBtn" onClick={() => auth.signOut()}>Log ud {user.displayName}</button>
+          <button
+            className="font-btn btn-large-strokeWide signOutBtn"
+            onClick={() => auth.signOut()}
+          >
+            Log ud {user.displayName}
+          </button>
         </div>
-
       </section>
     );
 }
