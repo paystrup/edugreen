@@ -22,7 +22,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 
 function App() {
+  // state for loading animation
   const [loading, setLoading] = useState(true);
+  // loader div is inserted into index.html, timeout/hide after 2000ms and show root
   const loader = document.getElementById("loader");
   if (loader) {
     setTimeout(() => {
@@ -31,7 +33,7 @@ function App() {
     }, 2000);
   }
 
-  // loading animations
+  // if loading is false (after timeout) show main 
   return (
     !loading && (
       <main>

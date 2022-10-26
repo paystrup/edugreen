@@ -15,8 +15,10 @@ import loginHeaderImage from '../assets/images/loginHeaderImage.jpg'
 export default function Login() {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
-  //Sign in with google
+  
+  // Sign in and auth with Google
   const googleProvider = new GoogleAuthProvider();
+
   const GoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -27,6 +29,8 @@ export default function Login() {
     }
   };
 
+  // check if user is signed in, if user signs in navigate to our homepage path /
+  // dependency array listens for user and rerenders when a new user is logged in
   useEffect(() => {
     if (user) {
       navigate("/");
