@@ -50,7 +50,7 @@ export default function BookPage() {
   // if user is authenticated -> return the data
   if (user)
     return (
-      <section className="PaddingPage paddingWide">
+      <section className="PaddingPage paddingWide bigscreenpadding">
         {/* DELETE + EDIT BUTTON IF IT'S OWNED BY USER SIGNED IN */}
         {article.user === auth.currentUser.uid && (
           <div className="bookEditBtn flex flexCol gap05">
@@ -62,7 +62,8 @@ export default function BookPage() {
         )}
 
         {article && (
-          <div>
+          <div className="flex shift-flex-direction">
+            <div className="flex wrapperbigscreen">
             {/* ARTICLE HEADER */}
             <div className="bookHeader">
               <div className=" flex title-author-hearticon">
@@ -105,7 +106,8 @@ export default function BookPage() {
                 </div>
               </div>
             </div>
-
+          </div>
+          <div className="flex wrapperbigscreen">
             {/* USER PROFILE PIC AND NAME */}
             <div className="bookpageUserInfo flex space-between align-center">
               <div className="flex align-center">
@@ -146,18 +148,18 @@ export default function BookPage() {
             <div className="flex wrapper-information">
               {/* DATO OPRETTET */}
               <div className="flex space-between align-center">
-                <p className="font-describe-title fc-darkgrey">Oprettet</p>
-                <div className="flex gap02">
+                <p className="font-describe-title-book fc-darkgrey">Oprettet</p>
+                <div className="flex align-center gap02">
                   <div className="iconsize-small-black">
-                    <ClockIcon />
+                    <ClockIcon /> 
                   </div>
-                  {/* <p className="font-bodytext">{article.createdAt}</p> */}
+                  {/* <p className="font-bodytext">{article.createdAt.toDate().toDateString()}</p> */}
                 </div>
               </div>
 
               {/* STAND */}
               <div className="flex space-between align-center">
-                <p className="font-describe-title fc-darkgrey">Stand</p>
+                <p className="font-describe-title-book fc-darkgrey">Stand</p>
                 <div>
                   <p className="font-bodytext">{article.condition}</p>
                 </div>
@@ -165,7 +167,7 @@ export default function BookPage() {
 
               {/* STAND */}
               <div className="flex space-between align-center">
-                <p className="font-describe-title fc-darkgrey">Uddannelse</p>
+                <p className="font-describe-title-book fc-darkgrey">Uddannelse</p>
                 <div>
                   <p className="font-bodytext">{article.education}</p>
                 </div>
@@ -173,7 +175,7 @@ export default function BookPage() {
 
               {/* UDGAVE */}
               <div className="flex space-between align-center">
-                <p className="font-describe-title fc-darkgrey">Udgave</p>
+                <p className="font-describe-title-book fc-darkgrey">Udgave</p>
                 <div>
                   <p className="font-bodytext">{article.edition}. udgave</p>
                 </div>
@@ -181,7 +183,7 @@ export default function BookPage() {
 
               {/* ÅRSTAL */}
               <div className="flex space-between align-center">
-                <p className="font-describe-title fc-darkgrey">Årstal</p>
+                <p className="font-describe-title-book fc-darkgrey">Årstal</p>
                 <div>
                   <p className="font-bodytext">{article.year}</p>
                 </div>
@@ -189,16 +191,20 @@ export default function BookPage() {
 
               {/* ISBN */}
               <div className="flex space-between align-center">
-                <p className="font-describe-title fc-darkgrey">ISBN</p>
+                <p className="font-describe-title-book fc-darkgrey">ISBN</p>
                 <div>
                   <p className="font-bodytext">{article.ISBN}</p>
                 </div>
               </div>
             </div>
           </div>
+          </div>
         )}
-
-        <Comment book={article} id={id} />
+        
+        {article.user === auth.currentUser.uid ? 
+          null : <Comment book={article} id={id} />
+        }
+        
       </section>
     );
 }

@@ -6,7 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import LikeArticle from "./LikeArticle";
 import { auth } from "../firebaseConfig.js";
 
-export default function Articleteaser() {
+export default function Articleteaser({ header }) {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
@@ -38,7 +38,7 @@ export default function Articleteaser() {
   return (
     <section>
       <div className="flex card-title-btn paddingWide">
-        <p className="font-header">Nyeste bøger</p>
+        <p className="font-header">{header}</p>
         <button
           onClick={showMoreArticles}
           className="font-btn bg-darkgreen fc-white readmore-btn"
@@ -52,7 +52,7 @@ export default function Articleteaser() {
         ) : (
           articles
             .slice(0, visible)
-            .map(({ id, title, price, imageUrl, condition, likes }) => (
+            .map(({ id, title, price, imageUrl, condition, likes, createdAt }) => (
               <div className="card-teaser-wrapper flex" key={id}>
                 <div className="favorite-icon iconsize-green">
                   {user && <LikeArticle id={id} likes={likes} />}

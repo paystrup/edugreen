@@ -1,4 +1,4 @@
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
@@ -13,15 +13,14 @@ export default function Favoriteteaser() {
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
 
-  // check if user has liked to return empty sta
-  const [userLikes, setUserLikes] = useState([]);
+  const [userComments, setUserComments] = useState([]);
 
   useEffect(() => {
     // collection from firebase
     // db is our database, articles is the name of the collection
-    const articleRef = collection(db, "articles");
+    const articleRef = collection(db, "articles",);
     // sort by createdAt, our timestamp added to every article, date
-    const q = query(articleRef, orderBy("createdAt", "desc"));
+    const q = query(articleRef, orderBy("comments", "desc"));
 
     // get the data, on snapshot
     onSnapshot(q, (snapshot) => {
@@ -36,11 +35,25 @@ export default function Favoriteteaser() {
     });
   }, []);
 
+  useEffect(() => {
+    articles.map(({ comments }) => 
+      setUserComments(comments)
+    );
+    console.log(userComments);
+
+  }, []);
+
+
   // setUserLikes([...likes])
   return (
     <section>
       <div className="article-wapper">
-        <BuyMap articles={articles} />
+      {articles.map((article, index) => {
+          return (
+              <p>{article.comments?.comment}</p>
+          )
+        })}
+
       </div>
     </section>
   );

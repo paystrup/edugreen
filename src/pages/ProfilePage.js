@@ -11,6 +11,8 @@ import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
 import logoBig from "../assets/svg/logo-big.svg";
 import ProfileUserPosts from "../components/ProfileUserPosts.js";
+import CO2 from "../assets/svg/CO2.svg";
+
 
 export default function ProfilePage() {
   const [user, loading] = useAuthState(auth);
@@ -19,7 +21,7 @@ export default function ProfilePage() {
   if (!user) navigate("/login");
   if (user)
     return (
-      <section className="profilesection paddingWide">
+      <section className="profilesection paddingWide PaddingPage">
         <div className="flex redigerIkoner ">
           <div className="flex imgName-wrapper">
             <div>
@@ -74,18 +76,30 @@ export default function ProfilePage() {
             <h2 className="font-bely fc-white">200kr</h2>
           </div>
 
-          <div className="co2Profile flex bg-darkgreen">
-            <h3 className="font-btn fc-white">
-              CO2 <br></br> besparelse
-            </h3>
-            <h2 className="font-bely fc-white">2kg</h2>
+          <div className="co2Profile bg-darkgreen" 
+            style={{ 
+            backgroundImage: `url(${CO2})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'bottom',
+            backgroundSize: '90%',
+            }}
+            >
+            <div className=" flex co2ProfileText">
+              <h3 className="font-btn fc-white">
+                CO2 <br></br> besparelse
+              </h3>
+              <h2 className="font-bely fc-white">2kg</h2>
+            </div>
+            {/* <div className="Profile-illustration">
+               <img src={CO2} alt="Leaf illustration"></img>
+            </div> */}
           </div>
         </div>
 
         <ProfileUserPosts />
         <div className="signOut">
           <button
-            className="font-btn btn-large-strokeWide signOutBtn"
+            className="font-btn btn-large-strokeWide "
             onClick={() => auth.signOut()}
           >
             Log ud {user.displayName}

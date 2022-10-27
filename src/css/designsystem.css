@@ -139,6 +139,12 @@
   letter-spacing: 4px;
   text-transform: uppercase;
 }
+.font-describe-title-book {
+  font-family: var(--inter);
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
 
 .font-profilename {
   font-family: var(--inter);
@@ -318,6 +324,18 @@
   align-items: center;
 }
 
+.padding1 {
+  padding-top: 1.5rem;
+}
+
+.padding2 {
+  padding-bottom: 6rem;
+}
+
+.padding3 {
+  padding-bottom: 1.5rem;
+}
+
 /* -------------------------------------------- */
 /* Icons */
 /* -------------------------------------------- */
@@ -330,6 +348,16 @@
   height: 30px;
   stroke: var(--darkgreen);
 }
+
+.iconsizeDesktop svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  stroke: var(--darkgreen);
+}
+
 .iconsize-green svg {
   display: flex;
   justify-content: center;

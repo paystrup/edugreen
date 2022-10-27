@@ -21,8 +21,34 @@ export default function Navigation() {
   const location = useLocation();
   console.log(location.pathname);
 
+  // const [show, setShow] = useState(true);
+
+  // useEffect(() => {
+  //     // Page start, both scroll values are 0
+  //     let oldValue = 0;
+  //     let newValue = 0;
+      
+  //     // Listen to scroll
+  //     window.addEventListener('scroll', function (e) {
+  
+  //       // The new value is the amount scrolled on the y-axis
+  //       newValue = window.pageYOffset;
+  
+  //       // Subtract and update the state
+  //       if (oldValue - newValue < 0) {
+  //         setShow(false);
+  //       } else if (oldValue - newValue > 0) {
+  //         setShow(true);
+  //       }
+  
+  //       // And update the values again
+  //       oldValue = newValue;
+  //     });
+  //   }, []);
+
+
   return (
-    <nav>
+    <nav id="navbar">
       {/* mobile navigationbar */}
       <div className="navMobile paddingWide">
         {/* Change logo to back button on specific subpages*/}
@@ -42,11 +68,15 @@ export default function Navigation() {
 
         {/* Ikoner */}
         <ul>
-          <li>
-            <NavLink to="/search" className="iconsize">
-              <SearchIcon />
-            </NavLink>
-          </li>
+          {location.pathname === "/" ? (
+          '' 
+          ) : (
+            <li>
+              <NavLink to="/search" className="iconsize">
+                <SearchIcon />
+              </NavLink>
+            </li> 
+          )}
           <li>
             <NavLink to="/notification" className="iconsize">
               <BellIcon />
@@ -71,17 +101,17 @@ export default function Navigation() {
             <NavLink to="/chat">Mine beskeder</NavLink>
           </li>
           <li>
-            <NavLink to="/search" className="iconsize">
+            <NavLink to="/search" className="iconsizeDesktop">
               <SearchIcon />
             </NavLink>
           </li>
           <li>
-            <NavLink to="/notification" className="iconsize">
+            <NavLink to="/notification" className="iconsizeDesktop">
               <BellIcon />
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile" className="iconsize">
+            <NavLink to="/profile" className="iconsizeDesktop">
               <UserIcon />
             </NavLink>
           </li>

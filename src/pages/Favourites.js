@@ -11,7 +11,7 @@ export default function Favourites() {
   if (!user) navigate("/login");
   if (user)
     return (
-      <div className="paddingWide">
+      <div className="paddingWide favourites PaddingPage paddingTopAllPages">
         <h1 className="font-bely fc-darkgreen">Favoritter</h1>
         <FavouritePost />
       </div>

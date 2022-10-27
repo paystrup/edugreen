@@ -18,6 +18,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+body{
+  background-color: var(--white);
+}
+
 button {
   background: none;
   color: inherit;
@@ -41,22 +45,31 @@ input:focus,
 select:focus {
   outline-color: var(--green);
 }
-select::placeholder {
-  color: aqua;
+
+select:active{
+  color: black;
 }
 
 /* ---------- Padding wide ------------*/
+.paddingTopAllPages {
+  padding-top: 10%;
+}
+
 .paddingWide {
-  padding: 0px 5%;
+  padding: 0 5%;
 }
 
 .sectionPadding {
   padding: 10% 5%;
 }
 
+.paddingBottom {
+  padding-bottom: 10%;
+}
+
 /* ---------- Page Padding Bottom ------------*/
 .PaddingPage {
-  padding-bottom: 70px;
+  padding-bottom: 170px;
 }
 
 /* ---------- Font Padding ------------*/
@@ -74,20 +87,28 @@ select::placeholder {
   height: 110px;
 }
 
+nav{
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  width: 100%;
+  background-color: var(--white);
+}
+
 .navMobile ul {
   display: flex;
   gap: 2rem;
 }
 
 .navLogo img {
-  height: 38px;
+  height: 33px;
 }
 
 .navDesktop {
   display: flex;
   justify-content: space-between;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .navDesktop ul {
@@ -122,9 +143,13 @@ nav a {
   color: var(--black);
   text-decoration: none;
   font-family: var(--inter);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+footer {
+  display: none;
 }
 
 /* --------------- bottom bar --------------- */
@@ -137,9 +162,10 @@ nav a {
   width: 100%;
   background-color: var(--white);
   box-shadow: 0px 0 10px var(--lightgrey);
-  height: 70px;
+  height: 120px;
   padding-left: 5%;
   padding-right: 5%;
+  padding-bottom: 2%;
   z-index: 100;
 }
 
@@ -245,6 +271,9 @@ nav a {
 .font-describe-title {
   font-size: 11px;
 }
+.font-describe-title-book {
+  font-size: 11px;
+}
 
 .font-blog-big {
   font-size: 20px;
@@ -347,21 +376,33 @@ nav a {
 
 .moneyProfile {
   margin-bottom: 5%;
-  padding: 5%;
+  /* padding: 5%; */
   border-radius: 12px;
   padding: 20px;
-  height: 80px;
+  height: 85px;
   justify-content: space-between;
 }
 
 .co2Profile {
   margin-bottom: 10%;
-  padding: 5%;
+  /* padding: 5%; */
   border-radius: 12px;
   padding: 20px;
-  height: 80px;
-  justify-content: space-between;
+  height: 85px;
 }
+
+.co2ProfileText {
+  justify-content: space-between;
+  /* padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 18px; */
+}
+
+/* .Profile-illustration img {
+  height: 35px;
+  padding-left: 8px;
+  padding-right: 8px;
+} */
 
 .savingsProfile {
   padding-top: 10%;
@@ -380,6 +421,7 @@ section.redigerProfil > * {
 .editForm select {
   margin-bottom: 5%;
   margin-top: 2%;
+  cursor: pointer;
 }
 
 .imgageh {
@@ -492,9 +534,6 @@ option .iconsize {
 }
 
 /* ----------- OPRET BOG - OPRETSALG.JS --------------*/
-.opretBogForm {
-  padding-bottom: 100px;
-}
 
 .imageUpload > input {
   display: none;
@@ -509,6 +548,7 @@ select {
   padding: 0.7rem 1rem;
   border-radius: 12px;
   border: 1px solid var(--darkgreen);
+  cursor: pointer;
 }
 
 .opretBogForm input {
@@ -557,6 +597,11 @@ select {
 
 select {
   appearance: none;
+  background-image: url(../assets/svg/arrowDown.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 20px;
+  background-origin: content-box;
 }
 
 input[type="file"] {
@@ -789,6 +834,13 @@ input[type="file"] {
   border-radius: 50%;
   margin-right: 0.4rem;
 }
+  .shift-flex-direction{
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapperbigscreen{
+  flex-direction: column;
+}
 
 .bookHeader {
   margin-bottom: 1.5rem;
@@ -859,11 +911,6 @@ button.iconsizeHeart {
   gap: 6px;
 }
 
-/* ------------- SIGN OUT ----------------*/
-.signOut {
-  padding-bottom: 10rem;
-}
-
 /* ------------ BOOKAGENT -------------- */
 .BookAgentCard {
   display: flex;
@@ -883,6 +930,62 @@ button.iconsizeHeart {
 
 .BookAgentTitle {
   padding-bottom: 2rem;
+}
+
+/*----Favoritter-----*/
+.favourites {
+  min-height: 90vh;
+}
+
+/*----Søg-----*/
+.search input {
+    font-family: var(--inter);
+    font-weight: 400;
+    font-size: 15px;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 2px solid var(--lightgrey);
+    margin-top: 5%;
+  }
+
+  .search button {
+    margin-top: 5%;
+  }
+
+  .classicSearch ul {
+    list-style-type: none;
+  }
+
+  .Advanced h3{
+    margin-top: 10%;
+  }
+
+  /*---- Søg item -----*/
+  .search-btn {
+    font-family: var(--inter);
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 5%;
+    color: var(--darkgrey);
+  }
+
+  /* ------------- COMMENTS FOR BOOKPAGE.JS -------------- */
+.addCommentSection{
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.addComment input{
+  font-family: var(--inter);
+  color: var(--darkgrey);
+  font-weight: 400;
+  font-size: 15px;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--darkgreen);
 }
 
 /* ------------ RESPONSIVE BREAKPOINTS -------------- */
@@ -937,6 +1040,7 @@ button.iconsizeHeart {
   /*----Footer-----*/
 
   footer {
+    display: block;
     box-shadow: 0px 0 10px var(--lightgrey);
   }
 
@@ -947,67 +1051,61 @@ button.iconsizeHeart {
   Footer a {
     color: var(--black);
     text-decoration: none;
-    font-family: var(--inter);
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-transform: uppercase;
   }
 
   Footer ul {
     list-style-type: none;
   }
 
-  Footer a {
-    color: var(--black);
-    text-decoration: none;
-    font-family: var(--inter);
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
 
   .FooterLogo img {
-    height: 60px;
+    height: 130px;
+  }
+
+  .FooterCopyright {
+    text-align: center;
+  }
+
+  .FooterCopyright p {
+    padding-top: 4%;
+    font-size: 15px;
+    display: block;
   }
 
   .FooterDesk {
     display: flex;
     justify-content: space-between;
     padding-top: 2rem;
+    margin-right: 7%;
+    margin-left: 7%;
+    padding-top: 5%;
   }
 
   .FooterDesk ul {
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+
   }
 
   .FooterImg {
     z-index: 2;
+
+  }
+
+  .footerbutton {
+    margin-top: 20% ;
   }
 
   .detmedsmaat {
-    display: flex;
+    display: block;
     z-index: 2;
     bottom: 0.1vw;
   }
-
-  #foot4 {
-    margin-left: 5vw;
+  .bigscreenpadding{
+    padding-left: 25%;
+    padding-right: 25%;
   }
 
-  #foot5 {
-    margin-left: 5vw;
-  }
-
-  #foot6 {
-    margin-left: 50vw;
-  }
-
-  #foot7 {
-    margin-left: 5vw;
-  }
 }
 
 @media only screen and (max-width: 1280px) {

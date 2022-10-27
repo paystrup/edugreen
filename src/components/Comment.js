@@ -3,12 +3,12 @@ import {
   doc,
   updateDoc,
   arrayUnion,
-  arrayRemove,
   onSnapshot,
 } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-toastify";
 
 export default function Comment({ id, book }) {
   // State for logging the input field
@@ -19,7 +19,7 @@ export default function Comment({ id, book }) {
   const [comments, setComments] = useState([]);
 
   // verify user is logged in
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   // reference to our database in FireBase, collection = articles
   const commentRef = doc(db, "articles", id);
@@ -47,6 +47,7 @@ export default function Comment({ id, book }) {
             commentId: uuidv4(),
           }),
         }).then(() => {
+          toast("Din besked er blevet sendt til sælgeren.", { type: "success" });
           setComment("");
           console.log("Kommentar tilføjet");
         });
@@ -55,9 +56,9 @@ export default function Comment({ id, book }) {
   };
 
   return (
-    <div>
-      <h2>Send besked til sælger</h2>
-      <div>
+    <section className="addCommentSection">
+      <h2 className="font-bely">Send besked til sælger</h2>
+      <div className="addComment">
         {user && (
           <input
             type="text"
@@ -65,10 +66,10 @@ export default function Comment({ id, book }) {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             onKeyUp={(e) => handleChangeComment(e)}
-            placeholder="Skriv besked. Tryk enter for at sende besked."
+            placeholder="Skriv besked. Tryk enter for at sende."
           />
         )}
       </div>
-    </div>
+    </section>
   );
 }

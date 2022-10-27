@@ -7,7 +7,7 @@ export default function Chat() {
   const [page, setPage] = useState("sale");
 
   return (
-    <div>
+    <div className="PaddingPage">
       {/* sell and buy btns */}
       <div className="chat-buttons" id="wrapper">
         <button
@@ -49,8 +49,7 @@ function Buymessage() {
         <p className="font-header">Du har ingen nye beskeder</p>
 
         <p className="font-bodytext">
-          Find dine nye studiebøger brugt og spar på pengene og miljøet
-          &#128525;
+          Find dine nye studiebøger brugt og spar på pengene og miljøet ♻️ 💸
         </p>
         {/* Call to action btn */}
         <button

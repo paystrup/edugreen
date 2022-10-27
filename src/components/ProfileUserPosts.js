@@ -32,7 +32,7 @@ export default function Articleteaser() {
   }, []);
 
   return (
-    <section className="PaddingPage">
+    <section className="paddingwide paddingBottom">
       <h2 className="font-header">Mine annoncer</h2>
       <div className="article-wapper">
         {articles.map(({ user, id, imageUrl, title, price, condition }) =>
@@ -51,9 +51,6 @@ export default function Articleteaser() {
                   backgroundRepeat: "no-repeat",
                 }}
               >
-                <button className="iconsize favorite-icon">
-                  <HeartIcon />
-                </button>
               </div>
               <div className="col-9 ps-4">
                 <div>

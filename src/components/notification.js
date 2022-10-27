@@ -6,7 +6,7 @@ export default function Chat() {
   const [page, setPage] = useState("all");
 
   return (
-    <div>
+    <div className="PaddingPage">
       {/* all notifications and bookagent btns */}
       <div className="chat-buttons">
         <button
@@ -39,7 +39,7 @@ function Bookagentnotification() {
 
       <p className="font-bodytext">
         Opret din egen bogagent og få notifikationer når dine favoritter kommer
-        til salg.{" "}
+        til salg 🔔 📚 {" "}
       </p>
 
       <hr />

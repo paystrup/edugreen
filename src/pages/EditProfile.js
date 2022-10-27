@@ -3,11 +3,13 @@ import { XIcon, PlusIcon } from "@heroicons/react/outline";
 import { auth } from "../firebaseConfig.js";
 import logoBig from "../assets/svg/logo-big.svg";
 
+
 export default function EditProfile() {
   // This function will be implemented at a later stage
   // User will be able to edit their profile
   // This can be stored in a new collection in fireStore and later fetched
   // updates can happen with updateDoc function in the firebase API
+
 
   return (
     <section className="paddingWide redigerProfil PaddingPage">
@@ -89,7 +91,7 @@ export default function EditProfile() {
         </div>
       </form>
       <input
-        className="editSubmit btn-large font-btn"
+        className="editSubmit btn-large font-btn fc-white"
         type="submit"
         value="Submit"
       />

@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 import { UddannelserList } from "../data/uddannelserDK";
-import { ViewGridIcon } from "@heroicons/react/outline";
 import UploadCameraIcon from "../assets/svg/cameraicon.svg";
 
 // for bookpage, send auth userImgUrl + name
@@ -14,6 +13,7 @@ import UploadCameraIcon from "../assets/svg/cameraicon.svg";
 // kan derefter displayes
 
 export default function AddArticle() {
+
   console.log(auth.currentUser); // tjek at der logges authenticated user
 
   const [formData, setFormData] = useState({
@@ -149,7 +149,7 @@ export default function AddArticle() {
   };
 
   return (
-    <div className="paddingWide opretBogForm">
+    <div className="paddingWide opretBogForm PaddingPage bigscreenpadding">
       <h2 className="font-header paddingHeader">Opret bogsalg</h2>
 
       <div className="bogSalgInputContainer">
@@ -220,7 +220,6 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         >
           <option value="" disabled selected>
-            <ViewGridIcon className="iconsize-small-black" />
             Vælg uddannelse
           </option>
           {UddannelserList.map(({ uddannelse, id }, index) => {

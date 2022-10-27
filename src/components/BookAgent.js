@@ -3,7 +3,7 @@ export default function BookAgent() {
   return (
     <section className="sectionPadding">
       <h3 className="BookAgentTitle font-blog-big">
-        <span className="font-blog-big-bold">Brug vores bogagent </span>
+        <b>Brug vores bogagent </b>
         og modtag opdateringer, når den bog du mangler sættes til salg.
       </h3>
 
@@ -18,7 +18,7 @@ export default function BookAgent() {
       >
         <div>
           <p className="font-describe-title font-padding">Kommer snart</p>
-          <h3 className="font-blog-big">Opret din bogagent</h3>
+          <h3 className="font-blog-big">Opret din bogagent 📖</h3>
         </div>
       </div>
     </section>
