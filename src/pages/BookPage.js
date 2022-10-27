@@ -169,7 +169,7 @@ export default function BookPage() {
               <div className="flex space-between align-center">
                 <p className="font-describe-title-book fc-darkgrey">Uddannelse</p>
                 <div>
-                  <p className="font-bodytext">{article.education}</p>
+                  <p className="font-bodytext education-book">{article.education}</p>
                 </div>
               </div>
 

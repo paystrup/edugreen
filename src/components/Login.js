@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import '../css/App.css';
 import '../css/designsystem.css';
 import loginHeaderImage from '../assets/images/loginHeaderImage.jpg'
+import { toast } from "react-toastify";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ export default function Login() {
   useEffect(() => {
     if (user) {
       navigate("/");
+      toast("Du er nu logget ind", { type: "success" });
     } else {
       console.log("login");
     }
@@ -79,7 +81,6 @@ export default function Login() {
               <div className="flex align-center flexCol">
                   <button className="btn-largeFixed bg-darkgreen font-btn fc-white ">Fortsæt med Email</button>
                   <button className="font-bodytext btnContinue" onClick={() => navigate("/")}>Gå til forsiden</button>
-
               </div>
             </div>
     </section>

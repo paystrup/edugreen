@@ -17,7 +17,6 @@ export default function LoginToast() {
                 <p className='font-bodytext fc-darkgreen'>Velkommen, {user.displayName}!</p>
             </section>
         }
-
     </>
     )
 }

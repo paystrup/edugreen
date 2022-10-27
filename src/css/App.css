@@ -845,6 +845,9 @@ input[type="file"] {
   flex-direction: column;
   justify-content: space-between;
 }
+.education-book{
+text-align: end;
+}
 .wrapperbigscreen{
   flex-direction: column;
 }
