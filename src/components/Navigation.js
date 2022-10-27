@@ -49,12 +49,13 @@ export default function Navigation() {
 
   return (
     <nav id="navbar">
-      {/* mobile navigationbar */}
+      {/* MOBILE NAV */}
       <div className="navMobile paddingWide">
         {/* Change logo to back button on specific subpages*/}
         {location.pathname === "/practical" ||
         location.pathname === "/editprofile" ? (
           <div className=" goBack">
+            {/* NAVIGATES BACK -1 IN THE URL HISTORY, LAST PAGE U VISITED */}
             <p onClick={() => navigate(-1)} className="flex iconsize goBackp">
               <ArrowNarrowLeftIcon />
               <p className="font-bodytext">GÅ TILBAGE</p>
@@ -66,7 +67,7 @@ export default function Navigation() {
           </Link>
         )}
 
-        {/* Ikoner */}
+        {/* ICONS - CHECKING FOR PATHNAME */}
         <ul>
           {location.pathname === "/" ? (
           '' 
@@ -85,7 +86,7 @@ export default function Navigation() {
         </ul>
       </div>
 
-      {/* desktop navigationbar */}
+      {/* DESKTOP NAV */}
       <div className="navDesktop paddingWide">
         <NavLink to="/" end className="navLogo">
           <img src={logoBig} alt="EduGreen"></img>

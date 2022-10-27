@@ -1,7 +1,6 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
-import { HeartIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 

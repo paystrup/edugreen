@@ -300,6 +300,11 @@ footer {
 .font-belyBig {
   font-size: 2.2rem;
 }
+
+/* --------- LANDINGPAGE TOAST GREET ----------------*/
+.loginToastLanding{
+  padding-top: 10%;
+}
 /* ------- CHAT ---------- */
 .chat-buttons {
   display: flex;
