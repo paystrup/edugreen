@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   doc,
   updateDoc,
-  arrayUnion,
-  onSnapshot,
+  arrayUnion
 } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -14,25 +13,31 @@ export default function Comment({ id, book }) {
   // State for logging the input field
   const [comment, setComment] = useState("");
 
-  // State for sending the whole comment to fireStore
-  // including username, ID etc.. (See array further down)
+  // store all comments for the book in a constant
   const comments = book.comments;
-  console.log(comments)
+  console.log(comments) // check it works
 
-  
-  
   // verify user is logged in
   const [user] = useAuthState(auth);
 
   // reference to our database in FireBase, collection = articles
   const commentRef = doc(db, "articles", id);
 
+  // handle comment change
   const handleChangeComment = (e) => {
     if (e.key === "Enter") {
+      // if enter is pressed (comment is sent)
+
+      // if the comment is not an empty string
       if (comment !== "") {
+        // then update the document with comments 
+        // array on the book article in firestore
         updateDoc(commentRef, {
+          // arrayUnion to update array with new values (no overrides)
           comments: arrayUnion({
             sentBy: auth.currentUser.uid,
+            sentByName: user.displayName,
+            sentByImageUrl: auth.currentUser.photoURL,
             sentTo: book.user,
             comment: comment,
             createdAt: new Date(),
@@ -42,11 +47,14 @@ export default function Comment({ id, book }) {
             bookPrice: book.price
           }),
         }).then(() => {
+          // UX for message sent
           toast("Din besked er blevet sendt til sælgeren.", { type: "success" });
+          // reset comment input
           setComment("");
           console.log("Kommentar tilføjet");
         });
       }
+      // else keep the value and do nothing
     } else setComment(e.target.value);
   };
 
@@ -65,8 +73,17 @@ export default function Comment({ id, book }) {
           />
         )}
 
-        {comments.map(({comment, }) =>
-          <p>{comment}</p>
+        {comments?.map(({comment, sentByName, sentByImageUrl}) =>
+          <div>
+            <p>{sentByName}</p>
+            <p>{comment}</p>
+            {sentByImageUrl ? 
+              (<img className="imageProfile" src={sentByImageUrl} alt={sentByName}/>)
+              : (<img className="imageProfile" src={sentByImageUrl} alt={sentByName}/>)
+            }
+            
+            
+          </div>
         )}
 
       </div>
