@@ -16,24 +16,16 @@ export default function Comment({ id, book }) {
 
   // State for sending the whole comment to fireStore
   // including username, ID etc.. (See array further down)
-  const [comments, setComments] = useState([]);
+  const comments = book.comments;
+  console.log(comments)
 
+  
+  
   // verify user is logged in
   const [user] = useAuthState(auth);
 
   // reference to our database in FireBase, collection = articles
   const commentRef = doc(db, "articles", id);
-
-  // fetch
-  useEffect(() => {
-    const docRef = doc(db, "articles", id);
-    onSnapshot(docRef, (snapshot) => {
-      //   setComments({ ...snapshot.data(), id: snapshot.id });
-      //   create new array in database with comments under article
-      setComments(snapshot.data().comments);
-      console.log(comments);
-    });
-  }, []);
 
   const handleChangeComment = (e) => {
     if (e.key === "Enter") {
@@ -45,6 +37,9 @@ export default function Comment({ id, book }) {
             comment: comment,
             createdAt: new Date(),
             commentId: uuidv4(),
+            bookTitle: book.title,
+            bookImage: book.imageUrl,
+            bookPrice: book.price
           }),
         }).then(() => {
           toast("Din besked er blevet sendt til sælgeren.", { type: "success" });
@@ -69,6 +64,11 @@ export default function Comment({ id, book }) {
             placeholder="Skriv besked. Tryk enter for at sende."
           />
         )}
+
+        {comments.map(({comment, }) =>
+          <p>{comment}</p>
+        )}
+
       </div>
     </section>
   );
