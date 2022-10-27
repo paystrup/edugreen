@@ -82,9 +82,9 @@ select:active{
   display: none;
   justify-content: space-between;
   align-items: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  height: 110px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 70px;
 }
 
 nav{
@@ -162,21 +162,23 @@ footer {
   width: 100%;
   background-color: var(--white);
   box-shadow: 0px 0 10px var(--lightgrey);
-  height: 120px;
+  height: 90px;
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 2%;
+  padding-bottom: 1%;
   z-index: 100;
 }
 
 .bottombar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
 .wrapper-bottombar ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   list-style-type: none;
   padding-left: 0rem;
   margin-bottom: 0rem;
@@ -187,9 +189,9 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: var(--darkgreen);
-  width: 54px;
-  height: 54px;
-  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .plusicon path {
