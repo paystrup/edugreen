@@ -959,34 +959,35 @@ button.iconsizeHeart {
     margin-top: 5%;
   }
 
-  .search button {
-    margin-top: 5%;
-  }
+.search button {
+  margin-top: 5%;
+}
 
-  .classicSearch ul {
-    list-style-type: none;
-  }
+.classicSearch ul {
+  list-style-type: none;
+}
 
-  .Advanced h3{
-    margin-top: 10%;
-  }
+.Advanced h3{
+  margin-top: 10%;
+}
 
-  /*---- Søg item -----*/
-  .search-btn {
-    font-family: var(--inter);
-    font-weight: 400;
-    font-size: 15px;
-    margin-top: 5%;
-    color: var(--darkgrey);
-  }
+/*---- Søg item -----*/
+.search-btn {
+  font-family: var(--inter);
+  font-weight: 400;
+  font-size: 15px;
+  margin-top: 5%;
+  color: var(--darkgrey);
+}
 
-  /* ------------- COMMENTS FOR BOOKPAGE.JS -------------- */
+/* ------------- COMMENTS FOR BOOKPAGE.JS -------------- */
 .addCommentSection{
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
+
 .addComment input{
   font-family: var(--inter);
   color: var(--darkgrey);
@@ -996,6 +997,11 @@ button.iconsizeHeart {
   padding: 0.7rem 1rem;
   border-radius: 12px;
   border: 1px solid var(--darkgreen);
+}
+
+.commentBookPage img{
+  height: 50px;
+  width: 50px;
 }
 
 /* ------------ RESPONSIVE BREAKPOINTS -------------- */

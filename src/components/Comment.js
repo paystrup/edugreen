@@ -8,6 +8,7 @@ import { auth, db } from "../firebaseConfig";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
+import defaultProfilePic from "../assets/images/defaultProfilePic.png"
 
 export default function Comment({ id, book }) {
   // State for logging the input field
@@ -60,33 +61,38 @@ export default function Comment({ id, book }) {
 
   return (
     <section className="addCommentSection">
-      <h2 className="font-bely">Send besked til sælger</h2>
-      <div className="addComment">
-        {user && (
-          <input
-            type="text"
-            className="form-control mt-4 mb-5"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            onKeyUp={(e) => handleChangeComment(e)}
-            placeholder="Skriv besked. Tryk enter for at sende."
-          />
-        )}
+      
+      {/* IF USER ISN'T THE ONE OWNING THE POSTS, SHOW ADD COMMENT INPUT */}
+      {book.user === auth.currentUser.uid ? 
+          null : (
+            <div className="addComment">
+              <h2 className="font-belySmall">Send besked til sælger</h2>
+              <input
+                type="text"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                onKeyUp={(e) => handleChangeComment(e)}
+                placeholder="Skriv besked. Tryk enter for at sende."
+              />
+            </div> 
+          )
+      }
 
-        {comments?.map(({comment, sentByName, sentByImageUrl}) =>
-          <div>
-            <p>{sentByName}</p>
-            <p>{comment}</p>
+      {comments?.length > 0 && <h2>Kommentarer</h2>} 
+      {comments?.map(({comment, sentByName, sentByImageUrl}) =>
+        <div className="commentBookPage flex flexCol gap1">
+          <div className="flex space-between align-center">
             {sentByImageUrl ? 
               (<img className="imageProfile" src={sentByImageUrl} alt={sentByName}/>)
-              : (<img className="imageProfile" src={sentByImageUrl} alt={sentByName}/>)
+              : (<img className="imageProfile" src={defaultProfilePic} alt={sentByName}/>)
             }
-            
-            
+            <p className="font-describe-title-book">Sendt af {sentByName}</p>
           </div>
-        )}
+          
+          <p className="font-bodytext fc-darkgrey">{comment}</p>
 
-      </div>
+        </div>
+      )}
     </section>
   );
 }

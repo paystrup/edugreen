@@ -64,6 +64,14 @@
   overflow-wrap: break-word;
 }
 
+.font-belySmall {
+  font-family: var(--bely);
+  font-family: 500;
+  font-weight: 500;
+  font-size: 1.8rem;
+  overflow-wrap: break-word;
+}
+
 .font-belyBig {
   font-family: var(--bely);
   font-weight: 500;

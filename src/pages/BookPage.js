@@ -153,7 +153,7 @@ export default function BookPage() {
                   <div className="iconsize-small-black">
                     <ClockIcon /> 
                   </div>
-                  {/* <p className="font-bodytext">{article.createdAt.toDate().toDateString()}</p> */}
+                  <p className="font-bodytext">{article?.createdAt?.toDate().toDateString()}</p>
                 </div>
               </div>
 
@@ -193,7 +193,7 @@ export default function BookPage() {
               <div className="flex space-between align-center">
                 <p className="font-describe-title-book fc-darkgrey">ISBN</p>
                 <div>
-                  <p className="font-bodytext">{article.ISBN}</p>
+                  <p className="font-bodytext">{article?.ISBN}</p>
                 </div>
               </div>
             </div>
@@ -201,9 +201,7 @@ export default function BookPage() {
           </div>
         )}
         
-        {article.user === auth.currentUser.uid ? 
-          null : <Comment book={article} id={id} />
-        }
+        <Comment book={article} id={id} />
         
       </section>
     );
