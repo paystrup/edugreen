@@ -31,8 +31,8 @@ export default function BottomBar() {
         </li>
 
         <li className="sellbutton">
-          <NavLink to="/salg" className="iconsize">
-            <PlusIcon className="plusicon" />
+          <NavLink to="/salg" className="iconsize-white">
+            <PlusIcon />
           </NavLink>
         </li>
 
