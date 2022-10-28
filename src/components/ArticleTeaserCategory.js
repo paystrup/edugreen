@@ -1,4 +1,4 @@
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import LikeArticle from "./LikeArticle";
 import { auth } from "../firebaseConfig.js";
 
-export default function Articleteaser({ header }) {
+export default function ArticleTeaserCategory({ header, sortCategory, sortCondition, sortEducation }) {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
@@ -24,8 +24,10 @@ export default function Articleteaser({ header }) {
     // db is our database, articles is the name of the collection
     const articleRef = collection(db, "articles")
     // sort by createdAt, our timestamp added to every article, date
+
+    // sorting syntax in firestore by using where
     // const q = query(articleRef, where("education", "==", "Pædagog")); sort by education
-    const q = query(articleRef, orderBy("createdAt", "desc"));
+    const q = query(articleRef, where(`${sortCategory}`, `${sortCondition}`, `${sortEducation}`));
 
     // get the data, on snapshot
     onSnapshot(q, (snapshot) => {
@@ -51,7 +53,6 @@ export default function Articleteaser({ header }) {
         </button>
       </div>
       <div className="article-wapper paddingWide">
-        {/* MAP THROUGH COMMENTS TO DISPLAY */}
         {articles.length === 0 ? (
           <p className="font-bodytext fc-darkgreen">Ingen bøger fundet</p>
         ) : (
@@ -62,7 +63,6 @@ export default function Articleteaser({ header }) {
                 <div className="favorite-icon iconsize-green">
                   {user && <LikeArticle id={id} likes={likes} />}
                 </div>
-                {/* BOOK IMAGE */}
                 <div
                   className="image-teaser-wrapper"
                   style={{

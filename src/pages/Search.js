@@ -96,32 +96,17 @@ export default function Search() {
                 <h3 className="font-header">Avanceret søgning</h3>
                 <input id="titel" type="text" name="titel"  placeholder="Titel"/>
                 <input id="author" type="text" name="author" placeholder="Forfatter(ere)"/>
-
-                <datalist id="mylist">
-                    <option value="1. udgave"/>
-                    <option value="2. udgave"/>
-                    <option value="3. udgave"/>
-                    <option value="4. udgave"/>
-                    <option value="5. udgave"/>
-                    <option value="6. udgave"/>
-                    <option value="7. udgave"/>
-                    <option value="8. udgave"/>
-                    <option value="9. udgave"/>
-                    <option value="10. udgave"/>
-                    <option value="11. udgave"/>
-                    <option value="12. udgave"/>
-                </datalist>
-                <input type="search" list="mylist" name="author" className="form-control" placeholder="Udgave"/>
-
+                <input id="edition" type="number" name="edition" placeholder="Udgave"/>
                 <input type="number" className="form-control" placeholder="Årstal"/>
-
-                <datalist id="list">
-                    <option  value="Som ny">Som ny</option>
-                    <option value="God">God</option>
-                    <option value="Lidt brugt">Lidt brugt</option>
-                    <option value="Meget brugt">Meget brugt</option>
-                </datalist>
-                <input type="search" list="list" name="condition" className="form-control" placeholder="Stand"/>
+                <select id="condition" name="condition" placeholder="Bogens stand">
+                  <option className="optioncolor" value="" disabled defaultValue>
+                    Vælg bogens stand
+                  </option>
+                  <option value="Som ny">Som ny</option>
+                  <option value="God">God</option>
+                  <option value="Lidt brugt">Lidt brugt</option>
+                  <option value="Meget brugt">Meget brugt</option>
+                </select>
 
                 <button className="btn-large bg-green font-btn fc-white">Søg</button>
               </ul> 

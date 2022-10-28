@@ -12,12 +12,12 @@ export default function FavouriteMap({ articles }) {
       {articles.map(
         ({ id, imageUrl, title, price, condition, likes }) =>
           likes?.includes(auth.currentUser.uid) && (
-            <div className="card-teaser-wrapper flex" key={id}>
+            <div className="card-teaser-wrapper-small flex" key={id}>
               <div className="favorite-icon iconsize-green">
                 {user && <LikeArticle id={id} likes={likes} />}
               </div>
               <div
-                className="image-teaser-wrapper"
+                className="image-teaser-wrapper-small"
                 style={{
                   backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${imageUrl})`,
                   backgroundPosition: "center",

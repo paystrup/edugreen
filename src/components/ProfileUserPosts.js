@@ -33,16 +33,16 @@ export default function Articleteaser() {
   return (
     <section className="paddingwide paddingTopBottom">
       <h2 className="font-header">Mine annoncer</h2>
-      <div className="article-wapper">
+      <div className="article-wapper-small">
         {articles.map(({ user, id, imageUrl, title, price, condition }) =>
           user === auth.currentUser.uid ? (
             <div
-              className="card-teaser-wrapper flex"
+              className="card-teaser-wrapper-small flex"
               key={id}
               onClick={() => navigate("/bookpage/" + id)}
             >
               <div
-                className="image-teaser-wrapper"
+                className="image-teaser-wrapper-small"
                 style={{
                   backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${imageUrl})`,
                   backgroundPosition: "center",

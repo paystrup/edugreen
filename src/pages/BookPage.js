@@ -8,6 +8,7 @@ import {
   RefreshIcon,
   LocationMarkerIcon,
   ClockIcon,
+  PencilAltIcon
 } from "@heroicons/react/outline";
 import { auth } from "../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
@@ -51,16 +52,6 @@ export default function BookPage() {
   if (user)
     return (
       <section className="PaddingPage paddingWide bigscreenpadding">
-        {/* DELETE + EDIT BUTTON IF IT'S OWNED BY USER SIGNED IN */}
-        {article.user === auth.currentUser.uid && (
-          <div className="bookEditBtn flex flexCol gap05">
-            <DeleteArticle id={article.id} imageUrl={article.imageUrl} />
-            <button className="font-btn btn-large bg-darkgreen fc-white">
-              Rediger opslag
-            </button>
-          </div>
-        )}
-
         {article && (
           <div className="flex shift-flex-direction">
             <div className="flex wrapperbigscreen">
@@ -71,7 +62,9 @@ export default function BookPage() {
                   <h1 className="font-header">{article.title}</h1>
                 </div>
                 <div className="iconsize-green">
-                  {user && <LikeArticle id={id} likes={article.likes} />}
+                  {/* IF USER OWNS POST SHOW EDIT ICON, IF NOT SHOW LIKE BUTTON */}
+                  {article.user === auth.currentUser.uid ? <div><PencilAltIcon /></div> : <LikeArticle id={id} likes={article.likes} />}
+
                 </div>
               </div>
 
@@ -116,7 +109,10 @@ export default function BookPage() {
                   src={article.userImage}
                   alt="Profilepicture user"
                 ></img>
-                <h2 className="font-bodytextBigBold">{article.userName}</h2>
+                <h2 className="font-bodytextBigBold">
+                  {/* IF USER OWNS THE BOOKPOST SHOW PERSONAL MSG */}
+                  {article.user === auth.currentUser.uid ? "Din annonce" : article.userName}
+                </h2>
               </div>
               <div className="flex align-center gap02">
                 <div className="iconsize-small-green">
@@ -198,6 +194,16 @@ export default function BookPage() {
               </div>
             </div>
           </div>
+          </div>
+        )}
+
+        {/* DELETE + EDIT BUTTON IF IT'S OWNED BY USER SIGNED IN */}
+        {article.user === auth.currentUser.uid && (
+          <div className="bookEditBtn flex flexCol gap05">
+            <DeleteArticle id={article.id} imageUrl={article.imageUrl} />
+            <button className="font-btn btn-large bg-green fc-white">
+              Markér som solgt
+            </button>
           </div>
         )}
         

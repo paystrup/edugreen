@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emptystateChat from "../assets/svg/emptystateChat.svg";
-import MessagesBuy from "../components/MessagesBuy.js";
 
 export default function Chat() {
   const [page, setPage] = useState("sale");
@@ -41,9 +40,6 @@ function Buymessage() {
   return (
     <>
       {/* Empty state */}
-      <div>
-        <MessagesBuy />
-      </div>
       <div className="chat-error-message">
         <img src={emptystateChat} alt="Man and message illustration"></img>
         <p className="font-header textAlignCenter">Du har ingen nye beskeder</p>

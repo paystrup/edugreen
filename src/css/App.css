@@ -34,12 +34,10 @@ button {
   opacity: 1;
   transition: 0.3s;
 }
-/* button:hover {
-  background-color: var(--green);
+button:hover {
   opacity: 0.8;
-  text-decoration: underline;
   transition-timing-function: ease-in-out;
-} */
+}
 
 textarea:focus,
 input:focus,
@@ -61,7 +59,7 @@ select:active{
 }
 
 .sectionPadding {
-  padding: 10% 5%;
+  padding: 8rem 5%;
 }
 
 .paddingTopBottom {
@@ -71,6 +69,10 @@ select:active{
 
 .paddingBottom {
   padding-bottom: 10%;
+}
+
+.paddingBottomSmall {
+  padding-bottom: 1rem;
 }
 
 /* ---------- Page Padding Bottom ------------*/
@@ -286,6 +288,7 @@ footer {
 
 .font-blog-big {
   font-size: 20px;
+  max-width: 30ch;
 }
 
 /* ------- LANDING BIG CAROUSEL TOP ---------- */
@@ -680,7 +683,11 @@ input[type="file"] {
   grid-gap: 20px;
   padding-top: 30px;
 }
-
+.article-wapper-small {
+  display: grid;
+  grid-gap: 20px;
+  padding-top: 30px;
+}
 .card-teaser-wrapper {
   position: relative;
   flex-direction: column;
@@ -689,6 +696,18 @@ input[type="file"] {
 }
 
 .image-teaser-wrapper {
+  background-color: var(--lightgrey);
+  animation: pulse 1.5s 1 ease-in-out;
+  border-radius: 12px;
+}
+.card-teaser-wrapper-small {
+  position: relative;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.image-teaser-wrapper-small {
   background-color: var(--lightgrey);
   animation: pulse 1.5s 1 ease-in-out;
   border-radius: 12px;
@@ -982,8 +1001,9 @@ button.iconsizeHeart {
     padding: 15px 20px;
     border-radius: 12px;
     border: 2px solid var(--lightgrey);
-  }
-  .unseen-scroll-div{
+}
+
+.unseen-scroll-div {
   margin-top: 50px;
 }
 
@@ -1008,28 +1028,60 @@ button.iconsizeHeart {
   color: var(--darkgrey);
 }
 
+/* --------- PROGRESS BAR ---------- */
+.progress-bar{
+  background-color: var(--green);
+}
+
+.progress{
+  padding: 2rem;
+}
+
 /* ------------- COMMENTS FOR BOOKPAGE.JS -------------- */
 .addCommentSection{
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.addComment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .addComment input{
   font-family: var(--inter);
-  color: var(--darkgrey);
   font-weight: 400;
   font-size: 15px;
   width: 100%;
-  padding: 0.7rem 1rem;
+  padding: 15px 20px;
   border-radius: 12px;
-  border: 1px solid var(--darkgreen);
+  border: 2px solid var(--lightgrey);
 }
 
 .commentBookPage img{
   height: 50px;
   width: 50px;
+}
+
+.btn-send {
+  padding: 10px 10px;
+  border-radius: 12px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.btn-send svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+  stroke: var(--white);
 }
 
 /* ------------ RESPONSIVE BREAKPOINTS -------------- */
@@ -1056,11 +1108,24 @@ button.iconsizeHeart {
     width: 20vw;
     height: 20vw;
   }
+    .card-teaser-wrapper-small {
+    width: 15vw;
+    height: auto;
+  }
+    .image-teaser-wrapper-small {
+    width: 15vw;
+    height: 15vw;
+  }
 
   .article-wapper {
     grid-template-columns: repeat(4, 0fr);
     grid-auto-rows: auto;
     justify-content: space-between;
+  }
+    .article-wapper-small {
+    grid-template-columns: repeat(3, 0fr);
+    grid-auto-rows: auto;
+    grid-gap: 3em;
   }
 
   .loginToastLanding{
@@ -1083,8 +1148,19 @@ button.iconsizeHeart {
   /* ------------- book agent card ----------------*/
   .BookAgentCard {
     height: 60vh;
+    padding-left:  3rem;
+    padding-bottom: 3rem;
   }
 
+  .BookAgentTitle {
+    max-width: 36ch;
+  }
+
+  /* ------------- Swiper slide ----------------*/
+  .swiper-slide {
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+  }
   /*-----CHAT-----*/
   .chat-error-message img {
     width: 20%;
@@ -1179,6 +1255,10 @@ button.iconsizeHeart {
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
   .navMobile {
+    display: flex;
+  }
+
+  .navDesktop {
     display: none;
   }
 
@@ -1187,7 +1267,7 @@ button.iconsizeHeart {
   }
 
   .wrapper-bottombar {
-    display: none;
+    display: flex;
   }
 
   .card-teaser-wrapper {
@@ -1199,21 +1279,67 @@ button.iconsizeHeart {
     width: 20vw;
     height: 20vw;
   }
+  .card-teaser-wrapper-small {
+    width: 20vw;
+    height: auto;
+  }
+    .image-teaser-wrapper-small {
+    width: 20vw;
+    height: 20vw;
+  }
 
   .article-wapper {
     grid-template-columns: repeat(4, 0fr);
     justify-content: space-between;
   }
+    .article-wapper-small {
+    grid-template-columns: repeat(4, 0fr);
+    grid-auto-rows: auto;
+    grid-gap: 3em;
+  }
 
-    /*-----CHAT-----*/
-    .chat-error-message img {
-      width: 25%;
-    }
-  
+  /*-----CHAT-----*/
+  .chat-error-message img {
+    width: 25%;
+  }
+
+  /* ------------- book agent card ----------------*/
+  .BookAgentCard {
+    height: 60vh;
+    padding-left:  3rem;
+    padding-bottom: 3rem;
+  }
+
+  .BookAgentTitle {
+    max-width: 36ch;
+  }
+
+  /*-------------Profile-------------*/
+  .savingsProfile {
+    display: flex;
+  }
+
+  .moneyProfile {
+    width: 48%;
+  }
+
+  .co2Profile {
+    width: 48%;
+  }
+
+  /* ------------- Swiper slide ----------------*/
+  .swiper-slide {
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+  }
  
 }
 
 @media screen and (max-width: 960px) {
+  .sectionPadding {
+    padding: 3rem 5%;
+  }
+
   .navMobile {
     display: flex;
   }
@@ -1235,10 +1361,23 @@ button.iconsizeHeart {
     width: 25vw;
     height: 25vw;
   }
+    .card-teaser-wrapper-small {
+    width: 25vw;
+    height: auto;
+  }
+    .image-teaser-wrapper-small {
+    width: 25vw;
+    height: 25vw;
+  }
 
   .article-wapper {
     grid-template-columns: repeat(3, 0fr);
     justify-content: space-between;
+  }
+    .article-wapper-small {
+    grid-template-columns: repeat(3, 0fr);
+    grid-auto-rows: auto;
+    grid-gap: 3em;
   }
 
   .swiper-slide {
@@ -1271,10 +1410,23 @@ button.iconsizeHeart {
     width: 40vw;
     height: 40vw;
   }
+  .card-teaser-wrapper-small {
+    width: 40vw;
+    height: auto;
+  }
+    .image-teaser-wrapper-small {
+    width: 40vw;
+    height: 40vw;
+  }
 
   .article-wapper {
     grid-template-columns: repeat(auto-fill, minmax(40vw, 0fr));
     justify-content: space-between;
+  }
+  .article-wapper-small {
+    grid-template-columns: repeat(auto-fill, minmax(40vw, 0fr));
+    justify-content: space-between;
+    grid-gap: 0em;
   }
 
   .swiper-slide {
@@ -1284,7 +1436,7 @@ button.iconsizeHeart {
   /* SPLASH PAGE */
 
   .splashIndhold h2 {
-    font-size: 2rem;
+    font-size: 2.8rem;
     max-width: 15ch;
   }
 
@@ -1319,9 +1471,22 @@ button.iconsizeHeart {
     width: 90vw;
     height: 90vw;
   }
+  .card-teaser-wrapper-small {
+    width: 90vw;
+    height: auto;
+  }
+    .image-teaser-wrapper-small {
+    width: 90vw;
+    height: 90vw;
+  }
   .article-wapper {
     grid-template-columns: repeat(auto-fill, minmax(90vw, 0fr));
     justify-content: center;
+  }
+    .article-wapper-small {
+    grid-template-columns: repeat(auto-fill, minmax(90vw, 0fr));
+    justify-content: center;
+    grid-gap: 0em;
   }
 
   .swiper-slide {

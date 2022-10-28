@@ -12,7 +12,7 @@ export default function EditProfile() {
 
 
   return (
-    <section className="paddingWide redigerProfil PaddingPage">
+    <section className="paddingWide redigerProfil PaddingPage bigscreenpadding">
       <h2 className="font-header">Rediger din profil</h2>
       <div className="flex">
         <div className="imageProfile bg-darkgreen">

@@ -264,7 +264,7 @@ export default function AddArticle() {
         <label htmlFor="imageUpload" className="font-header custom-file-upload">
           <img src={UploadCameraIcon} alt="CameraIcon"></img>
         </label>
-
+        {/* upload Image input*/}
         <input
           id="imageUpload"
           type="file"
@@ -273,6 +273,18 @@ export default function AddArticle() {
           className="form-control"
           onChange={(e) => handleImageChange(e)}
         />
+
+        {/* Progress - if progress is 0 return none */}
+        {progress === 0 ? null : (
+          <div className="progress">
+            <div
+              className=""
+              style={{ width: `${progress}%` }}
+            >
+              <p>{`Uploading image ${progress}%`}</p>
+            </div>
+          </div>
+        )}
 
         <hr className="line"/>
 
@@ -313,18 +325,9 @@ export default function AddArticle() {
         />
       </div>
 
-      {/* Progress - if progress is 0 return none */}
-      {progress === 0 ? null : (
-        <div className="progress">
-          <div
-            className="progress-bar progress-bar-striped mt-2"
-            style={{ width: `${progress}%` }}
-          >
-            {`uploading image ${progress}%`}
-          </div>
-        </div>
-      )}
 
+
+      {/* Button upload bookpost */}
       <button
         className="btn-large bg-green fc-white font-btn"
         onClick={handlePublish}

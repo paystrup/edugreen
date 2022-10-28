@@ -162,6 +162,14 @@
   text-transform: capitalize;
 }
 
+.font-profilenameSmall {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+
 .textAlignCenter{
   text-align: center;
 }
@@ -193,6 +201,10 @@
 
 .bg-lightgrey {
   background-color: var(--lightgrey);
+}
+
+.bg-lightergrey {
+  background-color: rgb(247, 247, 247);
 }
 
 .bg-white {
@@ -428,4 +440,14 @@
   border-radius: 5px;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+/* BORDER RADIUS */
+.borderRadius{
+  border-radius: 20px;
+}
+
+/* PADDING SMALL */
+.paddingSmall{
+  padding: 2rem;
 }

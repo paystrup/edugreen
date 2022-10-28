@@ -39,7 +39,7 @@ export default function Favoriteteaser() {
   // setUserLikes([...likes])
   return (
     <section>
-      <div className="article-wapper">
+      <div className="article-wapper-small">
         <FavouriteMap articles={articles} />
       </div>
     </section>
