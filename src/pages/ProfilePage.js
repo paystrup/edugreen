@@ -21,7 +21,7 @@ export default function ProfilePage() {
   if (!user) navigate("/login");
   if (user)
     return (
-      <section className="profilesection paddingWide PaddingPage">
+      <section className="profilesection paddingWide PaddingPage bigscreenpadding">
         <div className="flex redigerIkoner ">
           <div className="flex imgName-wrapper">
             <div>
@@ -42,16 +42,16 @@ export default function ProfilePage() {
                 <h2 className="font-profilename">{user.displayName}</h2>
 
                 <div className="flex iconsGroup">
-                  <div className="iconsizeProfile">
-                    <OfficeBuildingIcon />
+                  <div>
+                    <OfficeBuildingIcon className="iconsizeProfile" />
                   </div>
                   <h3 className="font-bodytext fc-darkgrey">
                     Multimediedesign
                   </h3>
                 </div>
                 <div className="flex iconsGroup">
-                  <div className="iconsizeProfile">
-                    <LocationMarkerIcon />
+                  <div>
+                    <LocationMarkerIcon className="iconsizeProfile" />
                   </div>
                   <h3 className="font-bodytext fc-darkgrey">Aarhus C</h3>
                 </div>
@@ -68,7 +68,7 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        <div className="savingsProfile">
+        <div className="savingsProfile space-between">
           <div className="moneyProfile flex bg-green">
             <h3 className="font-btn fc-white besparelseProfile">
               Penge <br></br>besparelse
@@ -97,7 +97,7 @@ export default function ProfilePage() {
         </div>
 
         <ProfileUserPosts />
-        <div className="signOut">
+        <div className="signOut paddingTopBottom">
           <button
             className="font-btn btn-large-strokeWide "
             onClick={() => auth.signOut()}

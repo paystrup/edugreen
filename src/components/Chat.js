@@ -7,17 +7,17 @@ export default function Chat() {
   const [page, setPage] = useState("sale");
 
   return (
-    <div className="PaddingPage">
+    <div>
       {/* sell and buy btns */}
       <div className="chat-buttons" id="wrapper">
         <button
-          className=" chat-buttonschange font-btn "
+          className={page === "sale" ? "chatButtonsSelected font-btn" : "chat-buttonschange font-btn"}
           onClick={() => setPage("sale")}
         >
           Salg
         </button>
         <button
-          className=" chat-buttonschange font-btn"
+          className={page === "buy" ? "chatButtonsSelected font-btn" : "chat-buttonschange font-btn"}
           onClick={() => setPage("buy")}
         >
           Køb
@@ -46,9 +46,9 @@ function Buymessage() {
       </div>
       <div className="chat-error-message">
         <img src={emptystateChat} alt="Man and message illustration"></img>
-        <p className="font-header">Du har ingen nye beskeder</p>
+        <p className="font-header textAlignCenter">Du har ingen nye beskeder</p>
 
-        <p className="font-bodytext">
+        <p className="font-bodytext textAlignCenter">
           Find dine nye studiebøger brugt og spar på pengene og miljøet ♻️ 💸
         </p>
         {/* Call to action btn */}
@@ -58,7 +58,6 @@ function Buymessage() {
         >
           Find bøger
         </button>
-        <hr />
       </div>
     </>
   );
@@ -75,8 +74,8 @@ function Sellmessage() {
     // Empty state
     <div className="chat-error-message">
       <img src={emptystateChat} alt="Man and message illustration"></img>
-      <p className="font-header">Du har ingen nye beskeder</p>
-      <p className="font-bodytext">
+      <p className="font-header textAlignCenter">Du har ingen nye beskeder</p>
+      <p className="font-bodytext textAlignCenter">
         Begynd at sælg dine gamle bøger og få råd til flere øl i fredagsbaren
         &#128525;
       </p>
@@ -87,7 +86,6 @@ function Sellmessage() {
       >
         Sæt dine bøger til salg
       </button>
-      <hr />
     </div>
   );
 }

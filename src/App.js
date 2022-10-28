@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/App.css";
 import "./css/designsystem.css";
-import { Routes, Route, Navigate, Router } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Navigation from "./components/Navigation";
 import BottomBar from "./components/BottomBar";

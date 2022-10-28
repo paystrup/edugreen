@@ -10,7 +10,11 @@ export default function Articleteaser({ header }) {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
+
+  // show 4 articles on fetch
   const [visible, setVisible] = useState(4);
+
+  // show more adds 4 more articles
   const showMoreArticles = () => {
     setVisible((prevValue) => prevValue + 4);
   };
@@ -31,12 +35,11 @@ export default function Articleteaser({ header }) {
 
       // change state -> importing the array from the db
       setArticles(articles);
-      console.log(articles);
     });
   }, []);
 
   return (
-    <section>
+    <section className="paddingTopBottom">
       <div className="flex card-title-btn paddingWide">
         <p className="font-header">{header}</p>
         <button
@@ -69,14 +72,16 @@ export default function Articleteaser({ header }) {
                 ></div>
                 <div className="col-9 ps-4">
                   <div>
+                    {/* BOOK TITLE */}
                     <h2 className="font-bookTeaser book-cut-title">{title}</h2>
                   </div>
                   <div className="flex book-text-wrapper">
                     <div className="price-wrapper flex">
+                      {/* BOOK PRICE */}
                       <p className="font-bookTeaser price-cut">{price}</p>
                       <p className="font-bookTeaser">DKK</p>
                     </div>
-                    {/* INSERT 'STAND' IN ARTICLE */}
+                    {/* BOOK CONDITION */}
                     <p className="font-bodytextBig fc-darkgrey">{condition}</p>
                   </div>
                 </div>

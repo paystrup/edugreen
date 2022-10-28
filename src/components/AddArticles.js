@@ -219,7 +219,9 @@ export default function AddArticle() {
           value={formData.education}
           onChange={(e) => handleChange(e)}
         >
-          <option value="" disabled selected>
+          <option value="" disabled defaultValue>
+            
+
             Vælg uddannelse
           </option>
           {UddannelserList.map(({ uddannelse, id }, index) => {
@@ -230,6 +232,8 @@ export default function AddArticle() {
             );
           })}
         </select>
+
+        <hr className="line"/>
 
         {/* Description */}
         <label htmlFor="" className="font-header">
@@ -250,8 +254,10 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         />
 
+        <hr className="line"/>
+
         {/* Image */}
-        <label className="font-header">Billeder</label>
+        <label className="font-header">Tilføj billeder</label>
         <p className="font-bodytextBig fc-darkgrey">
           Vi anbefaler min. 3 billeder for hurtigere salg
         </p>
@@ -268,6 +274,8 @@ export default function AddArticle() {
           onChange={(e) => handleImageChange(e)}
         />
 
+        <hr className="line"/>
+
         {/* Condition */}
         <label htmlFor="" className="font-header">
           Hvordan er standen?
@@ -281,7 +289,7 @@ export default function AddArticle() {
           value={formData.condition}
           onChange={(e) => handleChange(e)}
         >
-          <option className="optioncolor" value="" disabled selected>
+          <option className="optioncolor" value="" disabled defaultValue>
             Vælg bogens stand
           </option>
           <option value="Som ny">Som ny</option>
@@ -289,7 +297,7 @@ export default function AddArticle() {
           <option value="Lidt brugt">Lidt brugt</option>
           <option value="Meget brugt">Meget brugt</option>
         </select>
-
+        
         {/* Price */}
         <label htmlFor="" className="font-header">
           Hvad skal prisen være?

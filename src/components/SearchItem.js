@@ -9,7 +9,7 @@ export default function SearchItem() {
     };
     
     return (
-        <section className="paddingWide paddingTopAllPages">
+        <section className="paddingWide">
             <button
                 className="btn-large-strokeWide search-btn"
                 onClick={navigateToSearch}

@@ -20,7 +20,7 @@ export default function ChatPage() {
   // if user is authenticated -> return the data
   if (user)
     return (
-      <div className="paddingWide">
+      <div className="paddingWide PaddingPage bigscreenpadding">
         <h1 className="font-bely fc-darkgreen">Indbakke</h1>
         <Chat />
       </div>

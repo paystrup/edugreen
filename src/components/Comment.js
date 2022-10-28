@@ -78,9 +78,9 @@ export default function Comment({ id, book }) {
           )
       }
 
-      {comments?.length > 0 && <h2>Kommentarer</h2>} 
-      {comments?.map(({comment, sentByName, sentByImageUrl}) =>
-        <div className="commentBookPage flex flexCol gap1">
+      {comments?.length > 0 && <h2 className="font-blog-big">Beskeder</h2>} 
+      {comments?.map(({comment, sentByName, sentByImageUrl, commentId}) =>
+        <div className="commentBookPage flex flexCol gap1" key={commentId}>
           <div className="flex space-between align-center">
             {sentByImageUrl ? 
               (<img className="imageProfile" src={sentByImageUrl} alt={sentByName}/>)

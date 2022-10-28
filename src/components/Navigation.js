@@ -53,16 +53,21 @@ export default function Navigation() {
       <div className="navMobile paddingWide">
         {/* Change logo to back button on specific subpages*/}
         {location.pathname === "/practical" ||
-        location.pathname === "/editprofile" ? (
+        location.pathname === "/editprofile" ||
+        location.pathname === "/search" ||
+        location.pathname === "/blog/sadan-saelger-du-dine-brugte-studieboger" ||
+        location.pathname === "/blog/guide-bogen-pensumliste" ||
+        location.pathname === "/blog/spar-penge-og-skan-miljoet" ||
+        location.pathname === "/blog/sikker-salg-og-betaling" ? (
           <div className=" goBack">
             {/* NAVIGATES BACK -1 IN THE URL HISTORY, LAST PAGE U VISITED */}
-            <p onClick={() => navigate(-1)} className="flex iconsize goBackp">
+            <div onClick={() => navigate(-1)} className="flex gap05 iconsize goBackp">
               <ArrowNarrowLeftIcon />
               <p className="font-bodytext">GÅ TILBAGE</p>
-            </p>
+            </div>
           </div>
         ) : (
-          <Link to="/" end className="navLogo">
+          <Link to="/" className="navLogo">
             <img src={logoBig} alt="EduGreen"></img>
           </Link>
         )}
@@ -88,9 +93,9 @@ export default function Navigation() {
 
       {/* DESKTOP NAV */}
       <div className="navDesktop paddingWide">
-        <NavLink to="/" end className="navLogo">
+        <Link to="/" className="navLogo">
           <img src={logoBig} alt="EduGreen"></img>
-        </NavLink>
+        </Link>
         <ul>
           <li>
             <NavLink to="/favourites">Favoritter</NavLink>

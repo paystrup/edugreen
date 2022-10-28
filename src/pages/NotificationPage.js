@@ -12,7 +12,7 @@ export default function NotificationPage() {
   if (user)
   
   return (
-    <div className="paddingWide">
+    <div className="paddingWide PaddingPage bigscreenpadding">
       <h1 className="font-bely fc-darkgreen">Notifikationer</h1>
       <Notifications />
     </div>

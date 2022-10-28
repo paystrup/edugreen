@@ -33,7 +33,7 @@ export default function BlogPage() {
   }, [slug]);
 
   return (
-    <section className="blogPostPage paddingWide PaddingPage">
+    <section className="blogPostPage paddingWide PaddingPage bigscreenpadding">
       {/* Header */}
       {post.acf?.title ? (
         <div>

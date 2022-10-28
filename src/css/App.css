@@ -22,6 +22,7 @@ body{
   background-color: var(--white);
 }
 
+
 button {
   background: none;
   color: inherit;
@@ -63,6 +64,11 @@ select:active{
   padding: 10% 5%;
 }
 
+.paddingTopBottom {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .paddingBottom {
   padding-bottom: 10%;
 }
@@ -70,6 +76,7 @@ select:active{
 /* ---------- Page Padding Bottom ------------*/
 .PaddingPage {
   padding-bottom: 170px;
+  padding-top: 1rem;
 }
 
 /* ---------- Font Padding ------------*/
@@ -203,8 +210,8 @@ footer {
 
 /* --------------- BIG CAROUSEL SWIPER.JS ----------------- */
 .carouselSection {
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .swiper-pagination {
@@ -318,17 +325,27 @@ footer {
   display: flex;
   flex-direction: row;
 }
+
 .chat-error-message {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
+
 .chat-error-message img {
-  width: 50%;
+  width: 60%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-right: 1rem;
 }
+
+.error-image img{
+  padding-right: 0;
+}
+
 .chat-buttonschange {
   border: none;
   text-decoration: none;
@@ -341,10 +358,21 @@ footer {
   border: 2px solid var(--darkgreen);
   background-color: var(--white);
 }
-.chat-buttonschange:focus {
-  background-color: var(--darkgreen);
+
+.chatButtonsSelected {
   color: var(--white);
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid var(--darkgreen);
+  background-color: var(--darkgreen);
 }
+
 
 /*-----------ProfilePage------------*/
 .blockProfile {
@@ -532,8 +560,8 @@ option .iconsize {
 }
 
 .practicalInfo hr {
-  margin-bottom: 12%;
-  margin-top: 12%;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .praktisk {
@@ -549,13 +577,12 @@ option .iconsize {
 .opretBogForm input,
 select {
   font-family: var(--inter);
-  font-weight: 400;
-  font-size: 15px;
-  width: 100%;
-  padding: 0.7rem 1rem;
-  border-radius: 12px;
-  border: 1px solid var(--darkgreen);
-  cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 2px solid var(--lightgrey);
 }
 
 .opretBogForm input {
@@ -568,13 +595,12 @@ select {
 
 .opretBogForm textarea {
   font-family: var(--inter);
-  color: var(--darkgreen);
   font-weight: 400;
   font-size: 15px;
   width: 100%;
-  padding: 1rem 1rem;
+  padding: 15px 20px;
   border-radius: 12px;
-  border: 1px solid var(--darkgreen);
+  border: 2px solid var(--lightgrey);
   height: 7rem;
 }
 
@@ -607,7 +633,7 @@ select {
   background-image: url(../assets/svg/arrowDown.svg);
   background-repeat: no-repeat;
   background-position: right;
-  background-size: 20px;
+  background-size: 15px;
   background-origin: content-box;
 }
 
@@ -956,11 +982,9 @@ button.iconsizeHeart {
     padding: 15px 20px;
     border-radius: 12px;
     border: 2px solid var(--lightgrey);
-    margin-top: 5%;
   }
-
-.search button {
-  margin-top: 5%;
+  .unseen-scroll-div{
+  margin-top: 50px;
 }
 
 .classicSearch ul {
@@ -968,7 +992,12 @@ button.iconsizeHeart {
 }
 
 .Advanced h3{
-  margin-top: 10%;
+  margin-top: 7%;
+}
+
+.classicSearch hr {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 /*---- Søg item -----*/
@@ -976,7 +1005,6 @@ button.iconsizeHeart {
   font-family: var(--inter);
   font-weight: 400;
   font-size: 15px;
-  margin-top: 5%;
   color: var(--darkgrey);
 }
 
@@ -1035,7 +1063,10 @@ button.iconsizeHeart {
     justify-content: space-between;
   }
 
-  /*---Carroussel---*/
+  .loginToastLanding{
+    padding-top: 5%;
+  }
+  /*---Carrousel---*/
 
   .font-belyBig {
     font-size: 50px;
@@ -1048,14 +1079,34 @@ button.iconsizeHeart {
   .font-blog-big {
     font-size: 30px;
   }
-  /* book agent card */
+
+  /* ------------- book agent card ----------------*/
   .BookAgentCard {
-    height: 50vh;
+    height: 60vh;
   }
 
-  /*----Footer-----*/
+  /*-----CHAT-----*/
+  .chat-error-message img {
+    width: 20%;
+  }
 
+  /*-----Profil-----*/
+
+  .savingsProfile {
+    display: flex;
+  }
+
+  .moneyProfile {
+    width: 45%;
+  }
+
+  .co2Profile {
+    width: 45%;
+  }
+  /*----Footer-----*/
   footer {
+    font-family: var(--inter);
+    font-weight: 600;
     display: block;
     box-shadow: 0px 0 10px var(--lightgrey);
   }
@@ -1065,17 +1116,21 @@ button.iconsizeHeart {
   }
 
   Footer a {
-    color: var(--black);
+    color: var(--darkgreen);
     text-decoration: none;
+  }
+
+  Footer a:hover{
+    opacity: 0.5;
+    transition: 0.5s;
   }
 
   Footer ul {
     list-style-type: none;
   }
 
-
   .FooterLogo img {
-    height: 130px;
+    height: 80px;
   }
 
   .FooterCopyright {
@@ -1091,7 +1146,6 @@ button.iconsizeHeart {
   .FooterDesk {
     display: flex;
     justify-content: space-between;
-    padding-top: 2rem;
     margin-right: 7%;
     margin-left: 7%;
     padding-top: 5%;
@@ -1100,16 +1154,14 @@ button.iconsizeHeart {
   .FooterDesk ul {
     justify-content: center;
     align-items: center;
-
   }
 
   .FooterImg {
     z-index: 2;
-
   }
 
-  .footerbutton {
-    margin-top: 20% ;
+  .FooterDesk button {
+    margin-top: 20%;
   }
 
   .detmedsmaat {
@@ -1117,6 +1169,7 @@ button.iconsizeHeart {
     z-index: 2;
     bottom: 0.1vw;
   }
+
   .bigscreenpadding{
     padding-left: 25%;
     padding-right: 25%;
@@ -1124,9 +1177,13 @@ button.iconsizeHeart {
 
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (min-width: 961px) and (max-width: 1280px) {
   .navMobile {
     display: none;
+  }
+
+  .loginToastLanding{
+    padding-top: 5%;
   }
 
   .wrapper-bottombar {
@@ -1147,6 +1204,13 @@ button.iconsizeHeart {
     grid-template-columns: repeat(4, 0fr);
     justify-content: space-between;
   }
+
+    /*-----CHAT-----*/
+    .chat-error-message img {
+      width: 25%;
+    }
+  
+ 
 }
 
 @media screen and (max-width: 960px) {

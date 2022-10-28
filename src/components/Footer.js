@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logoSmall from "../assets/svg/logo-small.svg";
-import Footer1 from "../assets/svg/footer1.svg";
+import footerBG from "../assets/svg/footer1.svg";
 
 import "../css/App.css";
 import "../css/designsystem.css";
@@ -38,40 +38,55 @@ export default function Footer() {
   });
 
   return (
-    <footer>
+    <footer
+      style={{
+        backgroundImage: `url(${footerBG})`,
+        backgroundPosition: "bottom",
+        backgroundSize: "initial",
+        backgroundRepeat: "no-repeat",
+      }}
+    
+    >
       <div className="paddingWide FooterDesk font-bodytextBig">
         <div className="FooterCopyright">
-        <NavLink to="/" end className="FooterLogo">
-          <img src={logoSmall} alt="EduGreen"></img>
-        </NavLink>
-        <p>&copy; 2022 EduGreen</p>
+          <NavLink to="/" end className="FooterLogo">
+            <img src={logoSmall} alt="EduGreen"></img>
+          </NavLink>
+          <p>&copy; 2022 EduGreen</p>
+          <button className="btn-large bg-darkgreen fc-white font-btn addBtn">Download App</button>
+        </div>
+        
+        <div className="flex gap4">
+          <ul>
+            <h4>HJÆLP OG INSPIRATION</h4>
+            <li className="padding1"><NavLink to="e">Spørgsmål & svar</NavLink></li>
+            <li className="padding1"><NavLink to="e">Kontakt</NavLink></li>
+            <li className="padding1"><NavLink to="e">Blogposts</NavLink></li>
+            <li className="padding1"><NavLink to="e">Om EduGreen</NavLink></li>
+            <li className="padding1"><NavLink to="e">Privatlivspolitik</NavLink></li>
+          </ul>
+          
+          <ul className="koebogsalg">
+            <h4>KØB OG SALG</h4>
+            <li className="padding1"><NavLink to="/salg">Opret annonce</NavLink></li>
+            <li className="padding1"><NavLink to="/profile">Mine annoncer</NavLink></li>
+            <li className="padding1"><NavLink to="/favourites">Mine favoritter</NavLink></li>
+            <li className="padding1"><NavLink to="/chat">Indbakke</NavLink></li>
+            <li className="padding1"><NavLink to="/profile">Min profil</NavLink></li>
+            <li className="padding1 padding2"><NavLink to="/editprofile">Rediger oplysninger</NavLink></li>
+          </ul>
 
-
+          <ul>
+            <h4>KONTAKT</h4>
+            <li className="padding1"><a href="mailto:hello@edugreen.dk">Send os en mail</a></li>
+            <li className="padding1"><a href="tel:+4530303030">+45 3030 3030</a></li>
+            <h4 className="padding4">FØLG OS</h4>
+            <li className="padding1"><a href="www.facebook.com" target="_blank">Facebook</a></li>
+            <li className="padding1"><a href="www.instagram.com" target="_blank">Instagram</a></li>
+            <li className="padding1"><a href="www.tiktok.com" target="_blank">TikTok</a></li>
+          </ul>  
         </div>
 
-        <ul>
-          <h4>Hjælp & inspiration</h4>
-          <li className="padding1"><NavLink to="e">Spørgsmål & svar</NavLink></li>
-          <li className="padding1"><NavLink to="e">Kontakt</NavLink></li>
-          <li className="padding1"><NavLink to="e">Blogposts</NavLink></li>
-          <li className="padding1"><NavLink to="e">Om EduGreen</NavLink></li>
-          <li className="padding1"><NavLink to="e">Privatlivspolitik</NavLink></li>
-
-        </ul>
-        
-        <ul className="koebogsalg">
-          <h4>Køb & salg</h4>
-          <li className="padding1"><NavLink to="/salg">Opret annonce</NavLink></li>
-          <li className="padding1"><NavLink to="/profile">Mine annoncer</NavLink></li>
-          <li className="padding1"><NavLink to="/favourites">Mine favoritter</NavLink></li>
-          <li className="padding1"><NavLink to="/chat">Indbakke</NavLink></li>
-          <li className="padding1"><NavLink to="/profile">Min profil</NavLink></li>
-          <li className="padding1 padding2"><NavLink to="/editprofile">Rediger oplysninger</NavLink></li>
-        </ul>
-
-      </div>
-      <div>
-        <img src={Footer1} alt="Blade" className="FooterImg paddingWide"></img>
       </div>
     </footer>
   );

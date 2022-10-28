@@ -9,12 +9,18 @@ export default function LoginToast() {
     // Authentication + loading states + import navigate
     const [user] = useAuthState(auth);
 
+    // random emoji on rerender for login -> making it more personal
+    const getRandomLoginEmoji = () => {
+        const emojis = ["♻", "🌱", "💚", "☀️", "🤑🌱", "🐸🌱", "🤓🌱", "🍀", "🤩💚", "📚"]
+        return emojis[~~(Math.random() * emojis.length)]
+    }
+
     // if a user is signed in greet them with their displayname (Google Name)
     return (
     <>
         {user && 
             <section className='paddingWide loginToastLanding'>
-                <p className='font-bodytext fc-darkgreen'>Velkommen, {user.displayName}!</p>
+                <p className='font-bodytextBig fc-darkgreen'>Velkommen, {user.displayName}! {getRandomLoginEmoji()}</p>
             </section>
         }
     </>

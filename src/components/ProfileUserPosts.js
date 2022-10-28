@@ -31,7 +31,7 @@ export default function Articleteaser() {
   }, []);
 
   return (
-    <section className="paddingwide paddingBottom">
+    <section className="paddingwide paddingTopBottom">
       <h2 className="font-header">Mine annoncer</h2>
       <div className="article-wapper">
         {articles.map(({ user, id, imageUrl, title, price, condition }) =>

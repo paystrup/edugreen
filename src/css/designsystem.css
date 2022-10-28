@@ -162,6 +162,10 @@
   text-transform: capitalize;
 }
 
+.textAlignCenter{
+  text-align: center;
+}
+
 /* -------------------------------------------- */
 /* background color */
 /* -------------------------------------------- */
@@ -316,6 +320,10 @@
   gap: 1rem;
 }
 
+.gap4 {
+  gap: 7rem;
+}
+
 .gap05 {
   gap: 0.5rem;
 }
@@ -342,6 +350,10 @@
 
 .padding3 {
   padding-bottom: 1.5rem;
+}
+
+.padding4 {
+  padding-top: 3rem;
 }
 
 /* -------------------------------------------- */
@@ -406,8 +418,14 @@
   stroke: var(--darkgreen);
 }
 
-/*.iconsizeOutline svg {
-  fill: none;
-  stroke: var(--darkgreen);
+/* -------------------------------------------- */
+/* Elements */
+/* -------------------------------------------- */
+
+/* HR */
+.line {
+  border: 0.5px solid var(--lightgrey);
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-*/
