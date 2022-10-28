@@ -18,10 +18,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
-body{
+body {
   background-color: var(--white);
 }
-
 
 button {
   background: none;
@@ -45,7 +44,7 @@ select:focus {
   outline-color: var(--green);
 }
 
-select:active{
+select:active {
   color: black;
 }
 
@@ -96,7 +95,7 @@ select:active{
   height: 70px;
 }
 
-nav{
+nav {
   position: sticky;
   top: 0;
   z-index: 4;
@@ -312,7 +311,7 @@ footer {
 }
 
 /* --------- LANDINGPAGE TOAST GREET ----------------*/
-.loginToastLanding{
+.loginToastLanding {
   padding-top: 10%;
 }
 /* ------- CHAT ---------- */
@@ -345,7 +344,7 @@ footer {
   padding-right: 1rem;
 }
 
-.error-image img{
+.error-image img {
   padding-right: 0;
 }
 
@@ -375,7 +374,6 @@ footer {
   border: 2px solid var(--darkgreen);
   background-color: var(--darkgreen);
 }
-
 
 /*-----------ProfilePage------------*/
 .blockProfile {
@@ -580,12 +578,12 @@ option .iconsize {
 .opretBogForm input,
 select {
   font-family: var(--inter);
-    font-weight: 400;
-    font-size: 15px;
-    width: 100%;
-    padding: 15px 20px;
-    border-radius: 12px;
-    border: 2px solid var(--lightgrey);
+  font-weight: 400;
+  font-size: 15px;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 2px solid var(--lightgrey);
 }
 
 .opretBogForm input {
@@ -886,14 +884,14 @@ input[type="file"] {
   border-radius: 50%;
   margin-right: 0.4rem;
 }
-  .shift-flex-direction{
+.shift-flex-direction {
   flex-direction: column;
   justify-content: space-between;
 }
-.education-book{
-text-align: end;
+.education-book {
+  text-align: end;
 }
-.wrapperbigscreen{
+.wrapperbigscreen {
   flex-direction: column;
 }
 
@@ -994,13 +992,13 @@ button.iconsizeHeart {
 
 /*----Søg-----*/
 .search input {
-    font-family: var(--inter);
-    font-weight: 400;
-    font-size: 15px;
-    width: 100%;
-    padding: 15px 20px;
-    border-radius: 12px;
-    border: 2px solid var(--lightgrey);
+  font-family: var(--inter);
+  font-weight: 400;
+  font-size: 15px;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 2px solid var(--lightgrey);
 }
 
 .unseen-scroll-div {
@@ -1011,7 +1009,7 @@ button.iconsizeHeart {
   list-style-type: none;
 }
 
-.Advanced h3{
+.Advanced h3 {
   margin-top: 7%;
 }
 
@@ -1029,16 +1027,16 @@ button.iconsizeHeart {
 }
 
 /* --------- PROGRESS BAR ---------- */
-.progress-bar{
+.progress-bar {
   background-color: var(--green);
 }
 
-.progress{
+.progress {
   padding: 2rem;
 }
 
 /* ------------- COMMENTS FOR BOOKPAGE.JS -------------- */
-.addCommentSection{
+.addCommentSection {
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -1052,7 +1050,7 @@ button.iconsizeHeart {
   gap: 0.5rem;
 }
 
-.addComment input{
+.addComment input {
   font-family: var(--inter);
   font-weight: 400;
   font-size: 15px;
@@ -1062,7 +1060,7 @@ button.iconsizeHeart {
   border: 2px solid var(--lightgrey);
 }
 
-.commentBookPage img{
+.commentBookPage img {
   height: 50px;
   width: 50px;
 }
@@ -1108,11 +1106,11 @@ button.iconsizeHeart {
     width: 20vw;
     height: 20vw;
   }
-    .card-teaser-wrapper-small {
+  .card-teaser-wrapper-small {
     width: 15vw;
     height: auto;
   }
-    .image-teaser-wrapper-small {
+  .image-teaser-wrapper-small {
     width: 15vw;
     height: 15vw;
   }
@@ -1122,13 +1120,13 @@ button.iconsizeHeart {
     grid-auto-rows: auto;
     justify-content: space-between;
   }
-    .article-wapper-small {
+  .article-wapper-small {
     grid-template-columns: repeat(3, 0fr);
     grid-auto-rows: auto;
     grid-gap: 3em;
   }
 
-  .loginToastLanding{
+  .loginToastLanding {
     padding-top: 5%;
   }
   /*---Carrousel---*/
@@ -1148,7 +1146,7 @@ button.iconsizeHeart {
   /* ------------- book agent card ----------------*/
   .BookAgentCard {
     height: 60vh;
-    padding-left:  3rem;
+    padding-left: 3rem;
     padding-bottom: 3rem;
   }
 
@@ -1196,7 +1194,7 @@ button.iconsizeHeart {
     text-decoration: none;
   }
 
-  Footer a:hover{
+  Footer a:hover {
     opacity: 0.5;
     transition: 0.5s;
   }
@@ -1246,11 +1244,10 @@ button.iconsizeHeart {
     bottom: 0.1vw;
   }
 
-  .bigscreenpadding{
+  .bigscreenpadding {
     padding-left: 25%;
     padding-right: 25%;
   }
-
 }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
@@ -1262,7 +1259,7 @@ button.iconsizeHeart {
     display: none;
   }
 
-  .loginToastLanding{
+  .loginToastLanding {
     padding-top: 5%;
   }
 
@@ -1283,7 +1280,7 @@ button.iconsizeHeart {
     width: 20vw;
     height: auto;
   }
-    .image-teaser-wrapper-small {
+  .image-teaser-wrapper-small {
     width: 20vw;
     height: 20vw;
   }
@@ -1292,7 +1289,7 @@ button.iconsizeHeart {
     grid-template-columns: repeat(4, 0fr);
     justify-content: space-between;
   }
-    .article-wapper-small {
+  .article-wapper-small {
     grid-template-columns: repeat(4, 0fr);
     grid-auto-rows: auto;
     grid-gap: 3em;
@@ -1306,7 +1303,7 @@ button.iconsizeHeart {
   /* ------------- book agent card ----------------*/
   .BookAgentCard {
     height: 60vh;
-    padding-left:  3rem;
+    padding-left: 3rem;
     padding-bottom: 3rem;
   }
 
@@ -1332,7 +1329,6 @@ button.iconsizeHeart {
     padding-left: 3rem;
     padding-bottom: 3rem;
   }
- 
 }
 
 @media screen and (max-width: 960px) {
@@ -1361,11 +1357,11 @@ button.iconsizeHeart {
     width: 25vw;
     height: 25vw;
   }
-    .card-teaser-wrapper-small {
+  .card-teaser-wrapper-small {
     width: 25vw;
     height: auto;
   }
-    .image-teaser-wrapper-small {
+  .image-teaser-wrapper-small {
     width: 25vw;
     height: 25vw;
   }
@@ -1374,7 +1370,7 @@ button.iconsizeHeart {
     grid-template-columns: repeat(3, 0fr);
     justify-content: space-between;
   }
-    .article-wapper-small {
+  .article-wapper-small {
     grid-template-columns: repeat(3, 0fr);
     grid-auto-rows: auto;
     grid-gap: 3em;
@@ -1414,7 +1410,7 @@ button.iconsizeHeart {
     width: 40vw;
     height: auto;
   }
-    .image-teaser-wrapper-small {
+  .image-teaser-wrapper-small {
     width: 40vw;
     height: 40vw;
   }
@@ -1475,7 +1471,7 @@ button.iconsizeHeart {
     width: 90vw;
     height: auto;
   }
-    .image-teaser-wrapper-small {
+  .image-teaser-wrapper-small {
     width: 90vw;
     height: 90vw;
   }
@@ -1483,7 +1479,7 @@ button.iconsizeHeart {
     grid-template-columns: repeat(auto-fill, minmax(90vw, 0fr));
     justify-content: center;
   }
-    .article-wapper-small {
+  .article-wapper-small {
     grid-template-columns: repeat(auto-fill, minmax(90vw, 0fr));
     justify-content: center;
     grid-gap: 0em;

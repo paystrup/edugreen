@@ -170,7 +170,7 @@
   text-transform: capitalize;
 }
 
-.textAlignCenter{
+.textAlignCenter {
   text-align: center;
 }
 
@@ -380,6 +380,21 @@
   height: 30px;
   stroke: var(--darkgreen);
 }
+.iconsize-white svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  stroke: var(--white);
+}
+.iconsize-white {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
 
 .iconsizeDesktop svg {
   display: flex;
@@ -443,11 +458,11 @@
 }
 
 /* BORDER RADIUS */
-.borderRadius{
+.borderRadius {
   border-radius: 20px;
 }
 
 /* PADDING SMALL */
-.paddingSmall{
+.paddingSmall {
   padding: 2rem;
 }
