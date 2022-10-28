@@ -11,7 +11,7 @@ export default function Articles() {
     // sort by createdAt, our timestamp added to every article, date
     const q = query(articleRef, orderBy("createdAt", "desc"));
     
-    // get the data, on snapshot
+    // get the data, on snapshot with firestore API
     onSnapshot(q,(snapshot)=> {
       const articles = snapshot.docs.map((doc) => ({
         id: doc.id,

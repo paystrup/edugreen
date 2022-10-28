@@ -7,6 +7,8 @@ import LikeArticle from "./LikeArticle";
 import { auth } from "../firebaseConfig.js";
 
 export default function Articleteaser({ header }) {
+  // header sent as prop from landingpage.js
+  
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
@@ -51,7 +53,7 @@ export default function Articleteaser({ header }) {
         </button>
       </div>
       <div className="article-wapper paddingWide">
-        {/* MAP THROUGH COMMENTS TO DISPLAY */}
+        {/* Check if there are any articles. if not display <p>. if there are articles then map through them */}
         {articles.length === 0 ? (
           <p className="font-bodytext fc-darkgreen">Ingen bøger fundet</p>
         ) : (
