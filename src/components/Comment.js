@@ -112,7 +112,7 @@ export default function Comment({ id, book }) {
       
       <div className="addCommentSection">
       {/* DIFFERENT TITLE DEPENDING ON AMOUNT OF MSGS*/}
-      {comments?.length > 0 ? <h2 className="font-blog-big">Beskeder</h2> : <h2 className="font-blog-big">Du har ingen beskeder.</h2>} 
+      {comments?.length > 0 ? <h2 className="font-blog-big">Beskeder</h2> : <h2 className="font-blog-big">Der er ingen beskeder.</h2>} 
 
       {/* IF USER ISN'T THE ONE OWNING THE POSTS, SHOW ADD COMMENT INPUT */}
       {book.user === auth.currentUser.uid ? 
