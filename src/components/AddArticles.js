@@ -8,14 +8,13 @@ import { auth } from "../firebaseConfig.js";
 import { UddannelserList } from "../data/uddannelserDK";
 import UploadCameraIcon from "../assets/svg/cameraicon.svg";
 
-// for bookpage, send auth userImgUrl + name
-//til bookpage, send auth userImgUrl med + navn
-// kan derefter displayes
-
+// OPRET BOG - ADD BOOK TO DB 📚
 export default function AddArticle() {
 
-  console.log(auth.currentUser); // tjek at der logges authenticated user
+  console.log(auth.currentUser); // check auth with Google works
 
+  // our state for logging inputdata we have to send to FireStore
+  // using auth to access current user signed in info
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -35,10 +34,12 @@ export default function AddArticle() {
 
   const navigate = useNavigate();
 
+  // state for later, progressbar on img upload
   const [progress, setProgress] = useState(0);
 
   // returns from onChange values below, takes the event and returns
   // Everytime form fields changes
+  // appends to array and sets the state with the input name and value 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -49,7 +50,7 @@ export default function AddArticle() {
 
   // Onsubmit, handle the data transfer to firebase firestore
   const handlePublish = () => {
-    // validate inputs, if empty return error - all except ISBN
+    // validate inputs, if empty return error - all except ISBN (not many remembers this value)
     if (
       !formData.title ||
       !formData.author ||
@@ -74,11 +75,14 @@ export default function AddArticle() {
     }
 
     // from firebase, takes into 2 params, 1 = storage, 2 = new folder
-    // creating a new name for the img files
+    // creating a new name for the img files with timestamp and img name
+    // add this to FireBase Storage to backup images
     const storageRef = ref(
       storage,
       `/images/${Date.now()}${formData.image.name}`
     );
+
+    // check how many bytes are uploaded to server
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
     // Show and log the progress on imageUpload for the progressbar
@@ -91,9 +95,9 @@ export default function AddArticle() {
         setProgress(progressPercent);
       },
       (err) => {
-        console.log(err);
+        console.log(err); // log error
       },
-      // store the data in the state
+      // set state and store form data
       () => {
         setFormData({
           title: "",
@@ -112,7 +116,7 @@ export default function AddArticle() {
         });
 
         //adddoc is a promise
-        // add values stored in the state to the doc with addDoc
+        // add values stored in the state to the collection and new doc with addDoc
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
           const articleRef = collection(db, "articles");
           addDoc(articleRef, {
@@ -131,10 +135,10 @@ export default function AddArticle() {
             userImage: auth.currentUser.photoURL,
             userName: auth.currentUser.displayName,
           })
-            // confirmation toast + redirect after success
+            // confirmation toast + redirect after successful book upload
             .then(() => {
               toast("Din bog er nu sat til salg", { type: "success" });
-              //reset progress on success
+              // reset progress on success
               setProgress(0);
 
               return navigate("/profile");
@@ -324,8 +328,6 @@ export default function AddArticle() {
           onChange={(e) => handleChange(e)}
         />
       </div>
-
-
 
       {/* Button upload bookpost */}
       <button

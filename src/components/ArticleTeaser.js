@@ -7,26 +7,30 @@ import LikeArticle from "./LikeArticle";
 import { auth } from "../firebaseConfig.js";
 
 export default function Articleteaser({ header }) {
-  // header sent as prop from landingpage.js
+  // header sent as prop from landingpage.js - dynamic component
   
   const navigate = useNavigate();
+
+  // state for setting our fetched articles/books 
   const [articles, setArticles] = useState([]);
+
+  // authentication
   const [user] = useAuthState(auth);
 
   // show 4 articles on fetch
   const [visible, setVisible] = useState(4);
 
-  // show more adds 4 more articles
+  // show more btn adds 4 more articles by adding 4 to prev value
   const showMoreArticles = () => {
     setVisible((prevValue) => prevValue + 4);
   };
-
+  
+  // fetch starts here
   useEffect(() => {
     // collection from firebase
     // db is our database, articles is the name of the collection
     const articleRef = collection(db, "articles")
-    // sort by createdAt, our timestamp added to every article, date
-    // const q = query(articleRef, where("education", "==", "Pædagog")); sort by education
+    // sort by createdAt, our timestamp added to every article, date, with FireStore Query
     const q = query(articleRef, orderBy("createdAt", "desc"));
 
     // get the data, on snapshot
@@ -36,7 +40,7 @@ export default function Articleteaser({ header }) {
         ...doc.data(),
       }));
 
-      // change state -> importing the array from the db
+      // store data (setState) change state -> importing the array of books from the db
       setArticles(articles);
     });
   }, []);

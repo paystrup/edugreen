@@ -3,19 +3,21 @@ import BigCarousel from "./BigCarousel";
 import { useEffect, useState } from "react";
 
 export default function BigCarouselLanding() {
+  // state to store our data
   const [posts, setPosts] = useState([]);
 
-  /* We use UseEffect to fetch */
+  // Fetch from WP REST Api with useEffect, empty dependency array
+  // -> fetches on rerender
   useEffect(() => {
     async function getData() {
       const response = await fetch(
         "https://www.wpedugreen.mbcproduction.dk//wp-json/wp/v2/posts?_embed&v=99999"
       );
       const data = await response.json();
-      console.log(data);
-      setPosts(data);
+      console.log(data); // check if fetch works
+      setPosts(data); // store wp data in state
     }
-    getData();
+    getData(); // run the function, async
   }, []);
 
   return (
@@ -25,7 +27,7 @@ export default function BigCarouselLanding() {
       </div>
 
       <div>
-        {/* Import component and send posts as props */}
+        {/* Import component and send posts (fetched data) as props */}
         <BigCarousel posts={posts} />
       </div>
     </section>

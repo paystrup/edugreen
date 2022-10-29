@@ -12,18 +12,20 @@ import defaultProfilePic from "../assets/images/defaultProfilePic.png"
 import { PaperAirplaneIcon } from "@heroicons/react/outline";
 
 export default function Comment({ id, book }) {
-  // State for logging the input field
+  // props are sent from BookPage.js
+  // State for logging the input field - the comment 📧
   const [comment, setComment] = useState("");
 
-  // store all comments for the book in a constant
+  // store all comments for the specific book in a constant
   const comments = book.comments;
 
   // verify user is logged in
   const [user] = useAuthState(auth);
 
-  // reference to our database in FireBase, collection = articles
+  // reference to our database in FireBase, collection = articles, id = our book Doc, the specific book displayed
   const commentRef = doc(db, "articles", id);
 
+  // placeholder for input
   const placeholderMsg = "Send besked til";
 
   // handle comment change
@@ -34,25 +36,29 @@ export default function Comment({ id, book }) {
       // if the comment is not an empty string
       if (comment !== "") {
         // then update the document with comments 
-        // array on the book article in firestore
+        // array on the book article in FireStore
         updateDoc(commentRef, {
-          // arrayUnion to update array with new values (no overrides)
+          // updateDoc and arrayUnion to update array with new values (no overrides)
+          // send the values we need
           comments: arrayUnion({
             sentBy: auth.currentUser.uid,
             sentByName: user.displayName,
             sentByImageUrl: auth.currentUser.photoURL,
             sentTo: book.user,
+            sentToName: book.userName,
+            sentToImageUrl: book.userImage,
             comment: comment,
             createdAt: new Date(),
             commentId: uuidv4(),
             bookTitle: book.title,
             bookImage: book.imageUrl,
-            bookPrice: book.price
+            bookPrice: book.price,
+            bookId: book.id
           }),
         }).then(() => {
           // UX for message sent
           toast("Din besked er blevet sendt til sælgeren.", { type: "success" });
-          // reset comment input
+          // reset comment input after success
           setComment("");
           console.log("Kommentar tilføjet");
         });
@@ -61,18 +67,21 @@ export default function Comment({ id, book }) {
     } else setComment(e.target.value);
   };
 
-  // handle on click sendmsg
+  // handle on click sendmsg on the send button click
   const handleOnClickSendMsg = (e) => {
-    // if the comment is not an empty string
+    // if the comment is an empty string, return error UX
     if (comment === "") {
-      toast("Udfyld besked.", { type: "error" });
+      toast("Udfyld beskeden.", { type: "error" });
     }
     
+    // if comment is not an empty string
+    // more validation can be added later
     if (comment !== "") {
       // then update the document with comments 
-      // array on the book article in firestore
+      // array on the book article in FireStore
       updateDoc(commentRef, {
-        // arrayUnion to update array with new values (no overrides)
+        // updateDoc and arrayUnion to update array with new values (no overrides)
+        // send the values we need
         comments: arrayUnion({
           sentBy: auth.currentUser.uid,
           sentByName: user.displayName,
@@ -113,7 +122,7 @@ export default function Comment({ id, book }) {
       }
       
       <div className="addCommentSection">
-      {/* DIFFERENT TITLE DEPENDING ON AMOUNT OF MSGS*/}
+      {/* DIFFERENT TITLE DEPENDING ON AMOUNT OF MSGS - EMPTY STATE*/}
       {comments?.length > 0 ? <h2 className="font-blog-big">Beskeder</h2> : <h2 className="font-blog-big">Der er ingen beskeder.</h2>} 
 
       {/* IF USER ISN'T THE ONE OWNING THE POSTS, SHOW ADD COMMENT INPUT */}
@@ -135,7 +144,7 @@ export default function Comment({ id, book }) {
           )
       }
       
-      {/* MAP THROUGH COMMENTS TO DISPLAY */}
+      {/* MAP THROUGH COMMENTS OF THE SPECIFIC BOOK TO DISPLAY */}
       {comments?.map(({comment, sentByName, sentByImageUrl, commentId, createdAt}) =>
         <div className="commentBookPage flex flexCol gap1 borderRadius bg-lightergrey paddingSmall" key={commentId}>
           <div className="flex space-between align-center">

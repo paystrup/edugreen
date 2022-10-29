@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 
 export default function Articles() {
+  // state for setting our fetched articles/books
   const [articles, setArticles] = useState([]);
   useEffect(()=> {
     // collection from firebase
@@ -11,19 +12,22 @@ export default function Articles() {
     // sort by createdAt, our timestamp added to every article, date
     const q = query(articleRef, orderBy("createdAt", "desc"));
     
-    // get the data, on snapshot with firestore API
+    // get/fetch the data, on snapshot with fireStore API
     onSnapshot(q,(snapshot)=> {
       const articles = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
       
-      // change state -> importing the array from the db
+      // store data (setState) change state -> importing the array of books from the db
       setArticles(articles);
       console.log(articles);
     })
   },[])
 
+  // check length of stored array in state
+  // if length - no books are returned - return empty state for UX
+  // if length is above 0 return data (books)
   return (
     <div className="article-wapper">{
       articles.length === 0 ? (

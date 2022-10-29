@@ -3,11 +3,13 @@ import MessagesSale from "./MessagesSale";
 import MessagesBuy from "./MessagesBuy";
 
 export default function Chat() {
+  // state for changing rendered content
+  // buy messages - sell messages
   const [page, setPage] = useState("sale");
 
   return (
     <div>
-      {/* sell and buy btns */}
+      {/* Buttons for changing state and displaying the different pages */}
       <div className="chat-buttons" id="wrapper">
         <button
           className={page === "sale" ? "chatButtonsSelected font-btn" : "chat-buttonschange font-btn"}
@@ -23,6 +25,7 @@ export default function Chat() {
         </button>
       </div>
 
+      {/* DISPLAY MESSAGES DEPENDING ON CLICKED BTN */}
       <div className="pageContent">
         {page === "sale" && <Sellmessage />}
         {page === "buy" && <Buymessage />}
@@ -31,7 +34,7 @@ export default function Chat() {
   );
 }
 
-// buy page
+// BUYING MESSAGES 🤑
 function Buymessage() {
   return (
     <>
@@ -40,7 +43,7 @@ function Buymessage() {
   );
 }
 
-// sell page
+// SELLING MESSAGES ✨
 function Sellmessage() {
   return (
     <>

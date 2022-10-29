@@ -1,4 +1,4 @@
-import { collection, onSnapshot, orderBy, query, where } from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
@@ -8,13 +8,15 @@ import { auth } from "../firebaseConfig.js";
 
 export default function ArticleTeaserCategory({ header, sortCategory, sortCondition, sortEducation }) {
   const navigate = useNavigate();
+  // state for setting our fetched articles/books 
   const [articles, setArticles] = useState([]);
+  // authentication
   const [user] = useAuthState(auth);
 
   // show 4 articles on fetch
   const [visible, setVisible] = useState(4);
 
-  // show more adds 4 more articles
+  // show more adds 4 more articles by adding + 4 to prev value
   const showMoreArticles = () => {
     setVisible((prevValue) => prevValue + 4);
   };
@@ -23,10 +25,10 @@ export default function ArticleTeaserCategory({ header, sortCategory, sortCondit
     // collection from firebase
     // db is our database, articles is the name of the collection
     const articleRef = collection(db, "articles")
-    // sort by createdAt, our timestamp added to every article, date
 
-    // sorting syntax in firestore by using where
+    // sorting / query syntax in fireStore by using .where
     // const q = query(articleRef, where("education", "==", "Pædagog")); sort by education
+    // data queries are sent as props from parent to make component dynamic
     const q = query(articleRef, where(`${sortCategory}`, `${sortCondition}`, `${sortEducation}`));
 
     // get the data, on snapshot
@@ -36,11 +38,13 @@ export default function ArticleTeaserCategory({ header, sortCategory, sortCondit
         ...doc.data(),
       }));
 
-      // change state -> importing the array from the db
+      // setState, change state -> importing the array from the db
       setArticles(articles);
     });
-  }, []);
+  }, [sortCategory, sortCondition, sortEducation]); // dependency array listens for new props -> rerender
 
+  // display data, if no articles are found, length of array stored
+  // in the articles array is 0 return empty state for UX
   return (
     <section className="paddingTopBottom">
       <div className="flex card-title-btn paddingWide">

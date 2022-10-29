@@ -5,10 +5,11 @@ import { auth } from "../firebaseConfig.js";
 import FavouriteMap from "./FavouriteMap";
 
 export default function Favoriteteaser() {
-  console.log(auth.currentUser.uid); // tjek at der logges username fra auth
+  console.log(auth.currentUser.uid); // check authentication works
 
   const [articles, setArticles] = useState([]);
 
+  // fetch data from FireStore on snapshot
   useEffect(() => {
     // collection from firebase
     // db is our database, articles is the name of the collection
@@ -27,7 +28,7 @@ export default function Favoriteteaser() {
       setArticles(articles);
       console.log(articles);
     });
-  }, []);
+  }, []); // dependency array => empty => fetch on rerender
 
   // flatmap removes arrays inside arrays so we can map and use ternary for username and filter
   const displayLikes = articles?.flatMap((article) => article?.likes);
@@ -51,6 +52,7 @@ export default function Favoriteteaser() {
       <div className="article-wapper-small">
         <FavouriteMap articles={articles} />
       </div>
+      {/* EMPTY STATE IF USER HAS NO FAVOURITES */}
       {isFound === false && <h3 className="font-header">Du har ingen favoritter. Udforsk appen og kom i gang med at like 💚</h3>}
     </section>
   );

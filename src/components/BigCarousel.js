@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/css/pagination";
 
-// import required modules
+// import required modules from Swiper
 import { Keyboard, Mousewheel, Pagination } from "swiper";
 
 import { useNavigate } from "react-router-dom";
