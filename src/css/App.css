@@ -396,9 +396,19 @@ footer {
   background-color: var(--lightgrey);
   animation: pulse 1.5s 1 ease-in-out;
   border-radius: 12px;
-  width: 100px;
-  height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  max-width: 100px;
+  transition: 0.5s;
 }
+
+.chatBookImage:hover{
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+
 
 /*-----------ProfilePage------------*/
 .blockProfile {

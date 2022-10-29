@@ -58,7 +58,7 @@ export default function MessagesBuy() {
   return (
     <section>
       <div>
-        {displayComments.map(({sentBy, sentToImageUrl, comment, commentId, sentByName, sentToName, bookImageUrl, bookTitle, createdAt, bookPrice, bookId}) =>
+        {displayComments.map(({sentBy, sentToImageUrl, comment, commentId, sentByName, sentToName, bookImage, bookTitle, createdAt, bookPrice, bookId}) =>
           sentBy === auth.currentUser.uid &&
           <>
             <div className="chatComment flex space-between" key={commentId}>
@@ -77,10 +77,11 @@ export default function MessagesBuy() {
                     {/* BOOK IMAGE AS BG SO WE CAN MAKE IT RESIZEABLE */}
                     <div className="chatBookImage"
                       style={{
-                        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${bookImageUrl})`,
+                        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${bookImage})`,
                         backgroundPosition: "center",
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
+                        cursor: "pointer"
                       }}
                       onClick={() => navigate("/bookpage/" + bookId)}
                     >

@@ -15,11 +15,15 @@ import { toast } from "react-toastify";
 
 export default function Login() {
   const navigate = useNavigate();
+
+  // get user states from authentication
   const [user, loading] = useAuthState(auth);
   
   // Sign in and auth with Google
   const googleProvider = new GoogleAuthProvider();
 
+  // sign in with popup from the firebase authenticator api
+  // then navigate user to login
   const GoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -39,7 +43,7 @@ export default function Login() {
     } else {
       console.log("login");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <section className="loginSection">

@@ -9,12 +9,13 @@ export default function LikeArticle({ id, likes }) {
   // authentication auth and db are found in the firestore config, ref to our projekt in firebase
   const [user] = useAuthState(auth);
 
-  // reference to our FireStore db, collection = articles
+  // reference to our FireStore db, collection = articles, sort by ID of posts / books
   const likesRef = doc(db, "articles", id);
 
   // for the onclick on like
   const handleLike = () => {
     // if user already has liked the book, remove the uid from the likes array
+    // with updateDoc so we don't override other data
     if (likes?.includes(user.uid)) {
       updateDoc(likesRef, {
         likes: arrayRemove(user.uid),
@@ -24,7 +25,9 @@ export default function LikeArticle({ id, likes }) {
             console.log(e);
       });
     }
-    // if uid isn't found in the likes array add the uid to array in firestore
+    // if uid isn't found in the likes array add the uid
+    // to the likes array in FireStore in our DB
+    // arrayUnion, so we don't override data
     else{
         updateDoc(likesRef,{
             likes:arrayUnion(user.uid)
