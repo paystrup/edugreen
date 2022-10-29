@@ -145,7 +145,7 @@ export default function Comment({ id, book }) {
       }
       
       {/* MAP THROUGH COMMENTS OF THE SPECIFIC BOOK TO DISPLAY */}
-      {comments?.map(({comment, sentByName, sentByImageUrl, commentId, createdAt}) =>
+      {comments?.map(({comment, sentBy, sentByName, sentByImageUrl, commentId, createdAt}) =>
         <div className="commentBookPage flex flexCol gap1 borderRadius bg-lightergrey paddingSmall" key={commentId}>
           <div className="flex space-between align-center">
             <div className="flex align-center gap05">
@@ -153,7 +153,10 @@ export default function Comment({ id, book }) {
                 (<img className="imageProfile" src={sentByImageUrl} alt={sentByName}/>)
                 : (<img className="imageProfile" src={defaultProfilePic} alt={sentByName}/>)
               }
-              <p className="font-profilenameSmall">{sentByName}</p>
+              <p className="font-profilenameSmall">
+                {/* IF MSG IS SENT BY USER AUTHENTICATED SHOW PERSONAL MSG - else show users full name*/}
+                {sentBy === auth.currentUser.uid ? "Dig" : `${sentByName}`}
+              </p>
             </div>
             <p className="font-bodytextBig">{createdAt?.toDate().toDateString()}</p>
           </div>
