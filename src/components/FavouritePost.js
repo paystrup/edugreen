@@ -1,20 +1,13 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
-import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
-import { useAuthState } from "react-firebase-hooks/auth";
 import FavouriteMap from "./FavouriteMap";
 
 export default function Favoriteteaser() {
   console.log(auth.currentUser.uid); // tjek at der logges username fra auth
 
-  const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
-  const [user] = useAuthState(auth);
-
-  // check if user has liked to return empty sta
-  const [userLikes, setUserLikes] = useState([]);
 
   useEffect(() => {
     // collection from firebase
