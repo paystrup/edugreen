@@ -30,6 +30,23 @@ export default function Articleteaser() {
     });
   }, []);
 
+  // flatmap removes arrays inside arrays so we can map and use ternary for username and filter
+  const displayUserPosts = articles?.flatMap((article) => article?.user);
+  console.log(displayUserPosts);
+
+  // the some() method to check if an object exists in an array
+  // if user is found in array / has made a bookpost return true
+  // if not return false
+  // we can use this for displaying empty states if user has no books
+  const isFound = displayUserPosts.some(element => {
+    if (element === auth.currentUser.uid) {
+      return true;
+    }
+
+    return false;
+  });
+  console.log(isFound);
+
   return (
     <section className="paddingwide paddingTopBottom">
       <h2 className="font-header">Mine annoncer</h2>
@@ -68,6 +85,7 @@ export default function Articleteaser() {
           ) : null
         )}
       </div>
+      {isFound === false && <p className="font-bodytextBig">Du har ikke nogle aktive bogannoncer.</p>}  
     </section>
   );
 }
