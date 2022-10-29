@@ -314,6 +314,7 @@ footer {
 .loginToastLanding {
   padding-top: 10%;
 }
+
 /* ------- CHAT ---------- */
 .chat-buttons {
   display: flex;
@@ -373,6 +374,26 @@ footer {
   cursor: pointer;
   border: 2px solid var(--darkgreen);
   background-color: var(--darkgreen);
+}
+
+.chatComment{
+  width: 100%;
+}
+
+.chatCommentBox{
+  width: 50%;
+}
+
+.chatComment img{
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}
+
+.chatBookImage{
+  background-color: var(--lightgrey);
+  animation: pulse 1.5s 1 ease-in-out;
+  border-radius: 12px;
 }
 
 /*-----------ProfilePage------------*/
@@ -1159,13 +1180,13 @@ button.iconsizeHeart {
     padding-left: 3rem;
     padding-bottom: 3rem;
   }
+
   /*-----CHAT-----*/
   .chat-error-message img {
     width: 20%;
   }
 
   /*-----Profil-----*/
-
   .savingsProfile {
     display: flex;
   }

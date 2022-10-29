@@ -84,7 +84,8 @@ export default function Comment({ id, book }) {
           commentId: uuidv4(),
           bookTitle: book.title,
           bookImage: book.imageUrl,
-          bookPrice: book.price
+          bookPrice: book.price,
+          bookId: book.id
         }),
       }).then(() => {
         // UX for message sent

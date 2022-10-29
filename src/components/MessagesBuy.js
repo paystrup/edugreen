@@ -4,16 +4,13 @@ import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 import { useAuthState } from "react-firebase-hooks/auth";
-import BuyMap from "./FavouriteMap";
 
-export default function Favoriteteaser() {
+export default function MessagesBuy() {
   console.log(auth.currentUser.uid); // tjek at der logges username fra auth
 
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
-
-  const [userComments, setUserComments] = useState([]);
 
   useEffect(() => {
     // collection from firebase
@@ -35,41 +32,52 @@ export default function Favoriteteaser() {
     });
   }, []);
 
-  useEffect(() => {
-    articles.map(({ comments }) => 
-      setUserComments(comments)
-    );
-    console.log(userComments);
+  // flatmap removes arrays inside arrays so we can map and use ternary for username and filter
+  const displayComments = articles?.flatMap((article) => article?.comments);
+  console.log(displayComments);
 
-  }, []);
-
-
-  // setUserLikes([...likes])
+  // filter through comments and display only messages for the user signed in by auth
+  // deconstruct array for cleaner code
   return (
     <section>
-      <div className="article-wapper">
-      {articles.map((article, index) => {
-          return (
-              <p>{article.comments?.comment}</p>
-          )
-        })}
+      <div>
+        {displayComments.map(({sentBy, sentTo, comment, commentId, sentByName, sentByImageUrl, bookImageUrl, bookTitle, createdAt, bookPrice}) =>
+          sentTo === auth.currentUser.uid &&
+          <div className="chatComment flex space-between" key={commentId}>
+
+            {/* BOOK IMAGE AS BG SO WE CAN MAKE IT RESIZEABLE */}
+            <div className="chatBookImage"
+              style={{
+                backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.3) 6%, rgba(0,0,0,0) 100%), url(${bookImageUrl})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            
+            >
+            </div>
+            <h3>{bookTitle}</h3>
+            <p>{bookPrice} DKK</p>
+
+            {/* MSG INFO */}
+            <div className="chatCommentBox flex flexCol gap1">
+              <div className="flex gap1 align-center">
+                <div className="flex gap1 align-center">
+                  <img src={sentByImageUrl} alt={sentByName}/>
+                  <div className="flex flexCol gap05">
+                    <p className="font-profilenameSmall">{sentByName}</p>
+                    <p className="font-bodytext fc-darkgrey">{comment}</p>
+                  </div>
+                </div>
+                <p className="font-bodytextBig">{createdAt?.toDate().toLocaleString('en-GB', { timeZone: 'UTC' })}</p>
+              </div> 
+            </div>
+   
+          </div>     
+          
+        )}
 
       </div>
     </section>
   );
 }
-
-// useEffect( () => {
-//     async function fetchData(){
-//     const querySnapshot = await getDoc(query(doc(db, `category/${ id }/product/${idProduct}`)));
-//     if (querySnapshot.exists()) {
-//       console.log("Document data:", querySnapshot.data());
-//       setItemProduct(querySnapshot.data());
-//     } else {
-//       // doc.data() will be undefined in this case
-//       console.log("No such document!");
-//       }
-
-//     }
-//     fetchData();
-// }, [])
