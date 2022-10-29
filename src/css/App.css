@@ -381,13 +381,14 @@ footer {
 }
 
 .chatCommentBox{
-  width: 50%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .chatComment img{
   border-radius: 50%;
-  width: 75px;
-  height: 75px;
+  width: 40px;
+  height: 40px;
 }
 
 .chatBookImage{

@@ -24,7 +24,6 @@ export default function Comment({ id, book }) {
   // reference to our database in FireBase, collection = articles
   const commentRef = doc(db, "articles", id);
 
-  //
   const placeholderMsg = "Send besked til";
 
   // handle comment change
