@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import emptystateChat from "../assets/svg/emptystateChat.svg";
+import MessagesSale from "./MessagesSale";
 import MessagesBuy from "./MessagesBuy";
 
 export default function Chat() {
@@ -31,64 +30,21 @@ export default function Chat() {
     </div>
   );
 }
+
 // buy page
 function Buymessage() {
-  const navigate = useNavigate();
-
-  const navigateToSearch = () => {
-    navigate("/search");
-  };
   return (
     <>
-      {/* Empty state */}
-      <div className="chat-error-message">
-        <img src={emptystateChat} alt="Man and message illustration"></img>
-        <p className="font-header textAlignCenter">Du har ingen nye beskeder</p>
-
-        <p className="font-bodytext textAlignCenter">
-          Find dine nye studiebøger brugt og spar på pengene og miljøet ♻️ 💸
-        </p>
-        {/* Call to action btn */}
-        <button
-          className=" btn-large font-btn fc-white bg-green"
-          onClick={navigateToSearch}
-        >
-          Find bøger
-        </button>
-      </div>
+      <MessagesBuy />
     </>
   );
 }
 
 // sell page
 function Sellmessage() {
-  const navigate = useNavigate();
-
-  const navigateToSalg = () => {
-    navigate("/salg");
-  };
   return (
-    // Empty state
     <>
-      <MessagesBuy />
-      
-      {/* <div className="chat-error-message">
-        <img src={emptystateChat} alt="Man and message illustration"></img>
-        <p className="font-header textAlignCenter">Du har ingen nye beskeder</p>
-        <p className="font-bodytext textAlignCenter">
-          Begynd at sælg dine gamle bøger og få råd til flere øl i fredagsbaren
-          &#128525;
-        </p>
-
-        
-        <button
-          className=" btn-large font-btn fc-white bg-green"
-          onClick={navigateToSalg}
-        >
-          Sæt dine bøger til salg
-        </button>
-      </div> */}
-
+      <MessagesSale />
     </>
   );
 }

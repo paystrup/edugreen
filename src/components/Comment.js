@@ -78,6 +78,8 @@ export default function Comment({ id, book }) {
           sentByName: user.displayName,
           sentByImageUrl: auth.currentUser.photoURL,
           sentTo: book.user,
+          sentToName: book.userName,
+          sentToImageUrl: book.userImage,
           comment: comment,
           createdAt: new Date(),
           commentId: uuidv4(),

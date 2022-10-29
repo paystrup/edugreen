@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig.js";
 import emptystateChat from "../assets/svg/emptystateChat.svg";
 
-export default function MessagesBuy() {
+export default function MessagesSale() {
   // navigation for empty state
   const navigate = useNavigate();
-  const navigateToSearch = () => {
-    navigate("/search");
+  const navigateToSalg = () => {
+    navigate("/salg");
   };
 
   // state to store snapshot from FireStore
@@ -44,7 +44,7 @@ export default function MessagesBuy() {
   // if not return false
   // we can use this for displaying empty states if user has no msg
   const isFound = displayComments.some(element => {
-    if (element.sentBy === auth.currentUser.uid) {
+    if (element.sentTo === auth.currentUser.uid) {
       return true;
     }
 
@@ -58,8 +58,8 @@ export default function MessagesBuy() {
   return (
     <section>
       <div>
-        {displayComments.map(({sentBy, sentToImageUrl, comment, commentId, sentByName, sentToName, bookImageUrl, bookTitle, createdAt, bookPrice, bookId}) =>
-          sentBy === auth.currentUser.uid &&
+        {displayComments.map(({sentBy, sentTo, comment, commentId, sentByName, sentByImageUrl, bookImageUrl, bookTitle, createdAt, bookPrice, bookId}) =>
+          sentTo === auth.currentUser.uid &&
           <>
             <div className="chatComment flex space-between" key={commentId}>
 
@@ -68,8 +68,8 @@ export default function MessagesBuy() {
                 <div className="flex flexCol gap15">
                   <div className="flex space-between align-center">
                     <div className="flex align-center gap05">
-                      <img src={sentToImageUrl} alt={sentToName}/>
-                      <p className="font-profilenameSmall">Sendt til {sentToName}</p>
+                      <img src={sentByImageUrl} alt={sentByName}/>
+                      <p className="font-profilenameSmall">{sentByName}</p>
                     </div>
                     <p className="font-bodytextBig">{createdAt?.toDate().toLocaleDateString('da-DK')}</p>
                   </div>
@@ -102,21 +102,21 @@ export default function MessagesBuy() {
         
         {/* EMPTY STATE IF USER HAS NO MSG */}
         {isFound === false && 
-            <div className="chat-error-message">
-                <img src={emptystateChat} alt="Man and message illustration"></img>
-                <p className="font-header textAlignCenter">Du har ingen nye beskeder</p>
+          <div className="chat-error-message">
+            <img src={emptystateChat} alt="Man and message illustration"></img>
+            <p className="font-header textAlignCenter">Du har ingen nye beskeder</p>
+            <p className="font-bodytext textAlignCenter">
+              Begynd at sælg dine gamle bøger og få råd til flere øl i fredagsbaren
+              &#128525;
+            </p>
 
-                <p className="font-bodytext textAlignCenter">
-                Find dine nye studiebøger brugt og spar på pengene og miljøet ♻️ 💸
-                </p>
-                {/* Call to action btn */}
-                <button
-                className=" btn-large font-btn fc-white bg-green"
-                onClick={navigateToSearch}
-                >
-                Find bøger
-                </button>
-            </div>
+            <button
+              className=" btn-large font-btn fc-white bg-green"
+              onClick={navigateToSalg}
+            >
+              Sæt dine bøger til salg
+            </button>
+          </div>
         }
 
       </div>

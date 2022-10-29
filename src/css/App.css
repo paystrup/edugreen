@@ -381,6 +381,7 @@ footer {
 }
 
 .chatCommentBox{
+  width: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
@@ -395,6 +396,8 @@ footer {
   background-color: var(--lightgrey);
   animation: pulse 1.5s 1 ease-in-out;
   border-radius: 12px;
+  width: 100px;
+  height: 100px;
 }
 
 /*-----------ProfilePage------------*/
