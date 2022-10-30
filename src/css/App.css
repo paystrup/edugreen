@@ -33,6 +33,7 @@ button {
   opacity: 1;
   transition: 0.3s;
 }
+
 button:hover {
   opacity: 0.8;
   transition-timing-function: ease-in-out;
@@ -407,8 +408,6 @@ footer {
   opacity: 0.5;
   transition: 0.5s;
 }
-
-
 
 /*-----------ProfilePage------------*/
 .blockProfile {

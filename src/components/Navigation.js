@@ -51,7 +51,7 @@ export default function Navigation() {
     <nav id="navbar">
       {/* MOBILE NAV */}
       <div className="navMobile paddingWide">
-        {/* Change logo to back button on specific subpages*/}
+        {/* Change logo to back button on specific subpages - better UX*/}
         {location.pathname === "/practical" ||
         location.pathname === "/editprofile" ||
         location.pathname === "/search" ||
@@ -60,7 +60,7 @@ export default function Navigation() {
         location.pathname === "/blog/spar-penge-og-skan-miljoet" ||
         location.pathname === "/blog/sikker-salg-og-betaling" ? (
           <div className=" goBack">
-            {/* NAVIGATES BACK -1 IN THE URL HISTORY, LAST PAGE U VISITED */}
+            {/* NAVIGATES BACK -1 IN THE URL HISTORY, LAST PAGE / URL VISITED */}
             <div onClick={() => navigate(-1)} className="flex gap05 iconsize goBackp">
               <ArrowNarrowLeftIcon />
               <p className="font-bodytext">GÅ TILBAGE</p>

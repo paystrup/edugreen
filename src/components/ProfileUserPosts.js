@@ -10,11 +10,12 @@ export default function Articleteaser() {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
 
+  // fetch from FireBase, dependency array empty -> fetch on rerender
   useEffect(() => {
     // collection from firebase
     // db is our database, articles is the name of the collection
     const articleRef = collection(db, "articles");
-    // sort by createdAt, our timestamp added to every article, date
+    // sort by FireStore query createdAt, our timestamp added to every article, date
     const q = query(articleRef, orderBy("createdAt", "desc"));
 
     // get the data, on snapshot
@@ -24,9 +25,9 @@ export default function Articleteaser() {
         ...doc.data(),
       }));
 
-      // change state -> importing the array from the db
+      // change state -> array with all books from our DB
       setArticles(articles);
-      console.log(articles);
+      console.log(articles); // check if fetched
     });
   }, []);
 
@@ -37,7 +38,7 @@ export default function Articleteaser() {
   // the some() method to check if an object exists in an array
   // if user is found in array / has made a bookpost return true
   // if not return false
-  // we can use this for displaying empty states if user has no books
+  // we can use this for displaying empty states if user has no books -> better UX ✨
   const isFound = displayUserPosts.some(element => {
     if (element === auth.currentUser.uid) {
       return true;
@@ -85,6 +86,8 @@ export default function Articleteaser() {
           ) : null
         )}
       </div>
+
+      {/* EMPTY STATE - IF NO ELEMENTS ARE FOUND IN USER POSTS LENGTH, SHOW */}
       {isFound === false && <p className="font-bodytextBig">Du har ikke nogle aktive bogannoncer.</p>}  
     </section>
   );

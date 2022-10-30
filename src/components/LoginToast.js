@@ -10,6 +10,7 @@ export default function LoginToast() {
     const [user] = useAuthState(auth);
 
     // random emoji on rerender for login -> making it more personal
+    // math random function choosing a random emoji inside the length of the array
     const getRandomLoginEmoji = () => {
         const emojis = ["♻", "🌱", "💚", "☀️", "🤑🌱", "🐸🌱", "🤓🌱", "🍀", "🤩💚", "📚"]
         return emojis[~~(Math.random() * emojis.length)]

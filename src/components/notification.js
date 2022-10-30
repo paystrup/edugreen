@@ -3,11 +3,16 @@ import emptystateBell from "../assets/svg/emptystateBell.svg";
 import emptystateBook from "../assets/svg/emptystateBook.svg";
 
 export default function Chat() {
+  // page not finished, functionality with notifications
+  // can be implemented later, empty states right now for better UX
+
+  // state to setstate and change between components rendered
+  // filter through notifications on btn click
   const [page, setPage] = useState("all");
 
   return (
     <div>
-      {/* all notifications and bookagent btns */}
+      {/* all notifications and bookagent btns -> onclick changes state to show the desired component / notifications */}
       <div className="chat-buttons">
         <button
           className={page === "all" ? "chatButtonsSelected font-btn" : "chat-buttonschange font-btn"}
@@ -23,6 +28,7 @@ export default function Chat() {
         </button>
       </div>
 
+      {/* IF PAGE STATE = ALL SHOW ALL NOTIFICATIONS - IF = BOOKAGENT SHOW BOOKAGENT NOTIFICATIONS  */}
       <div className="pageContent">
         {page === "all" && <Allnotification />}
         {page === "bookagent" && <Bookagentnotification />}
@@ -30,7 +36,8 @@ export default function Chat() {
     </div>
   );
 }
-// Bookagent notification btn
+
+// Bookagent notification
 function Bookagentnotification() {
   return (
     <div className="chat-error-message">
@@ -45,7 +52,7 @@ function Bookagentnotification() {
   );
 }
 
-// All notifications btn
+// All notifications
 function Allnotification() {
   return (
     <div className="chat-error-message error-image">
