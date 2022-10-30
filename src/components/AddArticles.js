@@ -1,3 +1,4 @@
+// Inspiration from https://youtu.be/_7gdsAfFV9o 
 import React, { useState } from "react";
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";

@@ -5,8 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 export default function PracticalInfo() {
 
-
-
   return (
     <section className="paddingWide PaddingPage">
       <h2 className="font-header">Praktisk Information</h2>

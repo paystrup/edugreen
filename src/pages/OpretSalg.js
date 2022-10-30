@@ -1,4 +1,4 @@
-// TODO ADD REDIRECT IF USER NOT SIGNED IN
+// Inspiration from https://youtu.be/_7gdsAfFV9o 
 
 import React from 'react'
 import AddArticle from '../components/AddArticles'

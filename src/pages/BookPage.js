@@ -1,3 +1,5 @@
+// Inspiration from https://youtu.be/_7gdsAfFV9o 
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { doc, onSnapshot } from "firebase/firestore";
