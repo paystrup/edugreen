@@ -127,6 +127,16 @@ nav {
   gap: 4rem;
 }
 
+.navDesktop li:hover {
+  opacity: 0.4;
+  transition: 0.5s;
+}
+
+.navDesktop li{
+  transition: 0.2s;
+
+}
+
 nav ul {
   list-style-type: none;
 }
