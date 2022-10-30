@@ -4,10 +4,10 @@
 /* font-family: 'Inter', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-/* Design System - variables etc. */
+/* Design System - variables etc. 🎨*/
 @import "designsystem.css";
 
-/* ------------ CSS RESET -------------*/
+/* ------------ ✅ CSS RESET ✅-------------*/
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +18,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* ----------- 🌍 GLOBAL SETTINGS 🌍 --------------*/
 body {
   background-color: var(--white);
 }
@@ -49,7 +50,7 @@ select:active {
   color: black;
 }
 
-/* ---------- Padding wide ------------*/
+/* ---------- PADDING - FOR PAGES ------------*/
 .paddingTopAllPages {
   padding-top: 10%;
 }
@@ -86,7 +87,7 @@ select:active {
   padding: 0.5rem 0;
 }
 
-/* ------------ NAV MOBILE ----------- */
+/* ------------ NAV MOBILE + DESKTOP ----------- */
 .navMobile {
   display: none;
   justify-content: space-between;
@@ -166,11 +167,13 @@ nav a {
   text-transform: uppercase;
 }
 
+/* ----------- FOOTER - DESKTOP ONLY --------------*/
+
 footer {
   display: none;
 }
 
-/* --------------- bottom bar --------------- */
+/* --------------- BOTTOM NAV BAR --------------- */
 .wrapper-bottombar {
   display: none;
   align-items: center;
@@ -284,13 +287,16 @@ footer {
   margin: 0 10px;
   font-size: 13px;
 }
+
 .swiper-slide {
   background-color: rgb(0, 0, 0);
 }
 
+/* ----------- FONT STYLING - ALSO SEEN IN DESIGNSYSTEM --------------*/
 .font-describe-title {
   font-size: 11px;
 }
+
 .font-describe-title-book {
   font-size: 11px;
 }
@@ -300,7 +306,7 @@ footer {
   max-width: 30ch;
 }
 
-/* ------- LANDING BIG CAROUSEL TOP ---------- */
+/* ----------- LANDING BIG CAROUSEL TOP ---------- */
 .carouselHeader {
   padding-left: 5%;
   padding-right: 5%;
@@ -325,7 +331,7 @@ footer {
   padding-top: 10%;
 }
 
-/* ------- CHAT ---------- */
+/* -------------- CHAT ---------- */
 .chat-buttons {
   display: flex;
   justify-content: space-between;
@@ -418,7 +424,7 @@ footer {
   transition: 0.5s;
 }
 
-/*-----------ProfilePage------------*/
+/*----------- ProfilePage ------------*/
 .blockProfile {
   display: block;
 }
@@ -448,6 +454,7 @@ footer {
   height: 20px;
   margin-right: 5px;
 }
+
 .ProfileInfo h2,
 .iconsGroup {
   padding-bottom: 3px;
@@ -472,20 +479,12 @@ footer {
 
 .co2ProfileText {
   justify-content: space-between;
-  /* padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 18px; */
 }
-
-/* .Profile-illustration img {
-  height: 35px;
-  padding-left: 8px;
-  padding-right: 8px;
-} */
 
 .savingsProfile {
   padding-top: 10%;
 }
+
 .imgName-wrapper {
   gap: 1em;
 }
@@ -582,7 +581,7 @@ option .iconsize {
   height: 30px;
 }
 
-/*------------ PRAKTISK INFO - PracticalInfo.js----------*/
+/* ------------ PRAKTISK INFO - PracticalInfo.js ---------- */
 .goBack a {
   color: black;
   text-decoration: none;
@@ -613,7 +612,6 @@ option .iconsize {
 }
 
 /* ----------- OPRET BOG - OPRETSALG.JS --------------*/
-
 .imageUpload > input {
   display: none;
 }
@@ -654,12 +652,6 @@ select {
   font-weight: 400;
   font-size: 15px;
 }
-/* select::placeholder {
-  font-family: var(--inter);
-  color: var(--green);
-  font-weight: 400;
-  font-size: 15px;
-} */
 
 .bogSalgInputContainer {
   display: flex;
@@ -718,17 +710,19 @@ input[type="file"] {
   padding-bottom: 1rem;
 }
 
-/* ------------ BOOK TEASERS -------------- */
+/* ------------ BOOK TEASERS BOOK GRID -------------- */
 .article-wapper {
   display: grid;
   grid-gap: 20px;
   padding-top: 30px;
 }
+
 .article-wapper-small {
   display: grid;
   grid-gap: 20px;
   padding-top: 30px;
 }
+
 .card-teaser-wrapper {
   position: relative;
   flex-direction: column;
@@ -741,6 +735,7 @@ input[type="file"] {
   animation: pulse 1.5s 1 ease-in-out;
   border-radius: 12px;
 }
+
 .card-teaser-wrapper-small {
   position: relative;
   flex-direction: column;
@@ -867,6 +862,7 @@ input[type="file"] {
   flex-direction: column;
   gap: 1em;
 }
+
 .email-btn-wrapper {
   flex-direction: column;
   gap: 0.5em;
@@ -927,13 +923,16 @@ input[type="file"] {
   border-radius: 50%;
   margin-right: 0.4rem;
 }
+
 .shift-flex-direction {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .education-book {
   text-align: end;
 }
+
 .wrapperbigscreen {
   flex-direction: column;
 }
@@ -962,6 +961,7 @@ input[type="file"] {
 .Align-Number-book {
   align-self: center;
 }
+
 .wrapper-price-profile-description-delevery {
   flex-direction: column;
   gap: 1em;
@@ -998,11 +998,13 @@ input[type="file"] {
 button.iconsizeHeart {
   display: flex;
 }
+
 .image-wrapper-book {
   width: 100%;
   min-height: 45vh;
   border-radius: 12px;
 }
+
 .iconandnumber {
   gap: 6px;
 }
@@ -1028,7 +1030,7 @@ button.iconsizeHeart {
   padding-bottom: 2rem;
 }
 
-/*----Favoritter-----*/
+/*------------ Favoritter ------------*/
 .favourites {
   min-height: 90vh;
 }
@@ -1125,6 +1127,7 @@ button.iconsizeHeart {
   stroke: var(--white);
 }
 
+/* --------------- ✨ 📱 💻 ✨ -------------- */
 /* ------------ RESPONSIVE BREAKPOINTS -------------- */
 @media only screen and (min-width: 1281px) {
   .navLogo img:hover {
@@ -1172,7 +1175,6 @@ button.iconsizeHeart {
   .loginToastLanding {
     padding-top: 5%;
   }
-  /*---Carrousel---*/
 
   .font-belyBig {
     font-size: 50px;
@@ -1221,6 +1223,7 @@ button.iconsizeHeart {
   .co2Profile {
     width: 50%;
   }
+
   /*----Footer-----*/
   footer {
     font-family: var(--inter);
@@ -1325,6 +1328,7 @@ button.iconsizeHeart {
     width: 20vw;
     height: auto;
   }
+
   .image-teaser-wrapper-small {
     width: 20vw;
     height: 20vw;
@@ -1334,6 +1338,7 @@ button.iconsizeHeart {
     grid-template-columns: repeat(4, 0fr);
     justify-content: space-between;
   }
+
   .article-wapper-small {
     grid-template-columns: repeat(4, 0fr);
     grid-auto-rows: auto;
@@ -1403,15 +1408,18 @@ button.iconsizeHeart {
     width: 25vw;
     height: 25vw;
   }
+
   .card-teaser-wrapper-small {
     width: 25vw;
     height: auto;
   }
+
   .image-teaser-wrapper-small {
     width: 25vw;
     height: 25vw;
   }
 
+  /* BOOK GRID */
   .article-wapper {
     grid-template-columns: repeat(3, 0fr);
     justify-content: space-between;
@@ -1423,10 +1431,12 @@ button.iconsizeHeart {
     grid-gap: 3em;
   }
 
+  /* CAROUSEL SWIPER */
   .swiper-slide {
     min-height: 40vh;
   }
 
+  /* SPLASH */
   .splashIndhold {
     padding-bottom: 10%;
   }
@@ -1444,6 +1454,7 @@ button.iconsizeHeart {
   .wrapper-bottombar {
     display: flex;
   }
+
   .card-teaser-wrapper {
     width: 40vw;
     height: auto;
@@ -1453,10 +1464,12 @@ button.iconsizeHeart {
     width: 40vw;
     height: 40vw;
   }
+
   .card-teaser-wrapper-small {
     width: 40vw;
     height: auto;
   }
+
   .image-teaser-wrapper-small {
     width: 40vw;
     height: 40vw;
@@ -1478,7 +1491,6 @@ button.iconsizeHeart {
   }
 
   /* SPLASH PAGE */
-
   .splashIndhold h2 {
     font-size: 2.8rem;
     max-width: 15ch;
@@ -1507,26 +1519,32 @@ button.iconsizeHeart {
   .wrapper-bottombar {
     display: flex;
   }
+
   .card-teaser-wrapper {
     width: 90vw;
     height: auto;
   }
+
   .image-teaser-wrapper {
     width: 90vw;
     height: 90vw;
   }
+
   .card-teaser-wrapper-small {
     width: 90vw;
     height: auto;
   }
+
   .image-teaser-wrapper-small {
     width: 90vw;
     height: 90vw;
   }
+
   .article-wapper {
     grid-template-columns: repeat(auto-fill, minmax(90vw, 0fr));
     justify-content: center;
   }
+
   .article-wapper-small {
     grid-template-columns: repeat(auto-fill, minmax(90vw, 0fr));
     justify-content: center;
@@ -1536,7 +1554,8 @@ button.iconsizeHeart {
   .swiper-slide {
     min-height: 30vh;
   }
-
+  
+  /* SPLASH */
   .splashIndhold h2 {
     font-size: 2rem;
     max-width: 15ch;
