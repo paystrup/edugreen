@@ -758,7 +758,7 @@ input[type="file"] {
 
 .book-cut-title {
   overflow: hidden;
-  max-width: 150px;
+  max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
